@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="分支结构的练习1.英制单位英寸与公制单位厘米互换。‘’’value=float(input(‘请输入长度:’))unit=input(‘请输入单位’)if unit==’in’ or unit==’英寸’:    print(‘%f英寸=%f厘米’ %(value,value*2.54))elif unit==’cm’ or unit==’厘米’:    print(‘%f厘米=%f英寸’ %(v">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-31T12:39:56.115Z">
+<meta property="og:updated_time" content="2019-11-02T00:33:21.331Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -85,12 +85,14 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="分支结构的练习"><a href="#分支结构的练习" class="headerlink" title="分支结构的练习"></a>分支结构的练习</h2><h1 id="1-英制单位英寸与公制单位厘米互换。"><a href="#1-英制单位英寸与公制单位厘米互换。" class="headerlink" title="1.英制单位英寸与公制单位厘米互换。"></a>1.英制单位英寸与公制单位厘米互换。</h1><p>‘’’<br>value=float(input(‘请输入长度:’))<br>unit=input(‘请输入单位’)<br>if unit==’in’ or unit==’英寸’:<br>    print(‘%f英寸=%f厘米’ %(value,value*2.54))<br>elif unit==’cm’ or unit==’厘米’:<br>    print(‘%f厘米=%f英寸’ %(value,value/2.54))<br>else:<br>    print(‘请输入有效单位’)<br>‘’’</p>
-<h1 id="2-输入三条边长，如果能构成三角形就计算周长和面积。"><a href="#2-输入三条边长，如果能构成三角形就计算周长和面积。" class="headerlink" title="2.输入三条边长，如果能构成三角形就计算周长和面积。"></a>2.输入三条边长，如果能构成三角形就计算周长和面积。</h1><p>‘’’<br>a = float(input(‘a = ‘))<br>b = float(input(‘b = ‘))<br>c = float(input(‘c = ‘))<br>if a + b &gt; c and a + c &gt; b and b + c &gt; a:<br>    print(‘周长: %f’ % (a + b + c))<br>    p = (a + b + c) / 2<br>    area = (p * (p - a) * (p - b) * (p - c)) ** 0.5<br>    print(‘面积: %f’ % (area))<br>else:<br>    print(‘不能构成三角形’)<br>‘’’</p>
+<h1 id="2-输入三条边长，如果能构成三角形就计算周长和面积。"><a href="#2-输入三条边长，如果能构成三角形就计算周长和面积。" class="headerlink" title="2.输入三条边长，如果能构成三角形就计算周长和面积。"></a>2.输入三条边长，如果能构成三角形就计算周长和面积。</h1><p>‘’’</p>
+<p>a = float(input(‘a = ‘))<br>b = float(input(‘b = ‘))<br>c = float(input(‘c = ‘))<br>if a + b &gt; c and a + c &gt; b and b + c &gt; a:<br>    print(‘周长: %f’ % (a + b + c))<br>    p = (a + b + c) / 2<br>    area = (p * (p - a) * (p - b) * (p - c)) ** 0.5<br>    print(‘面积: %f’ % (area))<br>else:<br>    print(‘不能构成三角形’)</p>
+<p>‘’’</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/10/31/Study3/" data-id="ck2ep5icx0002hku31d0k3myn" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/10/31/Study3/" data-id="ck2gws1df0000wgu3fymfa3n2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -98,6 +100,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2019/11/02/Study4/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Study4
+        
+      </div>
+    </a>
   
   
     <a href="/2019/10/30/Study2/" id="article-nav-older" class="article-nav-link-wrap">
@@ -126,7 +137,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li></ul>
     </div>
   </div>
 
@@ -137,6 +148,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/11/02/Study4/">Study4</a>
+          </li>
         
           <li>
             <a href="/2019/10/31/Study3/">Study3</a>

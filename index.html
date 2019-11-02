@@ -61,6 +61,53 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Study4" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/11/02/Study4/" class="article-date">
+  <time datetime="2019-11-02T00:39:20.000Z" itemprop="datePublished">2019-11-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/02/Study4/">Study4</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="循环结构"><a href="#循环结构" class="headerlink" title="循环结构"></a>循环结构</h2><p>在Python中构造循环结构有两种做法，一种是for-in循环，一种是while循环。</p>
+<h1 id="for-in循环，一种是while循环。"><a href="#for-in循环，一种是while循环。" class="headerlink" title="for-in循环，一种是while循环。"></a>for-in循环，一种是while循环。</h1><p>如果明确的知道循环执行的次数或者要对一个容器进行迭代（后面会讲到），<br>那么我们推荐使用for-in循环。例如下面代码计算1—100求和的结果<br>‘’’<br>sum=0<br>for x in range(101):<br>    sum+=x<br>print(sum)<br>‘’’<br>注：需要说明的是上面代码中的range(101)可以用来构造一个从0到100的取值范围，<br>这样就可以构造出一个整数的序列并用于循环中，例如：</p>
+<p>range(101)可以产生一个0到100的整数序列。<br>range(1, 100)可以产生一个1到99的整数序列。<br>range(1, 100, 2)可以产生一个1到99的奇数序列，其中2是步长，即数值序列的增量。</p>
+<p>了解了这个知识以后，我们可以用下面的代码计算1-100之间的偶数求和<br>‘’’<br>sum=0<br>for x in range(2,101,2):<br>    sum+=x<br>print(sum)<br>‘’’<br>也可以通过在循环使用分支结构来实现相同的功能，代码如下：<br>‘’’<br>sum=0<br>for x in range(1,101):<br>    if x%2==0:<br>        sum+=x%2<br>print(sum)<br>‘’’</p>
+<h1 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h1><p>如果要构造不知道具体循环次数的循环结构，我们推荐使用while循环。<br>while循环通过一个能够产生或转换出bool值的表达式来控制循环，<br>表达式的值为True循环继续，表达式的值为False循环结束。<br>下面我们通过一个“猜数字”的小游戏（计算机出一个1~100之间的随机数，<br>人输入自己猜的数字，计算机给出对应的提示信息，直到人猜出计算机出的数字）<br>来看看如何使用while循环。<br>‘’’<br>import random</p>
+<p>answer=random.randint(1,100)<br>count=0<br>while True:<br>    counter+=1<br>    number=int(input(‘请输入’))<br>    if number&lt;answer:<br>        print(‘大一点’)<br>    elif number &gt; answer:<br>        print(‘小一点’)<br>    else:<br>        print(‘恭喜你猜对了!’)<br>        break<br>print(‘你总共猜了%d次’ % counter)<br>if counter &gt; 7:<br>    print(‘你的智商余额明显不足’)<br>‘’’<br>注：<br>random.random()函数是这个模块中最常用的方法了，它会生成一个随机的浮点数，<br>范围是在0.0~1.0之间。</p>
+<p>random.uniform()正好弥补了上面函数的不足，它可以设定浮点数的范围，一个是上限，一个是下限。</p>
+<p>random.randint()随机生一个整数int类型，可以指定这个整数的范围，同样有上限和下限值，python random.randint。</p>
+<p>random.choice()可以从任何序列，比如list列表中，选取一个随机的元素返回，可以用于字符串、列表、元组等。</p>
+<p>random.shuffle()如果你想将一个序列中的元素，随机打乱的话可以用这个函数方法。</p>
+<p>random.sample()可以从指定的序列中，随机的截取指定长度的片断，不作原地修改。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zzf-pyf.github.io/2019/11/02/Study4/" data-id="ck2gws1ds0003wgu34dag95wc" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Study3" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/10/31/Study3/" class="article-date">
@@ -84,12 +131,14 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="分支结构的练习"><a href="#分支结构的练习" class="headerlink" title="分支结构的练习"></a>分支结构的练习</h2><h1 id="1-英制单位英寸与公制单位厘米互换。"><a href="#1-英制单位英寸与公制单位厘米互换。" class="headerlink" title="1.英制单位英寸与公制单位厘米互换。"></a>1.英制单位英寸与公制单位厘米互换。</h1><p>‘’’<br>value=float(input(‘请输入长度:’))<br>unit=input(‘请输入单位’)<br>if unit==’in’ or unit==’英寸’:<br>    print(‘%f英寸=%f厘米’ %(value,value*2.54))<br>elif unit==’cm’ or unit==’厘米’:<br>    print(‘%f厘米=%f英寸’ %(value,value/2.54))<br>else:<br>    print(‘请输入有效单位’)<br>‘’’</p>
-<h1 id="2-输入三条边长，如果能构成三角形就计算周长和面积。"><a href="#2-输入三条边长，如果能构成三角形就计算周长和面积。" class="headerlink" title="2.输入三条边长，如果能构成三角形就计算周长和面积。"></a>2.输入三条边长，如果能构成三角形就计算周长和面积。</h1><p>‘’’<br>a = float(input(‘a = ‘))<br>b = float(input(‘b = ‘))<br>c = float(input(‘c = ‘))<br>if a + b &gt; c and a + c &gt; b and b + c &gt; a:<br>    print(‘周长: %f’ % (a + b + c))<br>    p = (a + b + c) / 2<br>    area = (p * (p - a) * (p - b) * (p - c)) ** 0.5<br>    print(‘面积: %f’ % (area))<br>else:<br>    print(‘不能构成三角形’)<br>‘’’</p>
+<h1 id="2-输入三条边长，如果能构成三角形就计算周长和面积。"><a href="#2-输入三条边长，如果能构成三角形就计算周长和面积。" class="headerlink" title="2.输入三条边长，如果能构成三角形就计算周长和面积。"></a>2.输入三条边长，如果能构成三角形就计算周长和面积。</h1><p>‘’’</p>
+<p>a = float(input(‘a = ‘))<br>b = float(input(‘b = ‘))<br>c = float(input(‘c = ‘))<br>if a + b &gt; c and a + c &gt; b and b + c &gt; a:<br>    print(‘周长: %f’ % (a + b + c))<br>    p = (a + b + c) / 2<br>    area = (p * (p - a) * (p - b) * (p - c)) ** 0.5<br>    print(‘面积: %f’ % (area))<br>else:<br>    print(‘不能构成三角形’)</p>
+<p>‘’’</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/10/31/Study3/" data-id="ck2ep5icx0002hku31d0k3myn" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/10/31/Study3/" data-id="ck2gws1df0000wgu3fymfa3n2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -135,7 +184,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/10/30/Study2/" data-id="ck2ep5icw0001hku39xlldb0n" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/10/30/Study2/" data-id="ck2gws1dr0002wgu325512pdc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -188,7 +237,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/10/29/Study/" data-id="ck2ep5ick0000hku306ux6q5t" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/10/29/Study/" data-id="ck2gws1dp0001wgu37e4d11ci" class="article-share-link">Share</a>
       
       
     </footer>
@@ -237,7 +286,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/10/27/hello-world/" data-id="ck2ep5idf0003hku359tc0suj" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/10/27/hello-world/" data-id="ck2gws1e00004wgu34fot83ft" class="article-share-link">Share</a>
       
       
     </footer>
@@ -265,7 +314,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li></ul>
     </div>
   </div>
 
@@ -276,6 +325,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/11/02/Study4/">Study4</a>
+          </li>
         
           <li>
             <a href="/2019/10/31/Study3/">Study3</a>

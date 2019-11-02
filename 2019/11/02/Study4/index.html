@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Study4 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="循环结构在Python中构造循环结构有两种做法，一种是for-in循环，一种是while循环。 for-in循环，一种是while循环。如果明确的知道循环执行的次数或者要对一个容器进行迭代（后面会讲到），那么我们推荐使用for-in循环。例如下面代码计算1—100求和的结果‘’’sum=0for x in range(101):    sum+=xprint(sum)‘’’注：需要说明的是上面代码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Study4">
+<meta property="og:url" content="https:&#x2F;&#x2F;zzf-pyf.github.io&#x2F;2019&#x2F;11&#x2F;02&#x2F;Study4&#x2F;index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="循环结构在Python中构造循环结构有两种做法，一种是for-in循环，一种是while循环。 for-in循环，一种是while循环。如果明确的知道循环执行的次数或者要对一个容器进行迭代（后面会讲到），那么我们推荐使用for-in循环。例如下面代码计算1—100求和的结果‘’’sum=0for x in range(101):    sum+=xprint(sum)‘’’注：需要说明的是上面代码">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-11-02T01:48:56.518Z">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://zzf-pyf.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Study4" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/11/02/Study4/" class="article-date">
+  <time datetime="2019-11-02T00:39:20.000Z" itemprop="datePublished">2019-11-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Study4
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="循环结构"><a href="#循环结构" class="headerlink" title="循环结构"></a>循环结构</h2><p>在Python中构造循环结构有两种做法，一种是for-in循环，一种是while循环。</p>
+<h1 id="for-in循环，一种是while循环。"><a href="#for-in循环，一种是while循环。" class="headerlink" title="for-in循环，一种是while循环。"></a>for-in循环，一种是while循环。</h1><p>如果明确的知道循环执行的次数或者要对一个容器进行迭代（后面会讲到），<br>那么我们推荐使用for-in循环。例如下面代码计算1—100求和的结果<br>‘’’<br>sum=0<br>for x in range(101):<br>    sum+=x<br>print(sum)<br>‘’’<br>注：需要说明的是上面代码中的range(101)可以用来构造一个从0到100的取值范围，<br>这样就可以构造出一个整数的序列并用于循环中，例如：</p>
+<p>range(101)可以产生一个0到100的整数序列。<br>range(1, 100)可以产生一个1到99的整数序列。<br>range(1, 100, 2)可以产生一个1到99的奇数序列，其中2是步长，即数值序列的增量。</p>
+<p>了解了这个知识以后，我们可以用下面的代码计算1-100之间的偶数求和<br>‘’’<br>sum=0<br>for x in range(2,101,2):<br>    sum+=x<br>print(sum)<br>‘’’<br>也可以通过在循环使用分支结构来实现相同的功能，代码如下：<br>‘’’<br>sum=0<br>for x in range(1,101):<br>    if x%2==0:<br>        sum+=x%2<br>print(sum)<br>‘’’</p>
+<h1 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h1><p>如果要构造不知道具体循环次数的循环结构，我们推荐使用while循环。<br>while循环通过一个能够产生或转换出bool值的表达式来控制循环，<br>表达式的值为True循环继续，表达式的值为False循环结束。<br>下面我们通过一个“猜数字”的小游戏（计算机出一个1~100之间的随机数，<br>人输入自己猜的数字，计算机给出对应的提示信息，直到人猜出计算机出的数字）<br>来看看如何使用while循环。<br>‘’’<br>import random</p>
+<p>answer=random.randint(1,100)<br>count=0<br>while True:<br>    counter+=1<br>    number=int(input(‘请输入’))<br>    if number&lt;answer:<br>        print(‘大一点’)<br>    elif number &gt; answer:<br>        print(‘小一点’)<br>    else:<br>        print(‘恭喜你猜对了!’)<br>        break<br>print(‘你总共猜了%d次’ % counter)<br>if counter &gt; 7:<br>    print(‘你的智商余额明显不足’)<br>‘’’<br>注：<br>random.random()函数是这个模块中最常用的方法了，它会生成一个随机的浮点数，<br>范围是在0.0~1.0之间。</p>
+<p>random.uniform()正好弥补了上面函数的不足，它可以设定浮点数的范围，一个是上限，一个是下限。</p>
+<p>random.randint()随机生一个整数int类型，可以指定这个整数的范围，同样有上限和下限值，python random.randint。</p>
+<p>random.choice()可以从任何序列，比如list列表中，选取一个随机的元素返回，可以用于字符串、列表、元组等。</p>
+<p>random.shuffle()如果你想将一个序列中的元素，随机打乱的话可以用这个函数方法。</p>
+<p>random.sample()可以从指定的序列中，随机的截取指定长度的片断，不作原地修改。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zzf-pyf.github.io/2019/11/02/Study4/" data-id="ck2gws1ds0003wgu34dag95wc" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/10/31/Study3/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Study3</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/11/02/Study4/">Study4</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/31/Study3/">Study3</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/30/Study2/">Study2</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/29/Study/">Study</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/27/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 pyf<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
