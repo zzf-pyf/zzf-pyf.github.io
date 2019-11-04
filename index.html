@@ -61,6 +61,45 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Study5" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/11/04/Study5/" class="article-date">
+  <time datetime="2019-11-03T23:54:53.000Z" itemprop="datePublished">2019-11-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/04/Study5/">Study5</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="构造程序逻辑的经典的例子"><a href="#构造程序逻辑的经典的例子" class="headerlink" title="构造程序逻辑的经典的例子"></a>构造程序逻辑的经典的例子</h1><p>1.水仙花数<br>说明：水仙花数也被称为超完全数字不变数、自恋数、自幂数、阿姆斯特朗数，<br>它是一个3位数，该数字每个位上数字的立方之和正好等于它本身，<br>例如：$1^3 + 5^3+ 3^3=153$。<br>‘’’<br>for num in range(100,1000):<br>    low=num%10<br>    mid=num//10%10<br>    high=num//100<br>    if num==low<strong>3+mid</strong>3+high**3:<br>        print(num)<br>‘’’</p>
+<p>2.CRAPS赌博游戏<br>CRAPS又称花旗骰，是美国拉斯维加斯非常受欢迎的一种的桌上赌博游戏。<br>该游戏使用两粒骰子，玩家通过摇两粒骰子获得点数进行游戏。简单的规则是：<br>玩家第一次摇骰子如果摇出了7点或11点，玩家胜；玩家第一次如果摇出2点、3点或12点，<br>庄家胜；其他点数玩家继续摇骰子，如果玩家摇出了7点，庄家胜；<br>如果玩家摇出了第一次摇的点数，玩家胜；其他点数，玩家继续要骰子，直到分出胜负。<br>‘’’<br>Craps赌博游戏<br>我们设定玩家开始游戏时有1000元的赌注<br>游戏结束的条件是玩家输光所有的赌注</p>
+<p>from random import randint<br>money=1000<br>while money&gt;0:<br>    print(‘你的资产:’,money)<br>    needs_go_on=False<br>    while True:<br>        debt=int(input(‘请下注:’))<br>        if 0&lt;debt&lt;=money:<br>            break<br>    first=randint(1,6)+randint(1,6)<br>    print(‘玩家摇出的%d点数’ %first)<br>    if first==7 or first==11:<br>        print(‘玩家胜’)<br>        money+=debt<br>    elif first==2 or first==3 or first==12:<br>        print(‘庄家胜’)<br>        money-=debt<br>    else:<br>        needs_go_on=True<br>    while needs_go_on:<br>        needs_go_on=False<br>        current=randint(1,6)+randint(1,6)<br>        print(‘玩家摇出的%d点数’%current）<br>        if current==7:<br>            print(‘庄家胜’)<br>            money-=debt<br>        elif current==first:<br>            print(‘玩家胜’)<br>            money+=debt<br>        else:<br>            needs_go_on=True<br>print(‘你破产了游戏结束’)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zzf-pyf.github.io/2019/11/04/Study5/" data-id="ck2jq96z500019gu3g1scghrk" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Study4" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/11/02/Study4/" class="article-date">
@@ -98,7 +137,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/02/Study4/" data-id="ck2gws1ds0003wgu34dag95wc" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/02/Study4/" data-id="ck2jq96zk00059gu33c9l8oxb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -138,7 +177,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/10/31/Study3/" data-id="ck2gws1df0000wgu3fymfa3n2" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/10/31/Study3/" data-id="ck2jq96zj00049gu35eto169f" class="article-share-link">Share</a>
       
       
     </footer>
@@ -184,7 +223,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/10/30/Study2/" data-id="ck2gws1dr0002wgu325512pdc" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/10/30/Study2/" data-id="ck2jq96z700029gu330hw0t4o" class="article-share-link">Share</a>
       
       
     </footer>
@@ -237,7 +276,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/10/29/Study/" data-id="ck2gws1dp0001wgu37e4d11ci" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/10/29/Study/" data-id="ck2jq96yz00009gu3ger6aafz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -286,7 +325,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/10/27/hello-world/" data-id="ck2gws1e00004wgu34fot83ft" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/10/27/hello-world/" data-id="ck2jq96zi00039gu34hqv75e4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -327,6 +366,10 @@
       <ul>
         
           <li>
+            <a href="/2019/11/04/Study5/">Study5</a>
+          </li>
+        
+          <li>
             <a href="/2019/11/02/Study4/">Study4</a>
           </li>
         
@@ -340,10 +383,6 @@
         
           <li>
             <a href="/2019/10/29/Study/">Study</a>
-          </li>
-        
-          <li>
-            <a href="/2019/10/27/hello-world/">Hello World</a>
           </li>
         
       </ul>
