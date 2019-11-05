@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>reptile3 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="爬虫实战2利用有道词典来翻译文本‘’’import urllib.requestimport urllib.parseimport json       #美化程序得到用户需要的结果 content=input(‘请输入需要翻译的内容’) url=’http:&#x2F;&#x2F;fanyi.youdao.com&#x2F;translate?smartresult=dict&amp;amp;smartresult=rule&amp;#39">
+<meta property="og:type" content="article">
+<meta property="og:title" content="reptile3">
+<meta property="og:url" content="https:&#x2F;&#x2F;zzf-pyf.github.io&#x2F;2019&#x2F;11&#x2F;05&#x2F;reptile3&#x2F;index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="爬虫实战2利用有道词典来翻译文本‘’’import urllib.requestimport urllib.parseimport json       #美化程序得到用户需要的结果 content=input(‘请输入需要翻译的内容’) url=’http:&#x2F;&#x2F;fanyi.youdao.com&#x2F;translate?smartresult=dict&amp;amp;smartresult=rule&amp;#39">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-11-05T03:45:59.709Z">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://zzf-pyf.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-reptile3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/11/05/reptile3/" class="article-date">
+  <time datetime="2019-11-05T02:01:17.000Z" itemprop="datePublished">2019-11-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      reptile3
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="爬虫实战2"><a href="#爬虫实战2" class="headerlink" title="爬虫实战2"></a>爬虫实战2</h2><h1 id="利用有道词典来翻译文本"><a href="#利用有道词典来翻译文本" class="headerlink" title="利用有道词典来翻译文本"></a>利用有道词典来翻译文本</h1><p>‘’’<br>import urllib.request<br>import urllib.parse<br>import json       #美化程序得到用户需要的结果</p>
+<p>content=input(‘请输入需要翻译的内容’)</p>
+<p>url=’<a href="http://fanyi.youdao.com/translate?smartresult=dict&amp;smartresult=rule&#39;" target="_blank" rel="noopener">http://fanyi.youdao.com/translate?smartresult=dict&amp;smartresult=rule&#39;</a><br>data={}<br>data[‘i’]=content<br>data[‘from’]=’AUTO’<br>data[‘to’]=’AUTO’<br>data[‘smartresult’]=’dict’<br>data[‘client’]=’fanyideskweb’<br>data[‘salt’]=’15729229099067’<br>data[‘sign’]=’06ecc0ff66e31488dd986c3da62d2303’<br>data[‘ts’]=’1572922909906’<br>data[‘bv’]=’6590b9dba19442fb0fa8ca7917e0beca’<br>data[‘doctype’]=’json’<br>data[‘version’]=’2.1’<br>data[‘keyfrom’]=’fanyi.web’<br>data[‘action’]=’FY_BY_CLICKBUTTION’</p>
+<p>data=urllib.parse.urlencode(data).encode(‘utf-8’)<br>reponse=urllib.request.urlopen(url,data)<br>html=reponse.read().decode(‘utf-8’)</p>
+<p>target=json.loads(html)  #把html字符串载入 得到一个字典<br>print(“翻译结果:%s” %(target[‘translateResult’][0][0][‘tgt’]))</p>
+<p>‘’’<br>import json<br>import random<br>import time<br>import hashlib<br>from urllib import parse<br>from urllib import request</p>
+<p>#等待用户输入需要翻译的单词<br>i = input(‘请输入需要翻译的句子：’)<br>#有道翻译的url链接<br>url = ‘<a href="http://fanyi.youdao.com/translate_o?smartresult=dict&amp;smartresult=rule&#39;" target="_blank" rel="noopener">http://fanyi.youdao.com/translate_o?smartresult=dict&amp;smartresult=rule&#39;</a><br>#构造有道的加密参数<br>client = “fanyideskweb”<br>ts = int(time.time() * 1000)<br>salt = str(ts + random.randint(1, 10))<br>flowerStr = “p09@Bn{h02_BIEe]$P^nG”<br>sign = hashlib.md5((client + i + salt + flowerStr).encode(‘utf-8’)).hexdigest()<br>bv = ‘9deb57d53879cce82ff92bccf83a3e4c’<br>#创建Form_Data字典，存储请求体<br>Form_Data = {}<br>#需要翻译的文字<br>Form_Data[‘i’] = i<br>#下面这些都先按照我们之前抓包获取到的数据<br>Form_Data[‘from’] = ‘AUTO’<br>Form_Data[‘to’] = ‘AUTO’<br>Form_Data[‘smartresult’] = ‘dict’<br>Form_Data[‘client’] = client<br>Form_Data[‘salt’] = salt<br>Form_Data[‘sign’] = sign<br>Form_Data[‘ts’] = ts<br>Form_Data[‘bv’] = bv<br>Form_Data[‘doctype’] = ‘json’<br>Form_Data[‘version’] = ‘2.1’<br>Form_Data[‘keyfrom’] = ‘fanyi.web’<br>Form_Data[‘action’] = ‘FY_BY_REALTIME’<br>Form_Data[‘typoResult’] = ‘false’<br>#对数据进行字节流编码处理<br>data = parse.urlencode(Form_Data).encode(‘utf-8’)<br>#创建Request对象<br>req = request.Request(url=url, data=data, method=’POST’)<br>#写入header信息<br>req.add_header(‘User-Agent’, ‘Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36’)<br>req.add_header(‘cookie’, ‘OUTFOX_SEARCH_USER_ID=-1626129620@10.168.8.63’)<br>req.add_header(‘Referer’, ‘<a href="http://fanyi.youdao.com/&#39;" target="_blank" rel="noopener">http://fanyi.youdao.com/&#39;</a>)<br>#传入创建好的Request对象<br>response = request.urlopen(req, timeout=5)<br>#读取信息并进行字节流解码<br>html = response.read().decode(‘utf-8’)<br>#返回来的json字符串解析成字典<br>translate_results = json.loads(html)<br>#打印翻译结果<br>translate_result = translate_results[“translateResult”][0][0][‘tgt’]<br>print(“翻译的结果是：%s” % translate_result)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile3/" data-id="ck2lbavly0008t4u33xk82qxi" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/05/reptile2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">reptile2</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/11/05/reptile3/">reptile3</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/05/reptile2/">reptile2</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/05/reptile1/">reptile1</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/04/Study5/">Study5</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/02/Study4/">Study4</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 pyf<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

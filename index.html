@@ -61,6 +61,49 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-reptile3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/11/05/reptile3/" class="article-date">
+  <time datetime="2019-11-05T02:01:17.000Z" itemprop="datePublished">2019-11-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/05/reptile3/">reptile3</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="爬虫实战2"><a href="#爬虫实战2" class="headerlink" title="爬虫实战2"></a>爬虫实战2</h2><h1 id="利用有道词典来翻译文本"><a href="#利用有道词典来翻译文本" class="headerlink" title="利用有道词典来翻译文本"></a>利用有道词典来翻译文本</h1><p>‘’’<br>import urllib.request<br>import urllib.parse<br>import json       #美化程序得到用户需要的结果</p>
+<p>content=input(‘请输入需要翻译的内容’)</p>
+<p>url=’<a href="http://fanyi.youdao.com/translate?smartresult=dict&amp;smartresult=rule&#39;" target="_blank" rel="noopener">http://fanyi.youdao.com/translate?smartresult=dict&amp;smartresult=rule&#39;</a><br>data={}<br>data[‘i’]=content<br>data[‘from’]=’AUTO’<br>data[‘to’]=’AUTO’<br>data[‘smartresult’]=’dict’<br>data[‘client’]=’fanyideskweb’<br>data[‘salt’]=’15729229099067’<br>data[‘sign’]=’06ecc0ff66e31488dd986c3da62d2303’<br>data[‘ts’]=’1572922909906’<br>data[‘bv’]=’6590b9dba19442fb0fa8ca7917e0beca’<br>data[‘doctype’]=’json’<br>data[‘version’]=’2.1’<br>data[‘keyfrom’]=’fanyi.web’<br>data[‘action’]=’FY_BY_CLICKBUTTION’</p>
+<p>data=urllib.parse.urlencode(data).encode(‘utf-8’)<br>reponse=urllib.request.urlopen(url,data)<br>html=reponse.read().decode(‘utf-8’)</p>
+<p>target=json.loads(html)  #把html字符串载入 得到一个字典<br>print(“翻译结果:%s” %(target[‘translateResult’][0][0][‘tgt’]))</p>
+<p>‘’’<br>import json<br>import random<br>import time<br>import hashlib<br>from urllib import parse<br>from urllib import request</p>
+<p>#等待用户输入需要翻译的单词<br>i = input(‘请输入需要翻译的句子：’)<br>#有道翻译的url链接<br>url = ‘<a href="http://fanyi.youdao.com/translate_o?smartresult=dict&amp;smartresult=rule&#39;" target="_blank" rel="noopener">http://fanyi.youdao.com/translate_o?smartresult=dict&amp;smartresult=rule&#39;</a><br>#构造有道的加密参数<br>client = “fanyideskweb”<br>ts = int(time.time() * 1000)<br>salt = str(ts + random.randint(1, 10))<br>flowerStr = “p09@Bn{h02_BIEe]$P^nG”<br>sign = hashlib.md5((client + i + salt + flowerStr).encode(‘utf-8’)).hexdigest()<br>bv = ‘9deb57d53879cce82ff92bccf83a3e4c’<br>#创建Form_Data字典，存储请求体<br>Form_Data = {}<br>#需要翻译的文字<br>Form_Data[‘i’] = i<br>#下面这些都先按照我们之前抓包获取到的数据<br>Form_Data[‘from’] = ‘AUTO’<br>Form_Data[‘to’] = ‘AUTO’<br>Form_Data[‘smartresult’] = ‘dict’<br>Form_Data[‘client’] = client<br>Form_Data[‘salt’] = salt<br>Form_Data[‘sign’] = sign<br>Form_Data[‘ts’] = ts<br>Form_Data[‘bv’] = bv<br>Form_Data[‘doctype’] = ‘json’<br>Form_Data[‘version’] = ‘2.1’<br>Form_Data[‘keyfrom’] = ‘fanyi.web’<br>Form_Data[‘action’] = ‘FY_BY_REALTIME’<br>Form_Data[‘typoResult’] = ‘false’<br>#对数据进行字节流编码处理<br>data = parse.urlencode(Form_Data).encode(‘utf-8’)<br>#创建Request对象<br>req = request.Request(url=url, data=data, method=’POST’)<br>#写入header信息<br>req.add_header(‘User-Agent’, ‘Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36’)<br>req.add_header(‘cookie’, ‘OUTFOX_SEARCH_USER_ID=-1626129620@10.168.8.63’)<br>req.add_header(‘Referer’, ‘<a href="http://fanyi.youdao.com/&#39;" target="_blank" rel="noopener">http://fanyi.youdao.com/&#39;</a>)<br>#传入创建好的Request对象<br>response = request.urlopen(req, timeout=5)<br>#读取信息并进行字节流解码<br>html = response.read().decode(‘utf-8’)<br>#返回来的json字符串解析成字典<br>translate_results = json.loads(html)<br>#打印翻译结果<br>translate_result = translate_results[“translateResult”][0][0][‘tgt’]<br>print(“翻译的结果是：%s” % translate_result)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile3/" data-id="ck2lbavly0008t4u33xk82qxi" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-reptile2" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/11/05/reptile2/" class="article-date">
@@ -105,7 +148,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile2/" data-id="ck2l7cq3v00060wu33s5987eh" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile2/" data-id="ck2lbavlx0007t4u33m8b68vl" class="article-share-link">Share</a>
       
       
     </footer>
@@ -143,7 +186,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile1/" data-id="ck2l7cq3l00050wu3hh9a2tnk" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile1/" data-id="ck2lbavlw0006t4u3feg8e4bq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -182,7 +225,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/04/Study5/" data-id="ck2l7cq3k00040wu3b69ydc9d" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/04/Study5/" data-id="ck2lbavlr0002t4u3hlxa3khe" class="article-share-link">Share</a>
       
       
     </footer>
@@ -229,7 +272,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/02/Study4/" data-id="ck2l7cq3i00030wu3du943sek" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/02/Study4/" data-id="ck2lbavls0003t4u3dfby7ywv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -269,7 +312,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/10/31/Study3/" data-id="ck2l7cq3f00010wu32tmkayz9" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/10/31/Study3/" data-id="ck2lbavlu0004t4u3bopaap9s" class="article-share-link">Share</a>
       
       
     </footer>
@@ -315,7 +358,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/10/30/Study2/" data-id="ck2l7cq3h00020wu3hr7iayl1" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/10/30/Study2/" data-id="ck2lbavlp0001t4u34eiv5958" class="article-share-link">Share</a>
       
       
     </footer>
@@ -368,7 +411,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/10/29/Study/" data-id="ck2l7cq3a00000wu30yf5d5i1" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/10/29/Study/" data-id="ck2lbavlj0000t4u38e4608ee" class="article-share-link">Share</a>
       
       
     </footer>
@@ -417,7 +460,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/10/27/hello-world/" data-id="ck2l7cq3w00070wu323xybb5e" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/10/27/hello-world/" data-id="ck2lbavlv0005t4u39dm13l0b" class="article-share-link">Share</a>
       
       
     </footer>
@@ -458,6 +501,10 @@
       <ul>
         
           <li>
+            <a href="/2019/11/05/reptile3/">reptile3</a>
+          </li>
+        
+          <li>
             <a href="/2019/11/05/reptile2/">reptile2</a>
           </li>
         
@@ -471,10 +518,6 @@
         
           <li>
             <a href="/2019/11/02/Study4/">Study4</a>
-          </li>
-        
-          <li>
-            <a href="/2019/10/31/Study3/">Study3</a>
           </li>
         
       </ul>
