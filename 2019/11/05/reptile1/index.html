@@ -5,13 +5,16 @@
   
 
   
-  <title>归档: 2019/11 | Hexo</title>
+  <title>reptile1 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https:&#x2F;&#x2F;zzf-pyf.github.io&#x2F;archives&#x2F;2019&#x2F;11&#x2F;index.html">
+  <meta name="description" content="爬虫python如何访问互联网？urllib1.URL的一般格式为（带方括号[]的为可选项）protocol:&#x2F;&#x2F;hostname[:port]&#x2F;path&#x2F;[;parameters][?query][?query]#fragment2.URL由三部分组成：（1）第一部分是协议：http,https,ftp,file,ed2k… (2) 第二部分是存放资源的服务器的域名系统或IP地址（有时候要包含端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="reptile1">
+<meta property="og:url" content="https:&#x2F;&#x2F;zzf-pyf.github.io&#x2F;2019&#x2F;11&#x2F;05&#x2F;reptile1&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="爬虫python如何访问互联网？urllib1.URL的一般格式为（带方括号[]的为可选项）protocol:&#x2F;&#x2F;hostname[:port]&#x2F;path&#x2F;[;parameters][?query][?query]#fragment2.URL由三部分组成：（1）第一部分是协议：http,https,ftp,file,ed2k… (2) 第二部分是存放资源的服务器的域名系统或IP地址（有时候要包含端">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-11-05T01:13:02.402Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -59,78 +62,53 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/11/05/reptile1/" class="archive-article-date">
-  <time datetime="2019-11-05T00:37:00.000Z" itemprop="datePublished">11月 5</time>
+        <section id="main"><article id="post-reptile1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/11/05/reptile1/" class="article-date">
+  <time datetime="2019-11-05T00:37:00.000Z" itemprop="datePublished">2019-11-05</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/05/reptile1/">reptile1</a>
+    <h1 class="article-title" itemprop="name">
+      reptile1
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/11/04/Study5/" class="archive-article-date">
-  <time datetime="2019-11-03T23:54:53.000Z" itemprop="datePublished">11月 4</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/04/Study5/">Study5</a>
-    </h1>
-  
+        <h2 id="爬虫"><a href="#爬虫" class="headerlink" title="爬虫"></a>爬虫</h2><h1 id="python如何访问互联网？"><a href="#python如何访问互联网？" class="headerlink" title="python如何访问互联网？"></a>python如何访问互联网？</h1><p>urllib<br>1.URL的一般格式为（带方括号[]的为可选项）<br>protocol://hostname[:port]/path/[;parameters][?query][?query]#fragment<br>2.URL由三部分组成：<br>（1）第一部分是协议：http,https,ftp,file,ed2k…<br> (2) 第二部分是存放资源的服务器的域名系统或IP地址（有时候要包含端口号，各种<br> 传输协议都有默认的端口号，如http的默认端口为80）<br> （3）第三部分是资源的具体地址，如目录或文件名</p>
+<p> ‘’’<br> import urllib.request<br> reponse=urllib.request.urlopen(“<a href="http://www.fishc.com&quot;" target="_blank" rel="noopener">http://www.fishc.com&quot;</a>) #打开网页的过程就是从服务器上获取网页的过程<br> html=reponse.read() #读这对象<br> html=html.decode(‘utf-8’) #解码<br> print(html)<br> ‘’’</p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/11/02/Study4/" class="archive-article-date">
-  <time datetime="2019-11-02T00:39:20.000Z" itemprop="datePublished">11月 2</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/02/Study4/">Study4</a>
-    </h1>
-  
-
-    </header>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile1/" data-id="ck2l5tf3f0003iou3cmb2g7vh" class="article-share-link">Share</a>
+      
+      
+    </footer>
   </div>
-</article>
+  
+    
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/11/04/Study5/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Study5</div>
+    </a>
   
+</nav>
 
+  
+</article>
 
 </section>
         
