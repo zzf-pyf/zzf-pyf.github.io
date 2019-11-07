@@ -61,6 +61,137 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-reptile3-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/11/07/reptile3-1/" class="article-date">
+  <time datetime="2019-11-07T01:18:48.000Z" itemprop="datePublished">2019-11-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/07/reptile3-1/">reptile3</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="爬虫3-1"><a href="#爬虫3-1" class="headerlink" title="爬虫3-1"></a>爬虫3-1</h2><h1 id="隐藏"><a href="#隐藏" class="headerlink" title="隐藏"></a>隐藏</h1><p>1.在request对象生成之前，通过修改Request的headers参数<br>eg：head=()<br>    head[‘User-Agent’]=’Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36’</p>
+<p>2.通过Request.add_header()方法修改<br>eg：req.add_header(‘User-Agent’,’Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36’</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">import urllib.request</span><br><span class="line">import urllib.parse</span><br><span class="line">import json       #美化程序得到用户需要的结果</span><br><span class="line"></span><br><span class="line">content=input(&apos;请输入需要翻译的内容&apos;)</span><br><span class="line"></span><br><span class="line">url=&apos;http://fanyi.youdao.com/translate?smartresult=dict&amp;smartresult=rule&apos;</span><br><span class="line"></span><br><span class="line">head=&#123;&#125;</span><br><span class="line">head[&apos;User-Agent&apos;]=&apos;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36&apos;</span><br><span class="line"></span><br><span class="line">data=&#123;&#125;</span><br><span class="line">data[&apos;i&apos;]=content</span><br><span class="line">data[&apos;from&apos;]=&apos;AUTO&apos;</span><br><span class="line">data[&apos;to&apos;]=&apos;AUTO&apos;</span><br><span class="line">data[&apos;smartresult&apos;]=&apos;dict&apos;</span><br><span class="line">data[&apos;client&apos;]=&apos;fanyideskweb&apos;</span><br><span class="line">data[&apos;salt&apos;]=&apos;15729229099067&apos;</span><br><span class="line">data[&apos;sign&apos;]=&apos;06ecc0ff66e31488dd986c3da62d2303&apos;</span><br><span class="line">data[&apos;ts&apos;]=&apos;1572922909906&apos;</span><br><span class="line">data[&apos;bv&apos;]=&apos;6590b9dba19442fb0fa8ca7917e0beca&apos;</span><br><span class="line">data[&apos;doctype&apos;]=&apos;json&apos;</span><br><span class="line">data[&apos;version&apos;]=&apos;2.1&apos;</span><br><span class="line">data[&apos;keyfrom&apos;]=&apos;fanyi.web&apos;</span><br><span class="line">data[&apos;action&apos;]=&apos;FY_BY_CLICKBUTTION&apos;</span><br><span class="line"></span><br><span class="line">data=urllib.parse.urlencode(data).encode(&apos;utf-8&apos;)</span><br><span class="line">response=urllib.request.urlopen(url,data)</span><br><span class="line">html=response.read().decode(&apos;utf-8&apos;)</span><br><span class="line"></span><br><span class="line">target=json.loads(html)  #把html字符串载入 得到一个字典</span><br><span class="line">print(&quot;翻译结果:%s&quot; %(target[&apos;translateResult&apos;][0][0][&apos;tgt&apos;]))</span><br></pre></td></tr></table></figure>
+<h1 id="使用time，来显得爬虫像人在访问，避免反爬虫机制"><a href="#使用time，来显得爬虫像人在访问，避免反爬虫机制" class="headerlink" title="使用time，来显得爬虫像人在访问，避免反爬虫机制"></a>使用time，来显得爬虫像人在访问，避免反爬虫机制</h1><p>···<br>import urllib.request<br>import urllib.parse<br>import json       #美化程序得到用户需要的结果<br>import time</p>
+<p>while True:<br>    content=input(‘请输入需要翻译的内容(输入q!退出程序):’)<br>    if content==’q!’:<br>        break</p>
+<pre><code>url=&apos;http://fanyi.youdao.com/translate?smartresult=dict&amp;smartresult=rule&apos;
+
+head={}
+head[&apos;User-Agent&apos;]=&apos;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36&apos;
+
+data={}
+data[&apos;i&apos;]=content
+data[&apos;from&apos;]=&apos;AUTO&apos;
+data[&apos;to&apos;]=&apos;AUTO&apos;
+data[&apos;smartresult&apos;]=&apos;dict&apos;
+data[&apos;client&apos;]=&apos;fanyideskweb&apos;
+data[&apos;salt&apos;]=&apos;15729229099067&apos;
+data[&apos;sign&apos;]=&apos;06ecc0ff66e31488dd986c3da62d2303&apos;
+data[&apos;ts&apos;]=&apos;1572922909906&apos;
+data[&apos;bv&apos;]=&apos;6590b9dba19442fb0fa8ca7917e0beca&apos;
+data[&apos;doctype&apos;]=&apos;json&apos;
+data[&apos;version&apos;]=&apos;2.1&apos;
+data[&apos;keyfrom&apos;]=&apos;fanyi.web&apos;
+data[&apos;action&apos;]=&apos;FY_BY_CLICKBUTTION&apos;
+
+data=urllib.parse.urlencode(data).encode(&apos;utf-8&apos;)
+response=urllib.request.urlopen(url,data)
+html=response.read().decode(&apos;utf-8&apos;)
+
+target=json.loads(html)  #把html字符串载入 得到一个字典
+print(&quot;翻译结果:%s&quot; %(target[&apos;translateResult&apos;][0][0][&apos;tgt&apos;]))
+time.sleep(5)</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 代理</span><br><span class="line">步骤:</span><br><span class="line">1.参数是一个字典&#123;&apos;类型&apos;:&apos;代理IP:端口号&apos;&#125;</span><br><span class="line">proxy_support=urllib.request.ProxyHandler(&#123;&#125;)</span><br><span class="line">2.定制，创建一个opener</span><br><span class="line">opener=urllib.request.build_opener(proxy_support)</span><br><span class="line">3a.安装opener</span><br><span class="line">urllib.request.install_opener(opener)</span><br><span class="line">3b.调用opener</span><br><span class="line">opener.open(url)</span><br></pre></td></tr></table></figure>
+<p>import urllib.request<br>url=’<a href="http://whatismyip.com,tw&#39;" target="_blank" rel="noopener">http://whatismyip.com,tw&#39;</a><br>proxy_support=urllib.request.ProxyHandler({‘http’:’119.6.144.73:81’})<br>opener=urllib.request.build_opener(proxy_support)<br>opener.addheaders=[(‘User-Agent’,’Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36’)]<br>urllib.request.install_opener(opener)<br>response=urllib.request.urlopen(url)<br>html=reponse.read().decode(‘utf-8’)<br>print(html)</p>
+<pre><code>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zzf-pyf.github.io/2019/11/07/reptile3-1/" data-id="ck2o4br2p0005mgu32or62cwv" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-reptile3" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/11/05/reptile3/" class="article-date">
@@ -94,7 +225,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile3/" data-id="ck2lbavly0008t4u33xk82qxi" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile3/" data-id="ck2o4br2n0004mgu3hrm46db5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -148,7 +279,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile2/" data-id="ck2lbavlx0007t4u33m8b68vl" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile2/" data-id="ck2o4br2s0007mgu3gxpug07v" class="article-share-link">Share</a>
       
       
     </footer>
@@ -186,7 +317,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile1/" data-id="ck2lbavlw0006t4u3feg8e4bq" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile1/" data-id="ck2o4br2r0006mgu37yzzhmhb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -225,7 +356,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/04/Study5/" data-id="ck2lbavlr0002t4u3hlxa3khe" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/04/Study5/" data-id="ck2o4br2u0008mgu37u14efak" class="article-share-link">Share</a>
       
       
     </footer>
@@ -272,7 +403,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/02/Study4/" data-id="ck2lbavls0003t4u3dfby7ywv" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/02/Study4/" data-id="ck2o4br3d0009mgu3bmgu1x4t" class="article-share-link">Share</a>
       
       
     </footer>
@@ -312,7 +443,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/10/31/Study3/" data-id="ck2lbavlu0004t4u3bopaap9s" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/10/31/Study3/" data-id="ck2o4br2l0003mgu3gx301rfq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -358,7 +489,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/10/30/Study2/" data-id="ck2lbavlp0001t4u34eiv5958" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/10/30/Study2/" data-id="ck2o4br250000mgu3e1n48umg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -411,7 +542,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/10/29/Study/" data-id="ck2lbavlj0000t4u38e4608ee" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/10/29/Study/" data-id="ck2o4br2f0001mgu31gb1gkep" class="article-share-link">Share</a>
       
       
     </footer>
@@ -460,7 +591,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/10/27/hello-world/" data-id="ck2lbavlv0005t4u39dm13l0b" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/10/27/hello-world/" data-id="ck2o4br2j0002mgu33zyr59cz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -501,6 +632,10 @@
       <ul>
         
           <li>
+            <a href="/2019/11/07/reptile3-1/">reptile3</a>
+          </li>
+        
+          <li>
             <a href="/2019/11/05/reptile3/">reptile3</a>
           </li>
         
@@ -514,10 +649,6 @@
         
           <li>
             <a href="/2019/11/04/Study5/">Study5</a>
-          </li>
-        
-          <li>
-            <a href="/2019/11/02/Study4/">Study4</a>
           </li>
         
       </ul>
