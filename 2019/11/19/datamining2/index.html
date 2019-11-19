@@ -7,14 +7,14 @@
   
   <title>datamining2 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="python数据导入实战导入csv数据csv是一种常见的数据存储格式，基本上我们遇到的数据可以转为这种存储格式。在python数据分析中，我们可以使用pandas模块导入csv数据。 ···import pandas as pdaimport os#导入csv文件i=pda.read_csv(“C:&#x2F;&#x2F;Users&#x2F;&#x2F;AbsolutelyYF&#x2F;&#x2F;Desktop&#x2F;&#x2F;survey.csv”)#一定要把\">
+  <meta name="description" content="python数据导入实战导入csv数据csv是一种常见的数据存储格式，基本上我们遇到的数据可以转为这种存储格式。在python数据分析中，我们可以使用pandas模块导入csv数据。 12345678910111213141516171819202122232425262728293031323334import pandas as pdaimport os#导入csv文件i=pda.read_c">
 <meta property="og:type" content="article">
 <meta property="og:title" content="datamining2">
 <meta property="og:url" content="https:&#x2F;&#x2F;zzf-pyf.github.io&#x2F;2019&#x2F;11&#x2F;19&#x2F;datamining2&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="python数据导入实战导入csv数据csv是一种常见的数据存储格式，基本上我们遇到的数据可以转为这种存储格式。在python数据分析中，我们可以使用pandas模块导入csv数据。 ···import pandas as pdaimport os#导入csv文件i=pda.read_csv(“C:&#x2F;&#x2F;Users&#x2F;&#x2F;AbsolutelyYF&#x2F;&#x2F;Desktop&#x2F;&#x2F;survey.csv”)#一定要把\">
+<meta property="og:description" content="python数据导入实战导入csv数据csv是一种常见的数据存储格式，基本上我们遇到的数据可以转为这种存储格式。在python数据分析中，我们可以使用pandas模块导入csv数据。 12345678910111213141516171819202122232425262728293031323334import pandas as pdaimport os#导入csv文件i=pda.read_c">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-19T15:37:03.362Z">
+<meta property="og:updated_time" content="2019-11-19T17:57:14.379Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -85,19 +85,12 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="python数据导入实战"><a href="#python数据导入实战" class="headerlink" title="python数据导入实战"></a>python数据导入实战</h1><p>导入csv数据<br>csv是一种常见的数据存储格式，基本上我们遇到的数据可以转为这种存储格式。<br>在python数据分析中，我们可以使用pandas模块导入csv数据。</p>
-<p>···<br>import pandas as pda<br>import os<br>#导入csv文件<br>i=pda.read_csv(“C://Users//AbsolutelyYF//Desktop//survey.csv”)#一定要把\改为//<br>#i.describe()得到csv数据的一些信息</p>
-<p>#i.sort_values(by=”Age”) #按一属性排序<br>#导入excel<br>j=pda.read_excel(“C://Users//AbsolutelyYF//Desktop//评价指数.xlsx”)</p>
-<p>‘’’<br>导入MySQL数据库中的数据<br>import pymysql<br>conn=pymysql.connect(host=”112.27.238.135”,user=”root”,passwd=”root”,db=”hexun”)<br>sql=”select*from myhexun”<br>k=pda.read_sql(sql,conn)<br>‘’’</p>
-<p>‘’’<br>导入html数据<br>使用pandas,可以直接从html网页中加载table表格中的数据，但是在使用read_html()之前，需要先安装html5lib<br>模块与beautifulsoup4模块</p>
-<p>m=pda.read_html(“<a href="https://book.douban.com/&quot;)#读取网页表格" target="_blank" rel="noopener">https://book.douban.com/&quot;)#读取网页表格</a></p>
-<p>‘’’</p>
-<p>‘’’<br>导入文本数据<br>有时候我们希望直接导入txt文本数据，其实也是可以的<br>‘’’</p>
-<p>n=pda.read_table(“C://Users//AbsolutelyYF//Desktop//1 (2).txt”)<br>···</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pda</span><br><span class="line">import os</span><br><span class="line">#导入csv文件</span><br><span class="line">i=pda.read_csv(&quot;C://Users//AbsolutelyYF//Desktop//survey.csv&quot;)#一定要把\改为//</span><br><span class="line">#i.describe()得到csv数据的一些信息</span><br><span class="line"></span><br><span class="line">#i.sort_values(by=&quot;Age&quot;) #按一属性排序</span><br><span class="line">#导入excel</span><br><span class="line">j=pda.read_excel(&quot;C://Users//AbsolutelyYF//Desktop//评价指数.xlsx&quot;)</span><br><span class="line"></span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">导入MySQL数据库中的数据</span><br><span class="line">import pymysql</span><br><span class="line">conn=pymysql.connect(host=&quot;112.27.238.135&quot;,user=&quot;root&quot;,passwd=&quot;root&quot;,db=&quot;hexun&quot;)</span><br><span class="line">sql=&quot;select*from myhexun&quot;</span><br><span class="line">k=pda.read_sql(sql,conn)</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line"></span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">导入html数据</span><br><span class="line">使用pandas,可以直接从html网页中加载table表格中的数据，但是在使用read_html()之前，需要先安装html5lib</span><br><span class="line">模块与beautifulsoup4模块</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">m=pda.read_html(&quot;https://book.douban.com/&quot;)#读取网页表格</span><br><span class="line"></span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line"></span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">导入文本数据</span><br><span class="line">有时候我们希望直接导入txt文本数据，其实也是可以的</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line"></span><br><span class="line">n=pda.read_table(&quot;C://Users//AbsolutelyYF//Desktop//1 (2).txt&quot;)</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/19/datamining2/" data-id="ck360vtge0003v0u34hnm1076" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/19/datamining2/" data-id="ck365vbqf0006jou3bmfbg3md" class="article-share-link">Share</a>
       
       
     </footer>
