@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>matplotib1 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="matplotlib折线图和散点图123456789101112import matplotlib.pylab as pylimport numpy as npyx=[1,2,3,4,8]y=[5,7,2,1,5]#默认是折线图#pyl.plot(x,y) #plot(x轴数据，y轴数据，展现形式)一般会有三个参数 第三个参数可有可无#散点图pyl.plot(x,y,&amp;apos;o&amp;apos;)p">
+<meta property="og:type" content="article">
+<meta property="og:title" content="matplotib1">
+<meta property="og:url" content="https:&#x2F;&#x2F;zzf-pyf.github.io&#x2F;2019&#x2F;11&#x2F;26&#x2F;matplotib1&#x2F;index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="matplotlib折线图和散点图123456789101112import matplotlib.pylab as pylimport numpy as npyx=[1,2,3,4,8]y=[5,7,2,1,5]#默认是折线图#pyl.plot(x,y) #plot(x轴数据，y轴数据，展现形式)一般会有三个参数 第三个参数可有可无#散点图pyl.plot(x,y,&amp;apos;o&amp;apos;)p">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-11-26T08:35:02.373Z">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://zzf-pyf.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-matplotib1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/11/26/matplotib1/" class="article-date">
+  <time datetime="2019-11-26T05:47:51.000Z" itemprop="datePublished">2019-11-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      matplotib1
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="matplotlib"><a href="#matplotlib" class="headerlink" title="matplotlib"></a>matplotlib</h2><h1 id="折线图和散点图"><a href="#折线图和散点图" class="headerlink" title="折线图和散点图"></a>折线图和散点图</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib.pylab as pyl</span><br><span class="line">import numpy as npy</span><br><span class="line">x=[1,2,3,4,8]</span><br><span class="line">y=[5,7,2,1,5]</span><br><span class="line">#默认是折线图</span><br><span class="line">#pyl.plot(x,y) #plot(x轴数据，y轴数据，展现形式)一般会有三个参数 第三个参数可有可无</span><br><span class="line"></span><br><span class="line">#散点图</span><br><span class="line">pyl.plot(x,y,&apos;o&apos;)</span><br><span class="line"></span><br><span class="line">pyl.show()</span><br><span class="line">#若使用多个plot几个图是叠加的</span><br></pre></td></tr></table></figure>
+
+<h1 id="设置颜色"><a href="#设置颜色" class="headerlink" title="设置颜色"></a>设置颜色</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib.pylab as pyl</span><br><span class="line">import numpy as npy</span><br><span class="line">x=[1,2,3,4,8]</span><br><span class="line">y=[5,7,2,1,5]</span><br><span class="line"># 展示颜色</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">pyl.plot(x,y,&apos;o&apos;)</span><br><span class="line">pyl.plot(x,y,&apos;c&apos;)#若加上这一句，就与上一句叠加起来。</span><br><span class="line"></span><br><span class="line">#pyl.plot(x,y,&apos;oc&apos;)#即是散点图又是青色的</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">c--cyan--青色</span><br><span class="line">r--red--红色</span><br><span class="line">m--magente--品红</span><br><span class="line">g--green--绿色</span><br><span class="line">b--blue--蓝色</span><br><span class="line">y--yellow--黄</span><br><span class="line">k--black--黑</span><br><span class="line">w--white--白</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line"></span><br><span class="line">pyl.show()</span><br></pre></td></tr></table></figure>
+
+<h1 id="线条样式-点的样式-设置x和y轴的范围"><a href="#线条样式-点的样式-设置x和y轴的范围" class="headerlink" title="线条样式,点的样式,设置x和y轴的范围"></a>线条样式,点的样式,设置x和y轴的范围</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib.pylab as pyl</span><br><span class="line">import numpy as npy</span><br><span class="line">x=[1,2,3,4,8]</span><br><span class="line">y=[5,7,2,1,5]</span><br><span class="line">#线条样式</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">-    直线</span><br><span class="line">--   虚线</span><br><span class="line">-.   -.形式</span><br><span class="line">:    细小虚线</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">#pyl.plot(x,y,&apos;--&apos;)</span><br><span class="line">#pyl.show()</span><br><span class="line"></span><br><span class="line">#点的样式</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">s--方形</span><br><span class="line">h--六角形</span><br><span class="line">H--六角形</span><br><span class="line">*--星形</span><br><span class="line">+--加号</span><br><span class="line">x--x型</span><br><span class="line">d--菱形</span><br><span class="line">D--菱形</span><br><span class="line">p--五角形</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line"></span><br><span class="line">#pyl.plot(x,y,&quot;*&quot;)#加入点的参数默认为散点图</span><br><span class="line">pyl.plot(x,y)</span><br><span class="line">x2=[1,3,6,8,10,12,19]</span><br><span class="line">y2=[1,6,9,10,19,23,35]</span><br><span class="line">pyl.plot(x2,y2)         #同一个图中会有两个图像</span><br><span class="line"></span><br><span class="line">pyl.title(&quot;GEM&quot;)#j加标题</span><br><span class="line">pyl.xlabel(&quot;ages&quot;)#加x轴名称</span><br><span class="line">pyl.ylabel(&quot;temp&quot;)#加y轴名称</span><br><span class="line"></span><br><span class="line">pyl.xlim(0,20)</span><br><span class="line">pyl.ylim(0,40)</span><br><span class="line">pyl.show()</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zzf-pyf.github.io/2019/11/26/matplotib1/" data-id="ck3fme3vf0005esu3d7eq6ady" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/26/consult/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">consult</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/11/26/matplotib1/">matplotib1</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/26/consult/">consult</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/19/datamining2/">datamining2</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/13/datamining1/">datamining1</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/07/reptile3-1/">reptile3</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 pyf<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
