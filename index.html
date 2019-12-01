@@ -89,7 +89,7 @@
 
 
 <h1 id="子图"><a href="#子图" class="headerlink" title="子图"></a>子图</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib.pylab as pyl</span><br><span class="line">import numpy as npy</span><br><span class="line">data4=npy.random.random_integers(1,25,1000)#随机生成的普通数据</span><br><span class="line">pyl.subplot(2,2,3) #设置直方图子图(行，列，当前区域)将当前区域拆分为2行2列，子图在第3个格子</span><br><span class="line">pyl.show()</span><br></pre></td></tr></table></figure>
-<h1 id="在几个子图下面绘制图形"><a href="#在几个子图下面绘制图形" class="headerlink" title="在几个子图下面绘制图形"></a>在几个子图下面绘制图形</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib.pylab as pyl</span><br><span class="line">import numpy as npy</span><br><span class="line">data4=npy.random.random_integers(1,25,1000)#随机生成的普通数据</span><br><span class="line">pyl.subplot(2,2,1)</span><br><span class="line">#第一个图下面绘制</span><br><span class="line">x1=[1,2,3,4,5]</span><br><span class="line">y1=[5,3,5,23,5]</span><br><span class="line">pyl.plot(x1,y1)</span><br><span class="line"></span><br><span class="line">pyl.subplot(2,2,2)</span><br><span class="line">#第二个子图绘制</span><br><span class="line">x2=[2,4,8,11,19]</span><br><span class="line">y2=[7,9,12,12,3]</span><br><span class="line">pyl.plot(x2,y2)</span><br><span class="line"></span><br><span class="line">pyl.subplot(2,1,2)</span><br><span class="line">#第三个子图绘制</span><br><span class="line">x3=[5,6,11,13,17,20]</span><br><span class="line">y3=[7,9,12,4,24,10]</span><br><span class="line">pyl.plot(x3,y3)</span><br><span class="line"></span><br><span class="line">pyl.show()</span><br></pre></td></tr></table></figure>
+<h1 id="在几个子图下面绘制图形"><a href="#在几个子图下面绘制图形" class="headerlink" title="在几个子图下面绘制图形"></a>在几个子图下面绘制图形</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib.pylab as pyl</span><br><span class="line">import numpy as npy</span><br><span class="line">data4=npy.random.random_integers(1,25,1000)#随机生成的普通数据</span><br><span class="line">pyl.subplot(2,2,1)</span><br><span class="line">#第一个图下面绘制</span><br><span class="line">x1=[1,2,3,4,5]</span><br><span class="line">y1=[5,3,5,23,5]</span><br><span class="line">pyl.plot(x1,y1)</span><br><span class="line"></span><br><span class="line">pyl.subplot(2,2,2)</span><br><span class="line">#第二个子图绘制</span><br><span class="line">x2=[2,4,8,11,19]</span><br><span class="line">y2=[7,9,12,12,3]</span><br><span class="line">pyl.plot(x2,y2)</span><br><span class="line"></span><br><span class="line">pyl.subplot(2,1,2)</span><br><span class="line">#第三个子图绘制</span><br><span class="line">x3=[5,6,11,13,17,20]</span><br><span class="line">y3=[7,9,12,4,24,10]</span><br><span class="line">pyl.plot(x3,y3)</span><br><span class="line">pyl.show()</span><br></pre></td></tr></table></figure>
 
 
 
@@ -109,7 +109,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/28/matplotlib2/" data-id="ck3n19gqz000blsu33homcpei" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/28/matplotlib2/" data-id="ck3n1dagn000aygu3776t5p5v" class="article-share-link">Share</a>
       
       
     </footer>
@@ -219,7 +219,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/26/matplotib1/" data-id="ck3n19gqv0009lsu358sk2wsm" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/26/matplotib1/" data-id="ck3n1dagk0008ygu31b523plk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -258,7 +258,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/26/consult/" data-id="ck3n19gqp0005lsu30y21fdfu" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/26/consult/" data-id="ck3n1dagh0005ygu367nv5rk0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -296,7 +296,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/19/datamining2/" data-id="ck3n19gqu0008lsu3aj8va1mc" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/19/datamining2/" data-id="ck3n1dagj0007ygu3a1z1hc3t" class="article-share-link">Share</a>
       
       
     </footer>
@@ -401,7 +401,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/13/datamining1/" data-id="ck3n19gqr0006lsu34b4gfuqz" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/13/datamining1/" data-id="ck3n1dagi0006ygu32qzcaox3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -507,7 +507,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/07/reptile3-1/" data-id="ck3n19gr3000dlsu35svqeiq2" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/07/reptile3-1/" data-id="ck3n1dagr000dygu3hzvseg1p" class="article-share-link">Share</a>
       
       
     </footer>
@@ -550,7 +550,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile3/" data-id="ck3n19gra000elsu35i8u3wkm" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile3/" data-id="ck3n1dags000eygu3e8180klu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -604,7 +604,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile2/" data-id="ck3n19gr1000clsu39adyf10u" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile2/" data-id="ck3n1dagq000cygu35rs05k3r" class="article-share-link">Share</a>
       
       
     </footer>
@@ -642,7 +642,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile1/" data-id="ck3n19gqw000alsu31qlbfecq" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile1/" data-id="ck3n1dago000bygu3darxc9pd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -681,7 +681,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/04/Study5/" data-id="ck3n19gqo0004lsu34b5matx9" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/04/Study5/" data-id="ck3n1dagf0003ygu3hq10d4pe" class="article-share-link">Share</a>
       
       
     </footer>
