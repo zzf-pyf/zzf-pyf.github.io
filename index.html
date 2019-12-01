@@ -61,6 +61,64 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-matplotlib2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/11/28/matplotlib2/" class="article-date">
+  <time datetime="2019-11-28T11:56:39.000Z" itemprop="datePublished">2019-11-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/28/matplotlib2/">matplotlib2</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="直方图hist"><a href="#直方图hist" class="headerlink" title="直方图hist"></a>直方图hist</h2><h1 id="正态分布的随机数"><a href="#正态分布的随机数" class="headerlink" title="正态分布的随机数"></a>正态分布的随机数</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib.pylab as pyl</span><br><span class="line">import numpy as npy</span><br><span class="line">data3=npy.random.normal(10.0,1.0,1000)#正太分布的随机数</span><br><span class="line">pyl.hist(data3)</span><br><span class="line">pyl.show()</span><br></pre></td></tr></table></figure>
+<h1 id="随机生成的普通数据"><a href="#随机生成的普通数据" class="headerlink" title="随机生成的普通数据"></a>随机生成的普通数据</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib.pylab as pyl</span><br><span class="line">import numpy as npy</span><br><span class="line">data4=npy.random.random_integers(1,25,1000)#随机生成的普通数据</span><br><span class="line">pyl.hist(data4)</span><br><span class="line"></span><br><span class="line">pyl.show()</span><br></pre></td></tr></table></figure>
+<h1 id="设置直方图"><a href="#设置直方图" class="headerlink" title="设置直方图"></a>设置直方图</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib.pylab as pyl</span><br><span class="line">import numpy as npy</span><br><span class="line">data4=npy.random.random_integers(1,25,1000)#随机生成的普通数据</span><br><span class="line"></span><br><span class="line">sty=npy.arange(2,19,4)#2，17从多少到多少， 4是步长  利用这个设置直方图</span><br><span class="line">pyl.hist(data4,sty)#绘制</span><br><span class="line">pyl.show()</span><br><span class="line">#默认取消轮廓</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="子图"><a href="#子图" class="headerlink" title="子图"></a>子图</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib.pylab as pyl</span><br><span class="line">import numpy as npy</span><br><span class="line">data4=npy.random.random_integers(1,25,1000)#随机生成的普通数据</span><br><span class="line">pyl.subplot(2,2,3) #设置直方图子图(行，列，当前区域)将当前区域拆分为2行2列，子图在第3个格子</span><br><span class="line">pyl.show()</span><br></pre></td></tr></table></figure>
+<h1 id="在几个子图下面绘制图形"><a href="#在几个子图下面绘制图形" class="headerlink" title="在几个子图下面绘制图形"></a>在几个子图下面绘制图形</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib.pylab as pyl</span><br><span class="line">import numpy as npy</span><br><span class="line">data4=npy.random.random_integers(1,25,1000)#随机生成的普通数据</span><br><span class="line">pyl.subplot(2,2,1)</span><br><span class="line">#第一个图下面绘制</span><br><span class="line">x1=[1,2,3,4,5]</span><br><span class="line">y1=[5,3,5,23,5]</span><br><span class="line">pyl.plot(x1,y1)</span><br><span class="line"></span><br><span class="line">pyl.subplot(2,2,2)</span><br><span class="line">#第二个子图绘制</span><br><span class="line">x2=[2,4,8,11,19]</span><br><span class="line">y2=[7,9,12,12,3]</span><br><span class="line">pyl.plot(x2,y2)</span><br><span class="line"></span><br><span class="line">pyl.subplot(2,1,2)</span><br><span class="line">#第三个子图绘制</span><br><span class="line">x3=[5,6,11,13,17,20]</span><br><span class="line">y3=[7,9,12,4,24,10]</span><br><span class="line">pyl.plot(x3,y3)</span><br><span class="line"></span><br><span class="line">pyl.show()</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zzf-pyf.github.io/2019/11/28/matplotlib2/" data-id="ck3n19gqz000blsu33homcpei" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-matplotib1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/11/26/matplotib1/" class="article-date">
@@ -161,7 +219,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/26/matplotib1/" data-id="ck3fme3vf0005esu3d7eq6ady" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/26/matplotib1/" data-id="ck3n19gqv0009lsu358sk2wsm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -200,7 +258,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/26/consult/" data-id="ck3fme3vb0002esu3ckni7048" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/26/consult/" data-id="ck3n19gqp0005lsu30y21fdfu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -238,7 +296,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/19/datamining2/" data-id="ck3fme3wc0007esu3d5iigcll" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/19/datamining2/" data-id="ck3n19gqu0008lsu3aj8va1mc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -343,7 +401,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/13/datamining1/" data-id="ck3fme3vd0003esu36tgl4fpz" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/13/datamining1/" data-id="ck3n19gqr0006lsu34b4gfuqz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -449,7 +507,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/07/reptile3-1/" data-id="ck3fme3we0009esu362yjdyh6" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/07/reptile3-1/" data-id="ck3n19gr3000dlsu35svqeiq2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -492,7 +550,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile3/" data-id="ck3fme3wf000aesu3de734sq2" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile3/" data-id="ck3n19gra000elsu35i8u3wkm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -546,7 +604,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile2/" data-id="ck3fme3xa000besu3dkmv3c67" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile2/" data-id="ck3n19gr1000clsu39adyf10u" class="article-share-link">Share</a>
       
       
     </footer>
@@ -584,7 +642,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile1/" data-id="ck3fme3xf000desu3194h24p3" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile1/" data-id="ck3n19gqw000alsu31qlbfecq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -623,54 +681,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/04/Study5/" data-id="ck3fme3wd0008esu33netb61i" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Study4" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/11/02/Study4/" class="article-date">
-  <time datetime="2019-11-02T00:39:20.000Z" itemprop="datePublished">2019-11-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/02/Study4/">Study4</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="循环结构"><a href="#循环结构" class="headerlink" title="循环结构"></a>循环结构</h2><p>在Python中构造循环结构有两种做法，一种是for-in循环，一种是while循环。</p>
-<h1 id="for-in循环，一种是while循环。"><a href="#for-in循环，一种是while循环。" class="headerlink" title="for-in循环，一种是while循环。"></a>for-in循环，一种是while循环。</h1><p>如果明确的知道循环执行的次数或者要对一个容器进行迭代（后面会讲到），<br>那么我们推荐使用for-in循环。例如下面代码计算1—100求和的结果<br>‘’’<br>sum=0<br>for x in range(101):<br>    sum+=x<br>print(sum)<br>‘’’<br>注：需要说明的是上面代码中的range(101)可以用来构造一个从0到100的取值范围，<br>这样就可以构造出一个整数的序列并用于循环中，例如：</p>
-<p>range(101)可以产生一个0到100的整数序列。<br>range(1, 100)可以产生一个1到99的整数序列。<br>range(1, 100, 2)可以产生一个1到99的奇数序列，其中2是步长，即数值序列的增量。</p>
-<p>了解了这个知识以后，我们可以用下面的代码计算1-100之间的偶数求和<br>‘’’<br>sum=0<br>for x in range(2,101,2):<br>    sum+=x<br>print(sum)<br>‘’’<br>也可以通过在循环使用分支结构来实现相同的功能，代码如下：<br>‘’’<br>sum=0<br>for x in range(1,101):<br>    if x%2==0:<br>        sum+=x%2<br>print(sum)<br>‘’’</p>
-<h1 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h1><p>如果要构造不知道具体循环次数的循环结构，我们推荐使用while循环。<br>while循环通过一个能够产生或转换出bool值的表达式来控制循环，<br>表达式的值为True循环继续，表达式的值为False循环结束。<br>下面我们通过一个“猜数字”的小游戏（计算机出一个1~100之间的随机数，<br>人输入自己猜的数字，计算机给出对应的提示信息，直到人猜出计算机出的数字）<br>来看看如何使用while循环。<br>‘’’<br>import random</p>
-<p>answer=random.randint(1,100)<br>count=0<br>while True:<br>    counter+=1<br>    number=int(input(‘请输入’))<br>    if number&lt;answer:<br>        print(‘大一点’)<br>    elif number &gt; answer:<br>        print(‘小一点’)<br>    else:<br>        print(‘恭喜你猜对了!’)<br>        break<br>print(‘你总共猜了%d次’ % counter)<br>if counter &gt; 7:<br>    print(‘你的智商余额明显不足’)<br>‘’’<br>注：<br>random.random()函数是这个模块中最常用的方法了，它会生成一个随机的浮点数，<br>范围是在0.0~1.0之间。</p>
-<p>random.uniform()正好弥补了上面函数的不足，它可以设定浮点数的范围，一个是上限，一个是下限。</p>
-<p>random.randint()随机生一个整数int类型，可以指定这个整数的范围，同样有上限和下限值，python random.randint。</p>
-<p>random.choice()可以从任何序列，比如list列表中，选取一个随机的元素返回，可以用于字符串、列表、元组等。</p>
-<p>random.shuffle()如果你想将一个序列中的元素，随机打乱的话可以用这个函数方法。</p>
-<p>random.sample()可以从指定的序列中，随机的截取指定长度的片断，不作原地修改。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/02/Study4/" data-id="ck3fme3vl0006esu333x16jth" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/04/Study5/" data-id="ck3n19gqo0004lsu34b5matx9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -716,6 +727,10 @@
       <ul>
         
           <li>
+            <a href="/2019/11/28/matplotlib2/">matplotlib2</a>
+          </li>
+        
+          <li>
             <a href="/2019/11/26/matplotib1/">matplotib1</a>
           </li>
         
@@ -729,10 +744,6 @@
         
           <li>
             <a href="/2019/11/13/datamining1/">datamining1</a>
-          </li>
-        
-          <li>
-            <a href="/2019/11/07/reptile3-1/">reptile3</a>
           </li>
         
       </ul>
