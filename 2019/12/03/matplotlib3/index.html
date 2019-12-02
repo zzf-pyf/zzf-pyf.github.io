@@ -5,16 +5,16 @@
   
 
   
-  <title>consult | Hexo</title>
+  <title>matplotlib3 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="随机数的生成123import numpy as npydata=npy.random.random_integers(1,20,10) #(最小值，最大值，个数)print(data)  生成具有正态分布的数据123456import numpy as npydata=npy.random.random_integers(1,20,10) #(最小值，最大值，个数)#print(data)#生成">
+  <meta name="description" content="读取数据并可视化分析123456789101112131415161718import pandas as pdaimport osimport numpy as npyimport matplotlib.pylab as pyldata=pda.read_csv(&amp;quot;C:&#x2F;&#x2F;Users&#x2F;&#x2F;AbsolutelyYF&#x2F;&#x2F;Desktop&#x2F;&#x2F;q数据.csv&amp;quot;)# data.values">
 <meta property="og:type" content="article">
-<meta property="og:title" content="consult">
-<meta property="og:url" content="https:&#x2F;&#x2F;zzf-pyf.github.io&#x2F;2019&#x2F;11&#x2F;26&#x2F;consult&#x2F;index.html">
+<meta property="og:title" content="matplotlib3">
+<meta property="og:url" content="https:&#x2F;&#x2F;zzf-pyf.github.io&#x2F;2019&#x2F;12&#x2F;03&#x2F;matplotlib3&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="随机数的生成123import numpy as npydata=npy.random.random_integers(1,20,10) #(最小值，最大值，个数)print(data)  生成具有正态分布的数据123456import numpy as npydata=npy.random.random_integers(1,20,10) #(最小值，最大值，个数)#print(data)#生成">
+<meta property="og:description" content="读取数据并可视化分析123456789101112131415161718import pandas as pdaimport osimport numpy as npyimport matplotlib.pylab as pyldata=pda.read_csv(&amp;quot;C:&#x2F;&#x2F;Users&#x2F;&#x2F;AbsolutelyYF&#x2F;&#x2F;Desktop&#x2F;&#x2F;q数据.csv&amp;quot;)# data.values">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-26T08:49:58.337Z">
+<meta property="og:updated_time" content="2019-12-02T16:44:58.822Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -62,10 +62,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-consult" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-matplotlib3" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/11/26/consult/" class="article-date">
-  <time datetime="2019-11-26T05:30:22.000Z" itemprop="datePublished">2019-11-26</time>
+    <a href="/2019/12/03/matplotlib3/" class="article-date">
+  <time datetime="2019-12-02T16:41:07.000Z" itemprop="datePublished">2019-12-03</time>
 </a>
     
   </div>
@@ -76,7 +76,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      consult
+      matplotlib3
     </h1>
   
 
@@ -84,14 +84,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="随机数的生成"><a href="#随机数的生成" class="headerlink" title="随机数的生成"></a>随机数的生成</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import numpy as npy</span><br><span class="line">data=npy.random.random_integers(1,20,10) #(最小值，最大值，个数)</span><br><span class="line">print(data)</span><br></pre></td></tr></table></figure>
+        <h1 id="读取数据并可视化分析"><a href="#读取数据并可视化分析" class="headerlink" title="读取数据并可视化分析"></a>读取数据并可视化分析</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pda</span><br><span class="line">import os</span><br><span class="line">import numpy as npy</span><br><span class="line">import matplotlib.pylab as pyl</span><br><span class="line">data=pda.read_csv(&quot;C://Users//AbsolutelyYF//Desktop//q数据.csv&quot;)</span><br><span class="line"></span><br><span class="line"># data.values#[第几行][第几列]</span><br><span class="line">#要想取第四行的全部数据</span><br><span class="line">#先data.T(转置）</span><br><span class="line">#data2=data.T</span><br><span class="line">#data2.values[3]  得到需要的列数据</span><br><span class="line">#data2.values[2]</span><br><span class="line"></span><br><span class="line">data2=data.T</span><br><span class="line">y1=data2.values[3]  </span><br><span class="line">x1=data2.values[4]</span><br><span class="line">pyl.plot(x1,y1)        #通过折线图可视化分析数据</span><br><span class="line">pyl.show()</span><br></pre></td></tr></table></figure>
 
-<h2 id="生成具有正态分布的数据"><a href="#生成具有正态分布的数据" class="headerlink" title="生成具有正态分布的数据"></a>生成具有正态分布的数据</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import numpy as npy</span><br><span class="line">data=npy.random.random_integers(1,20,10) #(最小值，最大值，个数)</span><br><span class="line">#print(data)</span><br><span class="line">#生成具有正太分布的数据</span><br><span class="line">data2=npy.random.normal(5.0,2.0,10)#(均数，希格玛，个数） 希格玛越大越平缓</span><br><span class="line">print(data2)</span><br></pre></td></tr></table></figure>
+<p>通过这样的数据可视化为图形 来分析数据之间，属性之间的联系</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/26/consult/" data-id="ck3onzsj30001wsu372tj3hr4" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/12/03/matplotlib3/" data-id="ck3onzsk90008wsu33sle6von" class="article-share-link">Share</a>
       
       
     </footer>
@@ -100,19 +100,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2019/11/26/matplotib1/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          matplotib1
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/11/19/datamining2/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/11/28/matplotlib2/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">datamining2</div>
+      <div class="article-nav-title">matplotlib2</div>
     </a>
   
 </nav>

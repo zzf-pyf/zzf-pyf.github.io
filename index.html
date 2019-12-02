@@ -61,6 +61,45 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-matplotlib3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/03/matplotlib3/" class="article-date">
+  <time datetime="2019-12-02T16:41:07.000Z" itemprop="datePublished">2019-12-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/03/matplotlib3/">matplotlib3</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="读取数据并可视化分析"><a href="#读取数据并可视化分析" class="headerlink" title="读取数据并可视化分析"></a>读取数据并可视化分析</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pda</span><br><span class="line">import os</span><br><span class="line">import numpy as npy</span><br><span class="line">import matplotlib.pylab as pyl</span><br><span class="line">data=pda.read_csv(&quot;C://Users//AbsolutelyYF//Desktop//q数据.csv&quot;)</span><br><span class="line"></span><br><span class="line"># data.values#[第几行][第几列]</span><br><span class="line">#要想取第四行的全部数据</span><br><span class="line">#先data.T(转置）</span><br><span class="line">#data2=data.T</span><br><span class="line">#data2.values[3]  得到需要的列数据</span><br><span class="line">#data2.values[2]</span><br><span class="line"></span><br><span class="line">data2=data.T</span><br><span class="line">y1=data2.values[3]  </span><br><span class="line">x1=data2.values[4]</span><br><span class="line">pyl.plot(x1,y1)        #通过折线图可视化分析数据</span><br><span class="line">pyl.show()</span><br></pre></td></tr></table></figure>
+
+<p>通过这样的数据可视化为图形 来分析数据之间，属性之间的联系</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zzf-pyf.github.io/2019/12/03/matplotlib3/" data-id="ck3onzsk90008wsu33sle6von" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-matplotlib2" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/11/28/matplotlib2/" class="article-date">
@@ -109,7 +148,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/28/matplotlib2/" data-id="ck3n1svlz000b3ou32336e7lu" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/28/matplotlib2/" data-id="ck3onzskm000cwsu3e10c77tn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -219,7 +258,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/26/matplotib1/" data-id="ck3n1svlw00083ou355lsd0mg" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/26/matplotib1/" data-id="ck3onzskf000awsu3fe376czz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -258,7 +297,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/26/consult/" data-id="ck3n1svls00053ou3gyi4b6f2" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/26/consult/" data-id="ck3onzsj30001wsu372tj3hr4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -296,7 +335,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/19/datamining2/" data-id="ck3n1svlv00073ou3bpuje00t" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/19/datamining2/" data-id="ck3onzsk60007wsu338kh1uq9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -401,7 +440,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/13/datamining1/" data-id="ck3n1svlu00063ou31jbe7ovn" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/13/datamining1/" data-id="ck3onzsj70004wsu39kicazel" class="article-share-link">Share</a>
       
       
     </footer>
@@ -507,7 +546,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/07/reptile3-1/" data-id="ck3n1svm2000d3ou3f7v01npf" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/07/reptile3-1/" data-id="ck3onzsky000dwsu3b3pee5je" class="article-share-link">Share</a>
       
       
     </footer>
@@ -550,7 +589,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile3/" data-id="ck3n1svm3000e3ou36dkw50k8" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile3/" data-id="ck3onzsly000fwsu3bzlxh8mz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -604,7 +643,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile2/" data-id="ck3n1svm1000c3ou3d2lh4854" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile2/" data-id="ck3onzslf000ewsu3hrcm4a0k" class="article-share-link">Share</a>
       
       
     </footer>
@@ -642,46 +681,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile1/" data-id="ck3n1svly000a3ou33rzfeg0k" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Study5" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/11/04/Study5/" class="article-date">
-  <time datetime="2019-11-03T23:54:53.000Z" itemprop="datePublished">2019-11-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/04/Study5/">Study5</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="构造程序逻辑经典的例子"><a href="#构造程序逻辑经典的例子" class="headerlink" title="构造程序逻辑经典的例子"></a>构造程序逻辑经典的例子</h1><p>1.水仙花数<br>说明：水仙花数也被称为超完全数字不变数、自恋数、自幂数、阿姆斯特朗数，<br>它是一个3位数，该数字每个位上数字的立方之和正好等于它本身，<br>例如：$1^3 + 5^3+ 3^3=153$。<br>‘’’<br>for num in range(100,1000):<br>    low=num%10<br>    mid=num//10%10<br>    high=num//100<br>    if num==low<strong>3+mid</strong>3+high**3:<br>        print(num)<br>‘’’</p>
-<p>2.CRAPS赌博游戏<br>CRAPS又称花旗骰，是美国拉斯维加斯非常受欢迎的一种的桌上赌博游戏。<br>该游戏使用两粒骰子，玩家通过摇两粒骰子获得点数进行游戏。简单的规则是：<br>玩家第一次摇骰子如果摇出了7点或11点，玩家胜；玩家第一次如果摇出2点、3点或12点，<br>庄家胜；其他点数玩家继续摇骰子，如果玩家摇出了7点，庄家胜；<br>如果玩家摇出了第一次摇的点数，玩家胜；其他点数，玩家继续要骰子，直到分出胜负。<br>‘’’<br>Craps赌博游戏<br>我们设定玩家开始游戏时有1000元的赌注<br>游戏结束的条件是玩家输光所有的赌注</p>
-<p>from random import randint<br>money=1000<br>while money&gt;0:<br>    print(‘你的资产:’,money)<br>    needs_go_on=False<br>    while True:<br>        debt=int(input(‘请下注:’))<br>        if 0&lt;debt&lt;=money:<br>            break<br>    first=randint(1,6)+randint(1,6)<br>    print(‘玩家摇出的%d点数’ %first)<br>    if first==7 or first==11:<br>        print(‘玩家胜’)<br>        money+=debt<br>    elif first==2 or first==3 or first==12:<br>        print(‘庄家胜’)<br>        money-=debt<br>    else:<br>        needs_go_on=True<br>    while needs_go_on:<br>        needs_go_on=False<br>        current=randint(1,6)+randint(1,6)<br>        print(‘玩家摇出的%d点数’%current）<br>        if current==7:<br>            print(‘庄家胜’)<br>            money-=debt<br>        elif current==first:<br>            print(‘玩家胜’)<br>            money+=debt<br>        else:<br>            needs_go_on=True<br>print(‘你破产了游戏结束’)</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/04/Study5/" data-id="ck3n1svlp00023ou352e40ysv" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile1/" data-id="ck3onzski000bwsu39trqd4q8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -714,7 +714,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li></ul>
     </div>
   </div>
 
@@ -725,6 +725,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/12/03/matplotlib3/">matplotlib3</a>
+          </li>
         
           <li>
             <a href="/2019/11/28/matplotlib2/">matplotlib2</a>
@@ -740,10 +744,6 @@
         
           <li>
             <a href="/2019/11/19/datamining2/">datamining2</a>
-          </li>
-        
-          <li>
-            <a href="/2019/11/13/datamining1/">datamining1</a>
           </li>
         
       </ul>
