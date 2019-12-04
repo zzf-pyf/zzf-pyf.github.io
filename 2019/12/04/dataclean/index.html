@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>dataclean | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="数据探索与数据清洗数据探索的目的是及早发现数据的一些简单规律和特征，将数据清洗的目的是留下可靠的数据，避免脏数据的干扰。这两者没用严格的先后顺序，经常在一个阶段进行。 数据探索的核心1.数据质量分析（与数据清洗密切相关）2.数据特征分析（分布，对比，周期性，相关性，常见统计量等） 数据清洗的步骤1.缺失值处理（通过describe与len直接发现、通过0数据发现）2.异常值处理（通过散点图发现）一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="dataclean">
+<meta property="og:url" content="https:&#x2F;&#x2F;zzf-pyf.github.io&#x2F;2019&#x2F;12&#x2F;04&#x2F;dataclean&#x2F;index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="数据探索与数据清洗数据探索的目的是及早发现数据的一些简单规律和特征，将数据清洗的目的是留下可靠的数据，避免脏数据的干扰。这两者没用严格的先后顺序，经常在一个阶段进行。 数据探索的核心1.数据质量分析（与数据清洗密切相关）2.数据特征分析（分布，对比，周期性，相关性，常见统计量等） 数据清洗的步骤1.缺失值处理（通过describe与len直接发现、通过0数据发现）2.异常值处理（通过散点图发现）一">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-12-04T00:18:30.099Z">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://zzf-pyf.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-dataclean" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/04/dataclean/" class="article-date">
+  <time datetime="2019-12-03T21:23:02.000Z" itemprop="datePublished">2019-12-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      dataclean
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="数据探索与数据清洗"><a href="#数据探索与数据清洗" class="headerlink" title="数据探索与数据清洗"></a>数据探索与数据清洗</h2><p>数据探索的目的是及早发现数据的一些简单规律和特征，将数据清洗的目的是留下可靠<br>的数据，避免脏数据的干扰。这两者没用严格的先后顺序，经常在一个阶段进行。</p>
+<h1 id="数据探索的核心"><a href="#数据探索的核心" class="headerlink" title="数据探索的核心"></a>数据探索的核心</h1><p>1.数据质量分析（与数据清洗密切相关）<br>2.数据特征分析（分布，对比，周期性，相关性，常见统计量等）</p>
+<h1 id="数据清洗的步骤"><a href="#数据清洗的步骤" class="headerlink" title="数据清洗的步骤"></a>数据清洗的步骤</h1><p>1.缺失值处理（通过describe与len直接发现、通过0数据发现）<br>2.异常值处理（通过散点图发现）<br>一般遇到缺失值，处理方法为（删除、插补、不处理）;<br>插补的方式：均值插补，中位数插补，众数插补，固定值插补，最近数据插补，<br>回归插补，拉格朗日插值，牛顿插值法，分段插值等等。<br>遇到异常值，一般处理方式为视为缺失值，删除，修补（平均数，中位数），不处理）</p>
+<h1 id="以淘宝零食类商品数据为例进行实战。"><a href="#以淘宝零食类商品数据为例进行实战。" class="headerlink" title="以淘宝零食类商品数据为例进行实战。"></a>以淘宝零食类商品数据为例进行实战。</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">#导入数据</span><br><span class="line">import pandas as pda</span><br><span class="line">import os</span><br><span class="line">import numpy as npy</span><br><span class="line">import matplotlib.pylab as pyl</span><br><span class="line">data=pda.read_csv(&quot;C://Users//AbsolutelyYF//Desktop//商品数据清洗.csv&quot;)</span><br><span class="line">print(data.describe())</span><br><span class="line">#数据清洗</span><br><span class="line">#发现缺失值</span><br><span class="line">x=0</span><br><span class="line">data[&quot;price&quot;][(data[&quot;price&quot;]==0)]=None #将价格为0的数据统统变为空值</span><br><span class="line">for i in data.columns:</span><br><span class="line">    for j in range(len(data)):</span><br><span class="line">        if(data[i].isnull())[j]:</span><br><span class="line">            data[i][j]=&quot;36&quot;</span><br><span class="line">            x+=1</span><br><span class="line">print(x)</span><br><span class="line">#异常值处理</span><br><span class="line">#画散点图（横轴为价格，纵轴为评论数）</span><br><span class="line">#得到价格</span><br><span class="line">data2=data.T</span><br><span class="line">price=data2.values[1]</span><br><span class="line">#得到评论数据</span><br><span class="line">comment=data2.values[2]</span><br><span class="line">#通过散点图找异常点</span><br><span class="line">pyl.plot(price,comment,&apos;o&apos;)</span><br><span class="line">pyl.show()</span><br><span class="line">#评论数异常&gt;100000  价格异常&gt;2300</span><br><span class="line">line=len(data.values)     #几行</span><br><span class="line">column=len(data.values[0])#几列</span><br><span class="line">da=data.values</span><br><span class="line">for i in range(0,line):</span><br><span class="line">    for j in range(0,column):</span><br><span class="line">        if(da[i][1]&gt;2300):   #定位到价格 价格大于2300说明价格值异常</span><br><span class="line">            print(da[i][j])  #输出异常的商品</span><br><span class="line">            da[i][j]=36      #修正</span><br><span class="line">        if(da[i][2]&gt;100000):</span><br><span class="line">            print(da[i][j])  #输出异常的商品</span><br><span class="line">            da[i][j]=657     #修正</span><br><span class="line"></span><br><span class="line">#处理了异常之后再绘制一次图</span><br><span class="line">da2=da.T</span><br><span class="line">price=da2[1]</span><br><span class="line">comment=da2[2]</span><br><span class="line">pyl.plot(price,comment,&apos;o&apos;)</span><br><span class="line">pyl.show()</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zzf-pyf.github.io/2019/12/04/dataclean/" data-id="ck3qjni4u0005rwu34lr9axxb" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/12/03/matplotlib3/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">matplotlib3</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/12/04/dataclean/">dataclean</a>
+          </li>
+        
+          <li>
+            <a href="/2019/12/03/matplotlib3/">matplotlib3</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/28/matplotlib2/">matplotlib2</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/26/matplotib1/">matplotib1</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/26/consult/">consult</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 pyf<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

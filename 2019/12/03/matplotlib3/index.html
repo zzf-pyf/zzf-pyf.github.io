@@ -7,14 +7,14 @@
   
   <title>matplotlib3 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="读取数据并可视化分析123456789101112131415161718import pandas as pdaimport osimport numpy as npyimport matplotlib.pylab as pyldata=pda.read_csv(&amp;quot;C:&#x2F;&#x2F;Users&#x2F;&#x2F;AbsolutelyYF&#x2F;&#x2F;Desktop&#x2F;&#x2F;q数据.csv&amp;quot;)# data.values">
+  <meta name="description" content="读取数据并可视化分析数据123456789101112131415161718import pandas as pdaimport osimport numpy as npyimport matplotlib.pylab as pyldata=pda.read_csv(&amp;quot;C:&#x2F;&#x2F;Users&#x2F;&#x2F;AbsolutelyYF&#x2F;&#x2F;Desktop&#x2F;&#x2F;q数据.csv&amp;quot;)# data.valu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="matplotlib3">
 <meta property="og:url" content="https:&#x2F;&#x2F;zzf-pyf.github.io&#x2F;2019&#x2F;12&#x2F;03&#x2F;matplotlib3&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="读取数据并可视化分析123456789101112131415161718import pandas as pdaimport osimport numpy as npyimport matplotlib.pylab as pyldata=pda.read_csv(&amp;quot;C:&#x2F;&#x2F;Users&#x2F;&#x2F;AbsolutelyYF&#x2F;&#x2F;Desktop&#x2F;&#x2F;q数据.csv&amp;quot;)# data.values">
+<meta property="og:description" content="读取数据并可视化分析数据123456789101112131415161718import pandas as pdaimport osimport numpy as npyimport matplotlib.pylab as pyldata=pda.read_csv(&amp;quot;C:&#x2F;&#x2F;Users&#x2F;&#x2F;AbsolutelyYF&#x2F;&#x2F;Desktop&#x2F;&#x2F;q数据.csv&amp;quot;)# data.valu">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-02T16:44:58.822Z">
+<meta property="og:updated_time" content="2019-12-02T16:49:54.943Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -84,14 +84,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="读取数据并可视化分析"><a href="#读取数据并可视化分析" class="headerlink" title="读取数据并可视化分析"></a>读取数据并可视化分析</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pda</span><br><span class="line">import os</span><br><span class="line">import numpy as npy</span><br><span class="line">import matplotlib.pylab as pyl</span><br><span class="line">data=pda.read_csv(&quot;C://Users//AbsolutelyYF//Desktop//q数据.csv&quot;)</span><br><span class="line"></span><br><span class="line"># data.values#[第几行][第几列]</span><br><span class="line">#要想取第四行的全部数据</span><br><span class="line">#先data.T(转置）</span><br><span class="line">#data2=data.T</span><br><span class="line">#data2.values[3]  得到需要的列数据</span><br><span class="line">#data2.values[2]</span><br><span class="line"></span><br><span class="line">data2=data.T</span><br><span class="line">y1=data2.values[3]  </span><br><span class="line">x1=data2.values[4]</span><br><span class="line">pyl.plot(x1,y1)        #通过折线图可视化分析数据</span><br><span class="line">pyl.show()</span><br></pre></td></tr></table></figure>
+        <h1 id="读取数据并可视化分析数据"><a href="#读取数据并可视化分析数据" class="headerlink" title="读取数据并可视化分析数据"></a>读取数据并可视化分析数据</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pda</span><br><span class="line">import os</span><br><span class="line">import numpy as npy</span><br><span class="line">import matplotlib.pylab as pyl</span><br><span class="line">data=pda.read_csv(&quot;C://Users//AbsolutelyYF//Desktop//q数据.csv&quot;)</span><br><span class="line"></span><br><span class="line"># data.values#[第几行][第几列]</span><br><span class="line">#要想取第四行的全部数据</span><br><span class="line">#先data.T(转置）</span><br><span class="line">#data2=data.T</span><br><span class="line">#data2.values[3]  得到需要的列数据</span><br><span class="line">#data2.values[2]</span><br><span class="line"></span><br><span class="line">data2=data.T</span><br><span class="line">y1=data2.values[3]  </span><br><span class="line">x1=data2.values[4]</span><br><span class="line">pyl.plot(x1,y1)        #通过折线图可视化分析数据</span><br><span class="line">pyl.show()</span><br></pre></td></tr></table></figure>
 
 <p>通过这样的数据可视化为图形 来分析数据之间，属性之间的联系</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/12/03/matplotlib3/" data-id="ck3oo4bm9000be8u3bjpbgdnq" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/12/03/matplotlib3/" data-id="ck3qjni4w0007rwu39e1y1s21" class="article-share-link">Share</a>
       
       
     </footer>
@@ -99,6 +99,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2019/12/04/dataclean/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          dataclean
+        
+      </div>
+    </a>
   
   
     <a href="/2019/11/28/matplotlib2/" id="article-nav-older" class="article-nav-link-wrap">
@@ -140,6 +149,10 @@
       <ul>
         
           <li>
+            <a href="/2019/12/04/dataclean/">dataclean</a>
+          </li>
+        
+          <li>
             <a href="/2019/12/03/matplotlib3/">matplotlib3</a>
           </li>
         
@@ -153,10 +166,6 @@
         
           <li>
             <a href="/2019/11/26/consult/">consult</a>
-          </li>
-        
-          <li>
-            <a href="/2019/11/19/datamining2/">datamining2</a>
           </li>
         
       </ul>
