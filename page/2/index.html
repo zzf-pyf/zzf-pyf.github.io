@@ -61,6 +61,60 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-reptile2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/11/05/reptile2/" class="article-date">
+  <time datetime="2019-11-05T01:16:41.000Z" itemprop="datePublished">2019-11-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/05/reptile2/">reptile2</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="爬虫实战"><a href="#爬虫实战" class="headerlink" title="爬虫实战"></a>爬虫实战</h3><p>1.download cat<br>‘’’<br>import urllib.request<br>reponse=urllib.request.urlopen(“<a href="http://placekitten.com/g/500/600&quot;" target="_blank" rel="noopener">http://placekitten.com/g/500/600&quot;</a>)<br>#urlopen的参数既可以是一个字符串也可以是一个request对象<br>cat_img=reponse.read()<br>with open(‘cat_500_600.jpg’,’wb’)as f:<br>    f.write(cat_img)<br>‘’’</p>
+<p>注：pyhon传统读文件方式：</p>
+<p>f = open(‘ECKai/haha.txt’,’r’)<br>content = f.read()<br>f.close()</p>
+<p>但是文件打开时可能会报错，例如文件不存在时，会抛出IOError。这时需要使用如下方法打开文件：</p>
+<p>try：<br>    f = open(‘ECKai/haha.txt’,’r’)<br>    print(f.read())<br>finally:<br>    if f:<br>        f.close()</p>
+<p>为了简便上述代码，出现了with open as 的代码形式，with语句会自动调用close()：</p>
+<p>with open(‘ECKai/haha.txt’,’r’) as f:<br>    print(f.read())</p>
+<p>read()：一次读取所有的文件，若文件较大，则占用内存极大，占用时间大。<br>readlines()：分行读取。</p>
+<p>for line in f.readlines():<br>    print(line)</p>
+<p>read(size)：最多读取size个字节。</p>
+<p>写文件：</p>
+<p>可以反复调用write()来写入文件，但是务必要调用f.close()来关闭文件。<br>当我们写文件时，操作系统往往不会立刻把数据写入磁盘，而是放到内存缓存起来，<br>空闲的时候再慢慢写入。只有调用close()方法时，操作系统才保证把没有写入的数据<br>全部写入磁盘。忘记调用close()的后果是数据可能只写了一部分到磁盘，剩下的丢失了<br>。with语句会自动调用close()。</p>
+<p>with open(‘ECKai/haha.txt’,’w’) as f:<br>    f.write(“woaiLJR”)<br>    f.close</p>
+<p>※wb，rb读写二进制，比如图片、视频等等。</p>
+<p>open(‘ECKai/haha.txt’,’wb’)</p>
+<p>※修改编码方式，默认UTF-8</p>
+<p>f = open(‘ECKai/haha.txt’, ‘r’, encoding=’gbk’)</p>
+<p>注2：<br>1.reponse.geturl()<br>得到访问的具体的地址<br>2.reponse.info()<br>得到的是一个HTTPMessage的对象 可以把这个对象打印出来<br>print(reponse.info())<br>3.reponse.getcode()<br>得到的是http的状态</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile2/" data-id="ck3vi3mvh000d3wu38lji1crc" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-reptile1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/11/05/reptile1/" class="article-date">
@@ -89,7 +143,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile1/" data-id="ck3qjni4y0009rwu37e5a11eg" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile1/" data-id="ck3vi3mw9000h3wu3b2vv5wi7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -128,7 +182,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/04/Study5/" data-id="ck3qjni51000brwu39zavgle5" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/04/Study5/" data-id="ck3vi3muc00073wu3b8nr3gi3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -175,7 +229,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/02/Study4/" data-id="ck3qjni4t0004rwu36oe39fmx" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/02/Study4/" data-id="ck3vi3mrh00013wu384soh33t" class="article-share-link">Share</a>
       
       
     </footer>
@@ -215,7 +269,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/10/31/Study3/" data-id="ck3qjni53000crwu32bos6fch" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/10/31/Study3/" data-id="ck3vi3mro00023wu3bjv94flr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -261,7 +315,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/10/30/Study2/" data-id="ck3qjni4q0001rwu36uwr3n8s" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/10/30/Study2/" data-id="ck3vi3mqv00003wu3g5wx67v1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -314,7 +368,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/10/29/Study/" data-id="ck3qjni4k0000rwu350fh7rux" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/10/29/Study/" data-id="ck3vi3muv000a3wu33084ho1z" class="article-share-link">Share</a>
       
       
     </footer>
@@ -363,7 +417,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/10/27/hello-world/" data-id="ck3qjni4z000arwu30s9yfrb5" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/10/27/hello-world/" data-id="ck3vi3mw3000g3wu3fnuq8h4n" class="article-share-link">Share</a>
       
       
     </footer>
@@ -409,6 +463,10 @@
       <ul>
         
           <li>
+            <a href="/2019/12/07/distribution/">distribution</a>
+          </li>
+        
+          <li>
             <a href="/2019/12/04/dataclean/">dataclean</a>
           </li>
         
@@ -422,10 +480,6 @@
         
           <li>
             <a href="/2019/11/26/matplotib1/">matplotib1</a>
-          </li>
-        
-          <li>
-            <a href="/2019/11/26/consult/">consult</a>
           </li>
         
       </ul>

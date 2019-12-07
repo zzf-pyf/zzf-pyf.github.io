@@ -61,6 +61,45 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-distribution" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/07/distribution/" class="article-date">
+  <time datetime="2019-12-07T10:36:12.000Z" itemprop="datePublished">2019-12-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/07/distribution/">distribution</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="数据分布探索实战"><a href="#数据分布探索实战" class="headerlink" title="数据分布探索实战"></a>数据分布探索实战</h2><p>利用直方图探索数据分布的规律</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line">#导入数据</span><br><span class="line">import pandas as pda</span><br><span class="line">import os</span><br><span class="line">import numpy as npy</span><br><span class="line">import matplotlib.pylab as pyl</span><br><span class="line">data=pda.read_csv(&quot;C://Users//AbsolutelyYF//Desktop//商品数据清洗.csv&quot;)</span><br><span class="line">print(data.describe())</span><br><span class="line">#数据清洗</span><br><span class="line">#发现缺失值</span><br><span class="line">x=0</span><br><span class="line">data[&quot;price&quot;][(data[&quot;price&quot;]==0)]=None #将价格为0的数据统统变为空值</span><br><span class="line">for i in data.columns:</span><br><span class="line">    for j in range(len(data)):</span><br><span class="line">        if(data[i].isnull())[j]:</span><br><span class="line">            data[i][j]=&quot;36&quot;</span><br><span class="line">            x+=1</span><br><span class="line">print(x)</span><br><span class="line">#异常值处理</span><br><span class="line">#画散点图（横轴为价格，纵轴为评论数）</span><br><span class="line">#得到价格</span><br><span class="line">data2=data.T</span><br><span class="line">price=data2.values[1]</span><br><span class="line">#得到评论数据</span><br><span class="line">comment=data2.values[2]</span><br><span class="line">#通过散点图找异常点</span><br><span class="line">pyl.plot(price,comment,&apos;o&apos;)</span><br><span class="line">pyl.show()</span><br><span class="line">#评论数异常&gt;100000  价格异常&gt;2300</span><br><span class="line">line=len(data.values)     #几行</span><br><span class="line">column=len(data.values[0])#几列</span><br><span class="line">da=data.values</span><br><span class="line">for i in range(0,line):</span><br><span class="line">    for j in range(0,column):</span><br><span class="line">        if(da[i][1]&gt;2300):   #定位到价格 价格大于2300说明价格值异常</span><br><span class="line">            print(da[i][j])  #输出异常的商品</span><br><span class="line">            da[i][j]=36      #修正</span><br><span class="line">        if(da[i][2]&gt;100000):</span><br><span class="line">            print(da[i][j])  #输出异常的商品</span><br><span class="line">            da[i][j]=657     #修正</span><br><span class="line"></span><br><span class="line">#处理了异常之后再绘制一次图</span><br><span class="line">da2=da.T</span><br><span class="line">price=da2[1]</span><br><span class="line">comment=da2[2]</span><br><span class="line">pyl.plot(price,comment,&apos;o&apos;)</span><br><span class="line">pyl.show()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#分布分析</span><br><span class="line">pricemax=da2[1].max()</span><br><span class="line">pricemin=da2[1].min()</span><br><span class="line">commentmax=da2[2].max()</span><br><span class="line">commentmin=da2[2].min()</span><br><span class="line">#极差=最大值-最小值</span><br><span class="line">pricerg=pricemax-pricemin</span><br><span class="line">commentrg=commentmax-commentmin</span><br><span class="line">#组距=极差/组数</span><br><span class="line">pricedst=pricerg/12</span><br><span class="line">commentdst=commentrg/12</span><br><span class="line">#画价格的直方图</span><br><span class="line">pricesty=npy.arange(pricemin,pricemax,pricedst)</span><br><span class="line">pyl.hist(da2[1],pricesty)#价格直方图 显示价格区间的数目</span><br><span class="line">pyl.show()</span><br><span class="line">#画评论的直方图</span><br><span class="line">commentsty=npy.arange(commentmin,commentmax,commentdst)</span><br><span class="line">pyl.hist(da2[2],commentsty)</span><br><span class="line">pyl.show()</span><br></pre></td></tr></table></figure>
+<p>后面这一部分是本节要说明的内容</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zzf-pyf.github.io/2019/12/07/distribution/" data-id="ck3vi3ms000043wu326gv3nap" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-dataclean" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/12/04/dataclean/" class="article-date">
@@ -92,7 +131,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/12/04/dataclean/" data-id="ck3qjni4u0005rwu34lr9axxb" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/12/04/dataclean/" data-id="ck3vi3muj00083wu3eeql9zvt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -131,7 +170,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/12/03/matplotlib3/" data-id="ck3qjni4w0007rwu39e1y1s21" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/12/03/matplotlib3/" data-id="ck3vi3mvb000c3wu3gkdp7ht2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -189,7 +228,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/28/matplotlib2/" data-id="ck3qjni4x0008rwu34r16bs2q" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/28/matplotlib2/" data-id="ck3vi3muq00093wu387st800c" class="article-share-link">Share</a>
       
       
     </footer>
@@ -299,7 +338,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/26/matplotib1/" data-id="ck3qjni54000drwu367hs1gsi" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/26/matplotib1/" data-id="ck3vi3mvl000e3wu3h3sl1d4a" class="article-share-link">Share</a>
       
       
     </footer>
@@ -338,7 +377,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/26/consult/" data-id="ck3qjni4s0003rwu3e4v1h2ku" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/26/consult/" data-id="ck3vi3mu000053wu3ffm0bisr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -376,7 +415,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/19/datamining2/" data-id="ck3qjni4v0006rwu3hzvqcf52" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/19/datamining2/" data-id="ck3vi3mrv00033wu3406ob13t" class="article-share-link">Share</a>
       
       
     </footer>
@@ -481,7 +520,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/13/datamining1/" data-id="ck3qjni4r0002rwu3dizw9w4x" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/13/datamining1/" data-id="ck3vi3mu600063wu3d4yueiaw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -587,7 +626,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/07/reptile3-1/" data-id="ck3qjni56000frwu3bir8et3c" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/07/reptile3-1/" data-id="ck3vi3mv2000b3wu3cv4icxah" class="article-share-link">Share</a>
       
       
     </footer>
@@ -630,61 +669,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile3/" data-id="ck3qjni55000erwu379c051ax" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-reptile2" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/11/05/reptile2/" class="article-date">
-  <time datetime="2019-11-05T01:16:41.000Z" itemprop="datePublished">2019-11-05</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/05/reptile2/">reptile2</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="爬虫实战"><a href="#爬虫实战" class="headerlink" title="爬虫实战"></a>爬虫实战</h3><p>1.download cat<br>‘’’<br>import urllib.request<br>reponse=urllib.request.urlopen(“<a href="http://placekitten.com/g/500/600&quot;" target="_blank" rel="noopener">http://placekitten.com/g/500/600&quot;</a>)<br>#urlopen的参数既可以是一个字符串也可以是一个request对象<br>cat_img=reponse.read()<br>with open(‘cat_500_600.jpg’,’wb’)as f:<br>    f.write(cat_img)<br>‘’’</p>
-<p>注：pyhon传统读文件方式：</p>
-<p>f = open(‘ECKai/haha.txt’,’r’)<br>content = f.read()<br>f.close()</p>
-<p>但是文件打开时可能会报错，例如文件不存在时，会抛出IOError。这时需要使用如下方法打开文件：</p>
-<p>try：<br>    f = open(‘ECKai/haha.txt’,’r’)<br>    print(f.read())<br>finally:<br>    if f:<br>        f.close()</p>
-<p>为了简便上述代码，出现了with open as 的代码形式，with语句会自动调用close()：</p>
-<p>with open(‘ECKai/haha.txt’,’r’) as f:<br>    print(f.read())</p>
-<p>read()：一次读取所有的文件，若文件较大，则占用内存极大，占用时间大。<br>readlines()：分行读取。</p>
-<p>for line in f.readlines():<br>    print(line)</p>
-<p>read(size)：最多读取size个字节。</p>
-<p>写文件：</p>
-<p>可以反复调用write()来写入文件，但是务必要调用f.close()来关闭文件。<br>当我们写文件时，操作系统往往不会立刻把数据写入磁盘，而是放到内存缓存起来，<br>空闲的时候再慢慢写入。只有调用close()方法时，操作系统才保证把没有写入的数据<br>全部写入磁盘。忘记调用close()的后果是数据可能只写了一部分到磁盘，剩下的丢失了<br>。with语句会自动调用close()。</p>
-<p>with open(‘ECKai/haha.txt’,’w’) as f:<br>    f.write(“woaiLJR”)<br>    f.close</p>
-<p>※wb，rb读写二进制，比如图片、视频等等。</p>
-<p>open(‘ECKai/haha.txt’,’wb’)</p>
-<p>※修改编码方式，默认UTF-8</p>
-<p>f = open(‘ECKai/haha.txt’, ‘r’, encoding=’gbk’)</p>
-<p>注2：<br>1.reponse.geturl()<br>得到访问的具体的地址<br>2.reponse.info()<br>得到的是一个HTTPMessage的对象 可以把这个对象打印出来<br>print(reponse.info())<br>3.reponse.getcode()<br>得到的是http的状态</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile2/" data-id="ck3qjni5b000grwu3835udq1b" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile3/" data-id="ck3vi3mvu000f3wu31i3j9vyf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -730,6 +715,10 @@
       <ul>
         
           <li>
+            <a href="/2019/12/07/distribution/">distribution</a>
+          </li>
+        
+          <li>
             <a href="/2019/12/04/dataclean/">dataclean</a>
           </li>
         
@@ -743,10 +732,6 @@
         
           <li>
             <a href="/2019/11/26/matplotib1/">matplotib1</a>
-          </li>
-        
-          <li>
-            <a href="/2019/11/26/consult/">consult</a>
           </li>
         
       </ul>
