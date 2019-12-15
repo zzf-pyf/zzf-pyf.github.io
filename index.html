@@ -61,6 +61,43 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-ppt1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/15/ppt1/" class="article-date">
+  <time datetime="2019-12-15T08:00:15.000Z" itemprop="datePublished">2019-12-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/15/ppt1/">ppt1</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="面向对象建模迭代器代码实现"><a href="#面向对象建模迭代器代码实现" class="headerlink" title="面向对象建模迭代器代码实现"></a>面向对象建模迭代器代码实现</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br></pre></td><td class="code"><pre><span class="line">package iterator;</span><br><span class="line">import java.awt.*;</span><br><span class="line">import java.awt.event.*;</span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import javax.swing.*;</span><br><span class="line">public class PictureIterator&#123;</span><br><span class="line">    public static void main(String[] args)</span><br><span class="line">    &#123;</span><br><span class="line">        new PictureFrame();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//相框类</span><br><span class="line">class PictureFrame extends JFrame implements ActionListener</span><br><span class="line">&#123;</span><br><span class="line">    private static final long serialVersionUID=1L;</span><br><span class="line">    ViewSpotSet ag; //婺源景点集接口</span><br><span class="line">    ViewSpotIterator it; //婺源景点迭代器接口</span><br><span class="line">    WyViewSpot ob;    //婺源景点类</span><br><span class="line">    PictureFrame()</span><br><span class="line">    &#123;</span><br><span class="line">        super(&quot;中国最美乡村“婺源”的部分风景图&quot;);</span><br><span class="line">        this.setResizable(false);</span><br><span class="line">        ag=new WyViewSpotSet(); </span><br><span class="line">        ag.add(new WyViewSpot(&quot;江湾&quot;,&quot;江湾景区是婺源的一个国家5A级旅游景区，景区内有萧江宗祠、永思街、滕家老屋、婺源人家、乡贤园、百工坊等一大批古建筑，精美绝伦，做工精细。&quot;)); </span><br><span class="line">        ag.add(new WyViewSpot(&quot;李坑&quot;,&quot;李坑村是一个以李姓聚居为主的古村落，是国家4A级旅游景区，其建筑风格独特，是著名的徽派建筑，给人一种安静、祥和的感觉。&quot;)); </span><br><span class="line">        ag.add(new WyViewSpot(&quot;思溪延村&quot;,&quot;思溪延村位于婺源县思口镇境内，始建于南宋庆元五年（1199年），当时建村者俞氏以（鱼）思清溪水而名。&quot;));</span><br><span class="line">        ag.add(new WyViewSpot(&quot;晓起村&quot;,&quot;晓起有“中国茶文化第一村”与“国家级生态示范村”之美誉，村屋多为清代建筑，风格各具特色，村中小巷均铺青石，曲曲折折，回环如棋局。&quot;)); </span><br><span class="line">        ag.add(new WyViewSpot(&quot;菊径村&quot;,&quot;菊径村形状为山环水绕型，小河成大半圆型，绕村庄将近一周，四周为高山环绕，符合中国的八卦“后山前水”设计，当地人称“脸盆村”。&quot;)); </span><br><span class="line">        ag.add(new WyViewSpot(&quot;篁岭&quot;,&quot;篁岭是著名的“晒秋”文化起源地，也是一座距今近六百历史的徽州古村；篁岭属典型山居村落，民居围绕水口呈扇形梯状错落排布。&quot;));</span><br><span class="line">        ag.add(new WyViewSpot(&quot;彩虹桥&quot;,&quot;彩虹桥是婺源颇有特色的带顶的桥——廊桥，其不仅造型优美，而且它可在雨天里供行人歇脚，其名取自唐诗“两水夹明镜，双桥落彩虹”。&quot;)); </span><br><span class="line">        ag.add(new WyViewSpot(&quot;卧龙谷&quot;,&quot;卧龙谷是国家4A级旅游区，这里飞泉瀑流泄银吐玉、彩池幽潭碧绿清新、山峰岩石挺拔奇巧，活脱脱一幅天然泼墨山水画。&quot;));</span><br><span class="line">        it = ag.getIterator(); //获取婺源景点迭代器 </span><br><span class="line">        ob = it.first(); </span><br><span class="line">        this.showPicture(ob.getName(),ob.getIntroduce());</span><br><span class="line">    &#125;</span><br><span class="line">    //显示图片</span><br><span class="line">    void showPicture(String Name,String Introduce)</span><br><span class="line">    &#123;       </span><br><span class="line">        Container cp=this.getContentPane();       </span><br><span class="line">        JPanel picturePanel=new JPanel();</span><br><span class="line">        JPanel controlPanel=new JPanel();       </span><br><span class="line">        String FileName=&quot;src/iterator/Picture/&quot;+Name+&quot;.jpg&quot;;</span><br><span class="line">        JLabel lb=new JLabel(Name,new ImageIcon(FileName),JLabel.CENTER);   </span><br><span class="line">        JTextArea ta=new JTextArea(Introduce);       </span><br><span class="line">        lb.setHorizontalTextPosition(JLabel.CENTER);</span><br><span class="line">        lb.setVerticalTextPosition(JLabel.TOP);</span><br><span class="line">        lb.setFont(new Font(&quot;宋体&quot;,Font.BOLD,20));</span><br><span class="line">        ta.setLineWrap(true);       </span><br><span class="line">        ta.setEditable(false);</span><br><span class="line">        //ta.setBackground(Color.orange);</span><br><span class="line">        picturePanel.setLayout(new BorderLayout(5,5));</span><br><span class="line">        picturePanel.add(&quot;Center&quot;,lb);       </span><br><span class="line">        picturePanel.add(&quot;South&quot;,ta);       </span><br><span class="line">        JButton first, last, next, previous;</span><br><span class="line">        first=new JButton(&quot;第一张&quot;);</span><br><span class="line">        next=new JButton(&quot;下一张&quot;);</span><br><span class="line">        previous=new JButton(&quot;上一张&quot;);</span><br><span class="line">        last=new JButton(&quot;最末张&quot;);</span><br><span class="line">        first.addActionListener(this);</span><br><span class="line">        next.addActionListener(this);</span><br><span class="line">        previous.addActionListener(this);</span><br><span class="line">        last.addActionListener(this);        </span><br><span class="line">        controlPanel.add(first);</span><br><span class="line">        controlPanel.add(next);</span><br><span class="line">        controlPanel.add(previous);</span><br><span class="line">        controlPanel.add(last);       </span><br><span class="line">        cp.add(&quot;Center&quot;,picturePanel);</span><br><span class="line">        cp.add(&quot;South&quot;,controlPanel);</span><br><span class="line">        this.setSize(630, 550);</span><br><span class="line">        this.setVisible(true);</span><br><span class="line">        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public void actionPerformed(ActionEvent arg0)</span><br><span class="line">    &#123;</span><br><span class="line">        String command=arg0.getActionCommand();</span><br><span class="line">        if(command.equals(&quot;第一张&quot;))</span><br><span class="line">        &#123;</span><br><span class="line">            ob=it.first(); </span><br><span class="line">            this.showPicture(ob.getName(),ob.getIntroduce());</span><br><span class="line">        &#125;</span><br><span class="line">        else if(command.equals(&quot;下一张&quot;))</span><br><span class="line">        &#123;</span><br><span class="line">            ob=it.next(); </span><br><span class="line">            this.showPicture(ob.getName(),ob.getIntroduce());</span><br><span class="line">        &#125;</span><br><span class="line">        else if(command.equals(&quot;上一张&quot;))</span><br><span class="line">        &#123;</span><br><span class="line">            ob=it.previous(); </span><br><span class="line">            this.showPicture(ob.getName(),ob.getIntroduce());</span><br><span class="line">        &#125;</span><br><span class="line">        else if(command.equals(&quot;最末张&quot;))</span><br><span class="line">        &#123;</span><br><span class="line">            ob=it.last(); </span><br><span class="line">            this.showPicture(ob.getName(),ob.getIntroduce());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//婺源景点类</span><br><span class="line">class WyViewSpot</span><br><span class="line">&#123;</span><br><span class="line">    private String Name;</span><br><span class="line">    private String Introduce;</span><br><span class="line">    WyViewSpot(String Name,String Introduce)</span><br><span class="line">    &#123;</span><br><span class="line">        this.Name=Name;</span><br><span class="line">        this.Introduce=Introduce;</span><br><span class="line">    &#125;</span><br><span class="line">    public String getName()</span><br><span class="line">    &#123;</span><br><span class="line">        return Name;</span><br><span class="line">    &#125;</span><br><span class="line">    public String getIntroduce()</span><br><span class="line">    &#123;</span><br><span class="line">        return Introduce;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//抽象聚合：婺源景点集接口</span><br><span class="line">interface ViewSpotSet</span><br><span class="line">&#123; </span><br><span class="line">    void add(WyViewSpot obj); </span><br><span class="line">    void remove(WyViewSpot obj); </span><br><span class="line">    ViewSpotIterator getIterator(); </span><br><span class="line">&#125;</span><br><span class="line">//具体聚合：婺源景点集</span><br><span class="line">class WyViewSpotSet implements ViewSpotSet</span><br><span class="line">&#123; </span><br><span class="line">    private ArrayList&lt;WyViewSpot&gt; list=new ArrayList&lt;WyViewSpot&gt;(); </span><br><span class="line">    public void add(WyViewSpot obj)</span><br><span class="line">    &#123; </span><br><span class="line">        list.add(obj); </span><br><span class="line">    &#125;</span><br><span class="line">    public void remove(WyViewSpot obj)</span><br><span class="line">    &#123; </span><br><span class="line">        list.remove(obj); </span><br><span class="line">    &#125;</span><br><span class="line">    public ViewSpotIterator getIterator()</span><br><span class="line">    &#123; </span><br><span class="line">        return(new WyViewSpotIterator(list)); </span><br><span class="line">    &#125;     </span><br><span class="line">&#125;</span><br><span class="line">//抽象迭代器：婺源景点迭代器接口</span><br><span class="line">interface ViewSpotIterator</span><br><span class="line">&#123;</span><br><span class="line">    boolean hasNext();</span><br><span class="line">    WyViewSpot first();</span><br><span class="line">    WyViewSpot next();</span><br><span class="line">    WyViewSpot previous();</span><br><span class="line">    WyViewSpot last(); </span><br><span class="line">&#125;</span><br><span class="line">//具体迭代器：婺源景点迭代器</span><br><span class="line">class WyViewSpotIterator implements ViewSpotIterator</span><br><span class="line">&#123; </span><br><span class="line">    private ArrayList&lt;WyViewSpot&gt; list=null; </span><br><span class="line">    private int index=-1;</span><br><span class="line">    WyViewSpot obj=null;</span><br><span class="line">    public WyViewSpotIterator(ArrayList&lt;WyViewSpot&gt; list)</span><br><span class="line">    &#123;</span><br><span class="line">        this.list=list; </span><br><span class="line">    &#125; </span><br><span class="line">    public boolean hasNext()</span><br><span class="line">    &#123; </span><br><span class="line">        if(index&lt;list.size()-1)</span><br><span class="line">        &#123; </span><br><span class="line">            return true;</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">        &#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    public WyViewSpot first()</span><br><span class="line">    &#123;</span><br><span class="line">        index=0;</span><br><span class="line">        obj=list.get(index);</span><br><span class="line">        return obj;</span><br><span class="line">    &#125;</span><br><span class="line">    public WyViewSpot next()</span><br><span class="line">    &#123;         </span><br><span class="line">        if(this.hasNext())</span><br><span class="line">        &#123; </span><br><span class="line">            obj=list.get(++index);</span><br><span class="line">        &#125; </span><br><span class="line">        return obj; </span><br><span class="line">    &#125;</span><br><span class="line">    public WyViewSpot previous()</span><br><span class="line">    &#123; </span><br><span class="line">        if(index&gt;0)</span><br><span class="line">        &#123; </span><br><span class="line">            obj=list.get(--index); </span><br><span class="line">        &#125; </span><br><span class="line">        return obj; </span><br><span class="line">    &#125;</span><br><span class="line">    public WyViewSpot last()</span><br><span class="line">    &#123;</span><br><span class="line">        index=list.size()-1;</span><br><span class="line">        obj=list.get(index);</span><br><span class="line">        return obj;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zzf-pyf.github.io/2019/12/15/ppt1/" data-id="ck46q1rds000cw8u3e7q41xuu" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-distribution" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/12/07/distribution/" class="article-date">
@@ -90,7 +127,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/12/07/distribution/" data-id="ck3vi3ms000043wu326gv3nap" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/12/07/distribution/" data-id="ck46q1rdr000bw8u35ry43k6p" class="article-share-link">Share</a>
       
       
     </footer>
@@ -131,7 +168,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/12/04/dataclean/" data-id="ck3vi3muj00083wu3eeql9zvt" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/12/04/dataclean/" data-id="ck46q1rde0004w8u3emg23cbh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -170,7 +207,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/12/03/matplotlib3/" data-id="ck3vi3mvb000c3wu3gkdp7ht2" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/12/03/matplotlib3/" data-id="ck46q1rdp000aw8u394xx1z6q" class="article-share-link">Share</a>
       
       
     </footer>
@@ -228,7 +265,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/28/matplotlib2/" data-id="ck3vi3muq00093wu387st800c" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/28/matplotlib2/" data-id="ck46q1rdw000ew8u32rsl5ps1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -338,7 +375,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/26/matplotib1/" data-id="ck3vi3mvl000e3wu3h3sl1d4a" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/26/matplotib1/" data-id="ck46q1rdn0009w8u32ubbd5d4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -377,7 +414,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/26/consult/" data-id="ck3vi3mu000053wu3ffm0bisr" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/26/consult/" data-id="ck46q1rcx0002w8u3gb4k89qm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -415,7 +452,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/19/datamining2/" data-id="ck3vi3mrv00033wu3406ob13t" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/19/datamining2/" data-id="ck46q1rdk0007w8u332u3bwbp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -520,7 +557,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/13/datamining1/" data-id="ck3vi3mu600063wu3d4yueiaw" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/13/datamining1/" data-id="ck46q1rdi0006w8u36hfjanl5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -626,50 +663,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/07/reptile3-1/" data-id="ck3vi3mv2000b3wu3cv4icxah" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-reptile3" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/11/05/reptile3/" class="article-date">
-  <time datetime="2019-11-05T02:01:17.000Z" itemprop="datePublished">2019-11-05</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/05/reptile3/">reptile3</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="爬虫实战2"><a href="#爬虫实战2" class="headerlink" title="爬虫实战2"></a>爬虫实战2</h2><h1 id="利用有道词典来翻译文本"><a href="#利用有道词典来翻译文本" class="headerlink" title="利用有道词典来翻译文本"></a>利用有道词典来翻译文本</h1><p>‘’’<br>import urllib.request<br>import urllib.parse<br>import json       #美化程序得到用户需要的结果</p>
-<p>content=input(‘请输入需要翻译的内容’)</p>
-<p>url=’<a href="http://fanyi.youdao.com/translate?smartresult=dict&amp;smartresult=rule&#39;" target="_blank" rel="noopener">http://fanyi.youdao.com/translate?smartresult=dict&amp;smartresult=rule&#39;</a><br>data={}<br>data[‘i’]=content<br>data[‘from’]=’AUTO’<br>data[‘to’]=’AUTO’<br>data[‘smartresult’]=’dict’<br>data[‘client’]=’fanyideskweb’<br>data[‘salt’]=’15729229099067’<br>data[‘sign’]=’06ecc0ff66e31488dd986c3da62d2303’<br>data[‘ts’]=’1572922909906’<br>data[‘bv’]=’6590b9dba19442fb0fa8ca7917e0beca’<br>data[‘doctype’]=’json’<br>data[‘version’]=’2.1’<br>data[‘keyfrom’]=’fanyi.web’<br>data[‘action’]=’FY_BY_CLICKBUTTION’</p>
-<p>data=urllib.parse.urlencode(data).encode(‘utf-8’)<br>reponse=urllib.request.urlopen(url,data)<br>html=reponse.read().decode(‘utf-8’)</p>
-<p>target=json.loads(html)  #把html字符串载入 得到一个字典<br>print(“翻译结果:%s” %(target[‘translateResult’][0][0][‘tgt’]))</p>
-<p>‘’’<br>import json<br>import random<br>import time<br>import hashlib<br>from urllib import parse<br>from urllib import request</p>
-<p>#等待用户输入需要翻译的单词<br>i = input(‘请输入需要翻译的句子：’)<br>#有道翻译的url链接<br>url = ‘<a href="http://fanyi.youdao.com/translate_o?smartresult=dict&amp;smartresult=rule&#39;" target="_blank" rel="noopener">http://fanyi.youdao.com/translate_o?smartresult=dict&amp;smartresult=rule&#39;</a><br>#构造有道的加密参数<br>client = “fanyideskweb”<br>ts = int(time.time() * 1000)<br>salt = str(ts + random.randint(1, 10))<br>flowerStr = “p09@Bn{h02_BIEe]$P^nG”<br>sign = hashlib.md5((client + i + salt + flowerStr).encode(‘utf-8’)).hexdigest()<br>bv = ‘9deb57d53879cce82ff92bccf83a3e4c’<br>#创建Form_Data字典，存储请求体<br>Form_Data = {}<br>#需要翻译的文字<br>Form_Data[‘i’] = i<br>#下面这些都先按照我们之前抓包获取到的数据<br>Form_Data[‘from’] = ‘AUTO’<br>Form_Data[‘to’] = ‘AUTO’<br>Form_Data[‘smartresult’] = ‘dict’<br>Form_Data[‘client’] = client<br>Form_Data[‘salt’] = salt<br>Form_Data[‘sign’] = sign<br>Form_Data[‘ts’] = ts<br>Form_Data[‘bv’] = bv<br>Form_Data[‘doctype’] = ‘json’<br>Form_Data[‘version’] = ‘2.1’<br>Form_Data[‘keyfrom’] = ‘fanyi.web’<br>Form_Data[‘action’] = ‘FY_BY_REALTIME’<br>Form_Data[‘typoResult’] = ‘false’<br>#对数据进行字节流编码处理<br>data = parse.urlencode(Form_Data).encode(‘utf-8’)<br>#创建Request对象<br>req = request.Request(url=url, data=data, method=’POST’)<br>#写入header信息<br>req.add_header(‘User-Agent’, ‘Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36’)<br>req.add_header(‘cookie’, ‘OUTFOX_SEARCH_USER_ID=-1626129620@10.168.8.63’)<br>req.add_header(‘Referer’, ‘<a href="http://fanyi.youdao.com/&#39;" target="_blank" rel="noopener">http://fanyi.youdao.com/&#39;</a>)<br>#传入创建好的Request对象<br>response = request.urlopen(req, timeout=5)<br>#读取信息并进行字节流解码<br>html = response.read().decode(‘utf-8’)<br>#返回来的json字符串解析成字典<br>translate_results = json.loads(html)<br>#打印翻译结果<br>translate_result = translate_results[“translateResult”][0][0][‘tgt’]<br>print(“翻译的结果是：%s” % translate_result)</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile3/" data-id="ck3vi3mvu000f3wu31i3j9vyf" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/07/reptile3-1/" data-id="ck46q1rdx000fw8u3byqscykw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -715,6 +709,10 @@
       <ul>
         
           <li>
+            <a href="/2019/12/15/ppt1/">ppt1</a>
+          </li>
+        
+          <li>
             <a href="/2019/12/07/distribution/">distribution</a>
           </li>
         
@@ -728,10 +726,6 @@
         
           <li>
             <a href="/2019/11/28/matplotlib2/">matplotlib2</a>
-          </li>
-        
-          <li>
-            <a href="/2019/11/26/matplotib1/">matplotib1</a>
           </li>
         
       </ul>

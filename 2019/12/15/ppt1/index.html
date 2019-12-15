@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>ppt1 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="面向对象建模迭代器代码实现1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939495969798">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ppt1">
+<meta property="og:url" content="https:&#x2F;&#x2F;zzf-pyf.github.io&#x2F;2019&#x2F;12&#x2F;15&#x2F;ppt1&#x2F;index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="面向对象建模迭代器代码实现1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939495969798">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-12-15T08:02:23.613Z">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://zzf-pyf.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-ppt1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/15/ppt1/" class="article-date">
+  <time datetime="2019-12-15T08:00:15.000Z" itemprop="datePublished">2019-12-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ppt1
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="面向对象建模迭代器代码实现"><a href="#面向对象建模迭代器代码实现" class="headerlink" title="面向对象建模迭代器代码实现"></a>面向对象建模迭代器代码实现</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br></pre></td><td class="code"><pre><span class="line">package iterator;</span><br><span class="line">import java.awt.*;</span><br><span class="line">import java.awt.event.*;</span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import javax.swing.*;</span><br><span class="line">public class PictureIterator&#123;</span><br><span class="line">    public static void main(String[] args)</span><br><span class="line">    &#123;</span><br><span class="line">        new PictureFrame();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//相框类</span><br><span class="line">class PictureFrame extends JFrame implements ActionListener</span><br><span class="line">&#123;</span><br><span class="line">    private static final long serialVersionUID=1L;</span><br><span class="line">    ViewSpotSet ag; //婺源景点集接口</span><br><span class="line">    ViewSpotIterator it; //婺源景点迭代器接口</span><br><span class="line">    WyViewSpot ob;    //婺源景点类</span><br><span class="line">    PictureFrame()</span><br><span class="line">    &#123;</span><br><span class="line">        super(&quot;中国最美乡村“婺源”的部分风景图&quot;);</span><br><span class="line">        this.setResizable(false);</span><br><span class="line">        ag=new WyViewSpotSet(); </span><br><span class="line">        ag.add(new WyViewSpot(&quot;江湾&quot;,&quot;江湾景区是婺源的一个国家5A级旅游景区，景区内有萧江宗祠、永思街、滕家老屋、婺源人家、乡贤园、百工坊等一大批古建筑，精美绝伦，做工精细。&quot;)); </span><br><span class="line">        ag.add(new WyViewSpot(&quot;李坑&quot;,&quot;李坑村是一个以李姓聚居为主的古村落，是国家4A级旅游景区，其建筑风格独特，是著名的徽派建筑，给人一种安静、祥和的感觉。&quot;)); </span><br><span class="line">        ag.add(new WyViewSpot(&quot;思溪延村&quot;,&quot;思溪延村位于婺源县思口镇境内，始建于南宋庆元五年（1199年），当时建村者俞氏以（鱼）思清溪水而名。&quot;));</span><br><span class="line">        ag.add(new WyViewSpot(&quot;晓起村&quot;,&quot;晓起有“中国茶文化第一村”与“国家级生态示范村”之美誉，村屋多为清代建筑，风格各具特色，村中小巷均铺青石，曲曲折折，回环如棋局。&quot;)); </span><br><span class="line">        ag.add(new WyViewSpot(&quot;菊径村&quot;,&quot;菊径村形状为山环水绕型，小河成大半圆型，绕村庄将近一周，四周为高山环绕，符合中国的八卦“后山前水”设计，当地人称“脸盆村”。&quot;)); </span><br><span class="line">        ag.add(new WyViewSpot(&quot;篁岭&quot;,&quot;篁岭是著名的“晒秋”文化起源地，也是一座距今近六百历史的徽州古村；篁岭属典型山居村落，民居围绕水口呈扇形梯状错落排布。&quot;));</span><br><span class="line">        ag.add(new WyViewSpot(&quot;彩虹桥&quot;,&quot;彩虹桥是婺源颇有特色的带顶的桥——廊桥，其不仅造型优美，而且它可在雨天里供行人歇脚，其名取自唐诗“两水夹明镜，双桥落彩虹”。&quot;)); </span><br><span class="line">        ag.add(new WyViewSpot(&quot;卧龙谷&quot;,&quot;卧龙谷是国家4A级旅游区，这里飞泉瀑流泄银吐玉、彩池幽潭碧绿清新、山峰岩石挺拔奇巧，活脱脱一幅天然泼墨山水画。&quot;));</span><br><span class="line">        it = ag.getIterator(); //获取婺源景点迭代器 </span><br><span class="line">        ob = it.first(); </span><br><span class="line">        this.showPicture(ob.getName(),ob.getIntroduce());</span><br><span class="line">    &#125;</span><br><span class="line">    //显示图片</span><br><span class="line">    void showPicture(String Name,String Introduce)</span><br><span class="line">    &#123;       </span><br><span class="line">        Container cp=this.getContentPane();       </span><br><span class="line">        JPanel picturePanel=new JPanel();</span><br><span class="line">        JPanel controlPanel=new JPanel();       </span><br><span class="line">        String FileName=&quot;src/iterator/Picture/&quot;+Name+&quot;.jpg&quot;;</span><br><span class="line">        JLabel lb=new JLabel(Name,new ImageIcon(FileName),JLabel.CENTER);   </span><br><span class="line">        JTextArea ta=new JTextArea(Introduce);       </span><br><span class="line">        lb.setHorizontalTextPosition(JLabel.CENTER);</span><br><span class="line">        lb.setVerticalTextPosition(JLabel.TOP);</span><br><span class="line">        lb.setFont(new Font(&quot;宋体&quot;,Font.BOLD,20));</span><br><span class="line">        ta.setLineWrap(true);       </span><br><span class="line">        ta.setEditable(false);</span><br><span class="line">        //ta.setBackground(Color.orange);</span><br><span class="line">        picturePanel.setLayout(new BorderLayout(5,5));</span><br><span class="line">        picturePanel.add(&quot;Center&quot;,lb);       </span><br><span class="line">        picturePanel.add(&quot;South&quot;,ta);       </span><br><span class="line">        JButton first, last, next, previous;</span><br><span class="line">        first=new JButton(&quot;第一张&quot;);</span><br><span class="line">        next=new JButton(&quot;下一张&quot;);</span><br><span class="line">        previous=new JButton(&quot;上一张&quot;);</span><br><span class="line">        last=new JButton(&quot;最末张&quot;);</span><br><span class="line">        first.addActionListener(this);</span><br><span class="line">        next.addActionListener(this);</span><br><span class="line">        previous.addActionListener(this);</span><br><span class="line">        last.addActionListener(this);        </span><br><span class="line">        controlPanel.add(first);</span><br><span class="line">        controlPanel.add(next);</span><br><span class="line">        controlPanel.add(previous);</span><br><span class="line">        controlPanel.add(last);       </span><br><span class="line">        cp.add(&quot;Center&quot;,picturePanel);</span><br><span class="line">        cp.add(&quot;South&quot;,controlPanel);</span><br><span class="line">        this.setSize(630, 550);</span><br><span class="line">        this.setVisible(true);</span><br><span class="line">        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public void actionPerformed(ActionEvent arg0)</span><br><span class="line">    &#123;</span><br><span class="line">        String command=arg0.getActionCommand();</span><br><span class="line">        if(command.equals(&quot;第一张&quot;))</span><br><span class="line">        &#123;</span><br><span class="line">            ob=it.first(); </span><br><span class="line">            this.showPicture(ob.getName(),ob.getIntroduce());</span><br><span class="line">        &#125;</span><br><span class="line">        else if(command.equals(&quot;下一张&quot;))</span><br><span class="line">        &#123;</span><br><span class="line">            ob=it.next(); </span><br><span class="line">            this.showPicture(ob.getName(),ob.getIntroduce());</span><br><span class="line">        &#125;</span><br><span class="line">        else if(command.equals(&quot;上一张&quot;))</span><br><span class="line">        &#123;</span><br><span class="line">            ob=it.previous(); </span><br><span class="line">            this.showPicture(ob.getName(),ob.getIntroduce());</span><br><span class="line">        &#125;</span><br><span class="line">        else if(command.equals(&quot;最末张&quot;))</span><br><span class="line">        &#123;</span><br><span class="line">            ob=it.last(); </span><br><span class="line">            this.showPicture(ob.getName(),ob.getIntroduce());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//婺源景点类</span><br><span class="line">class WyViewSpot</span><br><span class="line">&#123;</span><br><span class="line">    private String Name;</span><br><span class="line">    private String Introduce;</span><br><span class="line">    WyViewSpot(String Name,String Introduce)</span><br><span class="line">    &#123;</span><br><span class="line">        this.Name=Name;</span><br><span class="line">        this.Introduce=Introduce;</span><br><span class="line">    &#125;</span><br><span class="line">    public String getName()</span><br><span class="line">    &#123;</span><br><span class="line">        return Name;</span><br><span class="line">    &#125;</span><br><span class="line">    public String getIntroduce()</span><br><span class="line">    &#123;</span><br><span class="line">        return Introduce;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//抽象聚合：婺源景点集接口</span><br><span class="line">interface ViewSpotSet</span><br><span class="line">&#123; </span><br><span class="line">    void add(WyViewSpot obj); </span><br><span class="line">    void remove(WyViewSpot obj); </span><br><span class="line">    ViewSpotIterator getIterator(); </span><br><span class="line">&#125;</span><br><span class="line">//具体聚合：婺源景点集</span><br><span class="line">class WyViewSpotSet implements ViewSpotSet</span><br><span class="line">&#123; </span><br><span class="line">    private ArrayList&lt;WyViewSpot&gt; list=new ArrayList&lt;WyViewSpot&gt;(); </span><br><span class="line">    public void add(WyViewSpot obj)</span><br><span class="line">    &#123; </span><br><span class="line">        list.add(obj); </span><br><span class="line">    &#125;</span><br><span class="line">    public void remove(WyViewSpot obj)</span><br><span class="line">    &#123; </span><br><span class="line">        list.remove(obj); </span><br><span class="line">    &#125;</span><br><span class="line">    public ViewSpotIterator getIterator()</span><br><span class="line">    &#123; </span><br><span class="line">        return(new WyViewSpotIterator(list)); </span><br><span class="line">    &#125;     </span><br><span class="line">&#125;</span><br><span class="line">//抽象迭代器：婺源景点迭代器接口</span><br><span class="line">interface ViewSpotIterator</span><br><span class="line">&#123;</span><br><span class="line">    boolean hasNext();</span><br><span class="line">    WyViewSpot first();</span><br><span class="line">    WyViewSpot next();</span><br><span class="line">    WyViewSpot previous();</span><br><span class="line">    WyViewSpot last(); </span><br><span class="line">&#125;</span><br><span class="line">//具体迭代器：婺源景点迭代器</span><br><span class="line">class WyViewSpotIterator implements ViewSpotIterator</span><br><span class="line">&#123; </span><br><span class="line">    private ArrayList&lt;WyViewSpot&gt; list=null; </span><br><span class="line">    private int index=-1;</span><br><span class="line">    WyViewSpot obj=null;</span><br><span class="line">    public WyViewSpotIterator(ArrayList&lt;WyViewSpot&gt; list)</span><br><span class="line">    &#123;</span><br><span class="line">        this.list=list; </span><br><span class="line">    &#125; </span><br><span class="line">    public boolean hasNext()</span><br><span class="line">    &#123; </span><br><span class="line">        if(index&lt;list.size()-1)</span><br><span class="line">        &#123; </span><br><span class="line">            return true;</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">        &#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    public WyViewSpot first()</span><br><span class="line">    &#123;</span><br><span class="line">        index=0;</span><br><span class="line">        obj=list.get(index);</span><br><span class="line">        return obj;</span><br><span class="line">    &#125;</span><br><span class="line">    public WyViewSpot next()</span><br><span class="line">    &#123;         </span><br><span class="line">        if(this.hasNext())</span><br><span class="line">        &#123; </span><br><span class="line">            obj=list.get(++index);</span><br><span class="line">        &#125; </span><br><span class="line">        return obj; </span><br><span class="line">    &#125;</span><br><span class="line">    public WyViewSpot previous()</span><br><span class="line">    &#123; </span><br><span class="line">        if(index&gt;0)</span><br><span class="line">        &#123; </span><br><span class="line">            obj=list.get(--index); </span><br><span class="line">        &#125; </span><br><span class="line">        return obj; </span><br><span class="line">    &#125;</span><br><span class="line">    public WyViewSpot last()</span><br><span class="line">    &#123;</span><br><span class="line">        index=list.size()-1;</span><br><span class="line">        obj=list.get(index);</span><br><span class="line">        return obj;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zzf-pyf.github.io/2019/12/15/ppt1/" data-id="ck46q1rds000cw8u3e7q41xuu" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/12/07/distribution/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">distribution</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/12/15/ppt1/">ppt1</a>
+          </li>
+        
+          <li>
+            <a href="/2019/12/07/distribution/">distribution</a>
+          </li>
+        
+          <li>
+            <a href="/2019/12/04/dataclean/">dataclean</a>
+          </li>
+        
+          <li>
+            <a href="/2019/12/03/matplotlib3/">matplotlib3</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/28/matplotlib2/">matplotlib2</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 pyf<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
