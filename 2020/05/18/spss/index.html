@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>spss | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="SPSS1.数据文件的合并如果你的数据是存储于几个不同的数据文件之中，那么在分析之前，你需要先将这些数据进行合并。分两种情况：（1）添加变量第①种是添加变量，也称为横向合并：也就是你的数据的不同列是分散存储在不同数据文件中的，需要把它们合并起来，比方说，part1，part2，part3中的数据原本来自于3个不同的数据文件，合并起来之后，组成了完整的数据集。 这种数据合并实际用处是：比如你的研究小">
+<meta property="og:type" content="article">
+<meta property="og:title" content="spss">
+<meta property="og:url" content="https:&#x2F;&#x2F;zzf-pyf.github.io&#x2F;2020&#x2F;05&#x2F;18&#x2F;spss&#x2F;index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="SPSS1.数据文件的合并如果你的数据是存储于几个不同的数据文件之中，那么在分析之前，你需要先将这些数据进行合并。分两种情况：（1）添加变量第①种是添加变量，也称为横向合并：也就是你的数据的不同列是分散存储在不同数据文件中的，需要把它们合并起来，比方说，part1，part2，part3中的数据原本来自于3个不同的数据文件，合并起来之后，组成了完整的数据集。 这种数据合并实际用处是：比如你的研究小">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-05-24T05:25:05.225Z">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://zzf-pyf.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-spss" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/05/18/spss/" class="article-date">
+  <time datetime="2020-05-18T09:33:06.000Z" itemprop="datePublished">2020-05-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      spss
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="SPSS"><a href="#SPSS" class="headerlink" title="SPSS"></a>SPSS</h2><h1 id="1-数据文件的合并"><a href="#1-数据文件的合并" class="headerlink" title="1.数据文件的合并"></a>1.数据文件的合并</h1><p>如果你的数据是存储于几个不同的数据文件之中，那么在分析之前，<br>你需要先将这些数据进行合并。分两种情况：<br>（1）添加变量<br>第①种是添加变量，也称为横向合并：也就是你的数据的不同列是<br>分散存储在不同数据文件中的，需要把它们合并起来，比方说，part1，part2，<br>part3中的数据原本来自于3个不同的数据文件，合并起来之后，组成了完整的数据集。</p>
+<p>这种数据合并实际用处是：比如你的研究小组在进行问卷数据录入的时候，<br>让不同的小组成员录入不同的题目，最后要把不同小组成员录入的数据合并到一起进行分析，<br>就使用这种方法。特别要注意的是：每个小组成员在录入的时候，<br>都需要为问卷进行编号，也就是每个人都要建立一个ID变量，<br>否则最后你们的数据合并到一起就会错位，导致分析出现问题。</p>
+<p>（2）添加个案<br>第②种是添加记录，也称为纵向合并：也就是你的数据集有很多行，<br>按照行分散存储在了不同数据文件中，比方说，原来你的数据集中的part1，<br>和part2是分别存储在两个不同文件中的，进行合并之后，就到了一个数据集中了。</p>
+<p>这种数据合并实际用处是：比如你的研究小组在进行问卷数据录入的时候，<br>让不同的小组成员录入不同的问卷，最后要把不同小组成员录入的<br>数据合并到一起进行分析，就使用这种方法。需要特别注意的是：<br>不同小组成员必须使用相同的表结构（表中变量名称，变量顺序一致）进行数据录入，<br>如果不一致，那么就无法实现合并。</p>
+<h1 id="2-数据文件的结构重组"><a href="#2-数据文件的结构重组" class="headerlink" title="2.数据文件的结构重组"></a>2.数据文件的结构重组</h1><p>eg：如果有一组数据的变量是ph1，ph2一直到ph6.我希望把这六个变量结构重组变成两个变量<br>一个是批次，批次的值是123456，随后的变量是ph值。<br>下面是操作步骤：<br>1.首先点击顶部的文件菜单，在下拉菜单中选择数据选项<br>2.在打开的对话框界面中选择要进行结构重组的数据文件<br>3.接下来点击顶部的数据文件，在下拉菜单中选择重组选项<br>4.然后就会进入重组数据向导界面，这里我们选择第一个选项，将选定变量重组为个案<br>5.接着会让我们选择要重组的变量组数，这里我们选择第一个选项即可<br>6.然后设置目标变量，固定变量，个案组标识，如下图所示，注意目标变量是重组的关键点<br>7.接下来会进入索引创建的界面，这里我们选择创建一个索引变量<br>8.然后我们对索引的值进行设置，选择有序数即可，再编辑索引变量名称为批次，设置索引值<br>9.最后进入完成界面我们勾选自己重组数据选项，然后点击完成按钮<br>10.接着SPSS软件就会把我们的数据按照固定变量进行结构重组了</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zzf-pyf.github.io/2020/05/18/spss/" data-id="ckakmc8ls000go8u34bam8og0" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/12/15/ppt1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ppt1</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/05/18/spss/">spss</a>
+          </li>
+        
+          <li>
+            <a href="/2019/12/15/ppt1/">ppt1</a>
+          </li>
+        
+          <li>
+            <a href="/2019/12/07/distribution/">distribution</a>
+          </li>
+        
+          <li>
+            <a href="/2019/12/04/dataclean/">dataclean</a>
+          </li>
+        
+          <li>
+            <a href="/2019/12/03/matplotlib3/">matplotlib3</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 pyf<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
