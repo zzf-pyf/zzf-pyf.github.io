@@ -61,6 +61,44 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-datamining2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/11/19/datamining2/" class="article-date">
+  <time datetime="2019-11-19T12:37:46.000Z" itemprop="datePublished">2019-11-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/19/datamining2/">datamining2</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="python数据导入实战"><a href="#python数据导入实战" class="headerlink" title="python数据导入实战"></a>python数据导入实战</h1><p>导入csv数据<br>csv是一种常见的数据存储格式，基本上我们遇到的数据可以转为这种存储格式。<br>在python数据分析中，我们可以使用pandas模块导入csv数据。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pda</span><br><span class="line">import os</span><br><span class="line">#导入csv文件</span><br><span class="line">i=pda.read_csv(&quot;C://Users//AbsolutelyYF//Desktop//survey.csv&quot;)#一定要把\改为//</span><br><span class="line">#i.describe()得到csv数据的一些信息</span><br><span class="line"></span><br><span class="line">#i.sort_values(by=&quot;Age&quot;) #按一属性排序</span><br><span class="line">#导入excel</span><br><span class="line">j=pda.read_excel(&quot;C://Users//AbsolutelyYF//Desktop//评价指数.xlsx&quot;)</span><br><span class="line"></span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">导入MySQL数据库中的数据</span><br><span class="line">import pymysql</span><br><span class="line">conn=pymysql.connect(host=&quot;112.27.238.135&quot;,user=&quot;root&quot;,passwd=&quot;root&quot;,db=&quot;hexun&quot;)</span><br><span class="line">sql=&quot;select*from myhexun&quot;</span><br><span class="line">k=pda.read_sql(sql,conn)</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line"></span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">导入html数据</span><br><span class="line">使用pandas,可以直接从html网页中加载table表格中的数据，但是在使用read_html()之前，需要先安装html5lib</span><br><span class="line">模块与beautifulsoup4模块</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">m=pda.read_html(&quot;https://book.douban.com/&quot;)#读取网页表格</span><br><span class="line"></span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line"></span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">导入文本数据</span><br><span class="line">有时候我们希望直接导入txt文本数据，其实也是可以的</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line"></span><br><span class="line">n=pda.read_table(&quot;C://Users//AbsolutelyYF//Desktop//1 (2).txt&quot;)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zzf-pyf.github.io/2019/11/19/datamining2/" data-id="ckap5jf1u0008h0u3f3urbh37" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-datamining1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/11/13/datamining1/" class="article-date">
@@ -156,7 +194,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/13/datamining1/" data-id="ckao37gr20005cou382q25tre" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/13/datamining1/" data-id="ckap5jf1t0007h0u38odgb5sq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -262,7 +300,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/07/reptile3-1/" data-id="ckao37gs1000kcou3doq6cvsy" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/07/reptile3-1/" data-id="ckap5jf25000hh0u32uv25qpe" class="article-share-link">Share</a>
       
       
     </footer>
@@ -305,7 +343,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile3/" data-id="ckao37grp000jcou39vhpf83p" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile3/" data-id="ckap5jf27000jh0u3cc3n6efj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -359,7 +397,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile2/" data-id="ckao37gri000dcou3c6in8v80" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile2/" data-id="ckap5jf24000gh0u318jy9tlx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -397,7 +435,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile1/" data-id="ckao37grj000ecou3101s8e6h" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile1/" data-id="ckap5jf23000fh0u33uwq29o1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -436,7 +474,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/04/Study5/" data-id="ckao37gqx0002cou358ni8m89" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/04/Study5/" data-id="ckap5jf1p0003h0u350f88h5h" class="article-share-link">Share</a>
       
       
     </footer>
@@ -483,7 +521,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/02/Study4/" data-id="ckao37gqy0003cou31i4u2b21" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/02/Study4/" data-id="ckap5jf1q0004h0u31lvm0dtd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -523,7 +561,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/10/31/Study3/" data-id="ckao37gr00004cou36fmvfhti" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/10/31/Study3/" data-id="ckap5jf1o0002h0u33xpq5ws7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -569,60 +607,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/10/30/Study2/" data-id="ckao37gq70000cou305id05zz" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="python-Study" class="article article-type-python" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/10/29/Study/" class="article-date">
-  <time datetime="2019-10-29T11:54:53.000Z" itemprop="datePublished">2019-10-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/29/Study/">Study</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>##练习</p>
-<p>#学习使用turtle在屏幕上绘制图形。<br>说明：turtle时python内置的一个非常有趣的模块，它最早时logo语言的一部分。</p>
-<p>#turtle绘图的基本知识<br>1.画布（canvas）<br>画布就是turtle为我们展开用于绘图的区域，我们可以设置它的大小和初始位置</p>
-<p>设置画布大小<br>turtle.screensize(canvwidth=None, canvheight=None, bg=None)，参数分别为画布的宽(单位像素), 高, 背景颜色。<br>如：turtle.screensize(800,600, “green”)<br>turtle.screensize() #返回默认大小(400, 300)<br>turtle.setup(width=0.5, height=0.75, startx=None, starty=None)，参数：width, height: 输入宽和高为整数时,<br>表示像素; 为小数时, 表示占据电脑屏幕的比例，(startx, starty): 这一坐标表示矩形窗口左上角顶点的位置,<br>如果为空,则窗口位于屏幕中心。如：turtle.setup(width=0.6,height=0.6)<br>turtle.setup(width=800,height=800, startx=100, starty=100)</p>
-<p>2.画笔</p>
-<p>2.1画笔的状态</p>
-<p>在画布上，默认有一个坐标原点为画布中心的坐标轴，坐标原点上有一只面朝x轴正方向小乌龟。<br>这里我们描述小乌龟时使用了两个词语：坐标原点(位置)，面朝x轴正方向(方向)， turtle绘图中，<br>就是使用位置方向描述小乌龟(画笔)的状态。</p>
-<p>2.2画笔的属性</p>
-<p>画笔(画笔的属性，颜色、画线的宽度等)</p>
-<p>1) turtle.pensize()：设置画笔的宽度；</p>
-<p>2) turtle.pencolor()：没有参数传入，返回当前画笔颜色，传入参数设置画笔颜色，<br>可以是字符串如”green”, “red”,也可以是RGB 3元组。</p>
-<p>3) turtle.speed(speed)：设置画笔移动速度，画笔绘制的速度范围[0,10]整数，数字越大越快。</p>
-<p>2.3绘图命令<br>操纵海龟绘图有着许多的命令，这些命令可以划分为3种：<br>一种为运动命令，一种为画笔控制命令，还有一种是全局控制命令</p>
-<p>（1）画笔运动命令<br>turtle.forward(distance)  向画笔方向移动distance像素长度<br>turtle.backward(distance) 像画笔相反方向移动的distance像素长度<br>turtle.right(degree)      顺时针方向移动degree°<br>turtle.left(degree)       逆时针移动degree°<br>turtle.pendow()           移动时绘制图形，缺省时也为绘制<br>turtle.goto(x,y)          将画笔移动到坐标为x，y的位置<br>turtle.penup()            提起笔移动，不绘制图形，用于另起一个地方绘制<br>turtle.circle()           画圆，半径为正（负），表示圆心在画笔的左边（右边）画圆<br>setx()                    将当前x轴移动到指定的位置<br>sety()                    将当前y轴移动到指定的位置<br>setheading(angle)         设置当前朝向为angle的角度<br>home()                    设置当前画笔位置为原点，朝向东<br>dot(r)                    绘制一个指定直径和颜色的原点</p>
-<p>（2）画笔控制命令<br>turtle.fillcolor(colorstring)     绘制图形的填充颜色<br>turtle.color(color1,color2)       同时设置pencolor=color1,fillcolor=color2<br>turtle.filling()                  返回当前是否在填充状态<br>turtle.begin_fill()               准备开始填充图形<br>turtle.end_fill()                 填充图形<br>turtle.hideturtle()               隐藏画笔的turtle形状<br>turtle.showturtle()               显示画笔的turtle形状</p>
-<p>（3）全局控制命令<br>turtle.clear()                    清空turtle窗口，但是turtle的位置和状态不会改变<br>turtle.reseet()                   清空窗口，重置turtle状态为起始状态<br>turtle.undo()                     撤销上一个turtle动作<br>turtle.isvisible()                返回当前turtle是否可见<br>stamp()                           复制当前图形</p>
-<p>##实例<br>    import turtle<br>    import time<br>    turtle.color(“red”,”yellow”)<br>    turtle.begin_fill()<br>    for _ in range(50):  #<em>当作一个变量 这个循环的用途时循环50次但是不用这个变量</em><br>        turtle.forward(200)<br>        turtle.left(170)<br>        turtle.end_fill()<br>    turtle.mainloop()</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/10/29/Study/" data-id="ckao37gqk0001cou32extg70b" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/10/30/Study2/" data-id="ckap5jf1m0001h0u35to59jzp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -668,6 +653,10 @@
       <ul>
         
           <li>
+            <a href="/2020/05/27/spss3/">spss3</a>
+          </li>
+        
+          <li>
             <a href="/2020/05/25/spss2/">spss2</a>
           </li>
         
@@ -681,10 +670,6 @@
         
           <li>
             <a href="/2019/12/07/distribution/">distribution</a>
-          </li>
-        
-          <li>
-            <a href="/2019/12/04/dataclean/">dataclean</a>
           </li>
         
       </ul>

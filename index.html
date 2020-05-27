@@ -61,6 +61,63 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-spss3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/05/27/spss3/" class="article-date">
+  <time datetime="2020-05-27T08:56:42.000Z" itemprop="datePublished">2020-05-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/27/spss3/">spss3</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="单样本t检验"><a href="#单样本t检验" class="headerlink" title="单样本t检验"></a>单样本t检验</h1><p>作用：单样本t检验用于检验一个样本均值与假设的总体均值的差异是否显著。<br>要求样本满足正态分布，方差齐性。<br>它的理想就是样本数据的平均值与检验值无显著差异。</p>
+<h1 id="平均值检验"><a href="#平均值检验" class="headerlink" title="平均值检验"></a>平均值检验</h1><p>判断两个总体的均值是否相等。</p>
+<p>均值过程可以按指定条件分组计算均值和标准差等统计量，还可以执行单因素方差分析和线性相关检验。</p>
+<h1 id="两独立样本的t检验"><a href="#两独立样本的t检验" class="headerlink" title="两独立样本的t检验"></a>两独立样本的t检验</h1><p>两独立样本T检验的目的是利用来自两个正态总体的独立样本，推断两个总体的均值是否存在显著差异。</p>
+<p>结果分析：<br>先要看方差是否相等，如果方差相等就看第一行的t值对应的显著性，如果方差不相等的话就看第二行的t值对应的显著性。</p>
+<p>注意：在检验之前需先检验两样本是否满足正态性，拆分文件各自进行k-s检验或w-s检验。</p>
+<h1 id="配对样本t检验"><a href="#配对样本t检验" class="headerlink" title="配对样本t检验"></a>配对样本t检验</h1><p>强调两配对样本一定要同质（同一样本，不同变量环境），<br>其目的就为了消除额外变量的影响，更能反映自变量和因变量之间的关系。<br>这种检验是根据样本数据对样本来自的配对总体的均值是否有显著差异进行判断的。</p>
+<p>常见配对样本的事例：</p>
+<p>某种教学方法是否对教学有效,也就是确实能提高学生成绩；<br>某种训练是否对接受训练的人的某一身体机能有改善作用；<br>或者某一种药物对某种病的治疗是否有效果等等。</p>
+<h2 id="关于假设检验，T检验-F检验-卡方检验-和-ANOVA-这些检验在什么情况下使用，它们的区别是什么？"><a href="#关于假设检验，T检验-F检验-卡方检验-和-ANOVA-这些检验在什么情况下使用，它们的区别是什么？" class="headerlink" title="关于假设检验，T检验 F检验 卡方检验 和 ANOVA 这些检验在什么情况下使用，它们的区别是什么？"></a>关于假设检验，T检验 F检验 卡方检验 和 ANOVA 这些检验在什么情况下使用，它们的区别是什么？</h2><p><a href="https://www.zhihu.com/question/309884517/answer/579315142" target="_blank" rel="noopener">https://www.zhihu.com/question/309884517/answer/579315142</a></p>
+<p>假设检验是指预先对总体参数的取值做出假定，然后用样本数据来验证，从而做出是接受还是拒绝的结论。基本思路是：<br>问题是什么？证据是什么？判断依据是什么？做出结论。</p>
+<p>基本步骤：1、提出原假设和备择假设<br>2、确定适当的检验统计量<br>3、规定显著水平@，查出临界值，确定拒绝域和接受域<br>4、计算检验统计量的值，做出统计决策。</p>
+<p>其中假设检验的种类包括：t检验，Z检验，卡方检验，F检验，ANOVA （方差分析）等等。</p>
+<p>方差分析又称“ 变异数分析”，是R.A.Fisher发明的，要求比较的资料服从正态分布，用于两个及两个以上 样本均数差别的显著性检验。方差分析可以用于两样本及以<br>上样本之间的比较。方差分析主要用途：①均数差别的显著性检验，②分离各有关因素并估计其对总变异的作用，③分析因素间的交互作用，④方差齐性检验。</p>
+<p>T检验主要用于样本含量较小<br>（例如n&lt;30），要求比较的资料服从正态分布， 总体标准差σ未知的 正态分布资料。t检验只能用于两样本均数及样本均数与总体均数之间的比较。t检验可用于比较男女身高是否存在<br>差别。</p>
+<p>Z检验是一般用于大样本(即样本容量大于30)平均值差异性检验的方法。它是用标准正态分布的理论来判断差异发生的概率，从而比较两个平均数&gt;平均数的差异是否显著。</p>
+<p>F检验又叫方差齐性检验。在两样本t检验中要用到F检验。从两研究总体中随机抽取样本，要对这两个样本进行比较的时候，首先要判断两总体方差是否相同，即方差齐性。</p>
+<p>若两总体方差相等，则直接用t检验，若不等，可采用t’检验或变量变换或秩和检验等方法。其中要判断两总体方差是否相等，就可以用F检验。简单的说就是 检验两个样本的<br>方差是否有显著性差异 这是选择何种T检验（等方差双样本检验，异方差双样本检验）的前提条件。</p>
+<p>T检验与 F检验的差异：T检验用来检测数据的准确度–系统误差；F检验用<br>来检测数据的精密度   偶然误差。</p>
+<p>卡方检验就是统计样本的实际观测值与理论推断值之间的偏离程度，实际观测值与理论推断值之间的偏离程度就决定卡方值的大小，如果卡<br>方值越大，二者偏差程度越小；反之，二者偏差越大，若两个值完全相等时，卡方值就为0，表明理论值完全符合。其中卡方检验针对分类变量。卡方检验就是检验两个变量之间<br>有没有关系。<br>以运营为例:卡方检验可以检验男性或者女性对线上买生鲜食品有没有区别；不同城市级别的消费者对买SUV车有没有什么区别；如果有显著区别的话，我们会考虑把<br>这些变量放到模型或者分析里去。</p>
+<p>以下是一个假设检验的应用实例：例如：某公司想从国外引进一种自动加工装置。这种装置的工作温度X服从正态分布(μ,52),厂方说它的平均工<br>作温度是80度。从该装置试运转中随机测试16次，得到的平均工作温度是83度。该公司考虑，样本结果与厂方所说的是否有显著差异？厂方的说法是否可以接受？　　<br>类似这种根据样本观测值来判断一个有关总体的假设是否成立的问题，就是假设检验的问题。我们把任一关于单体分布的假设，统称为统计假设，简称假设。上例中，<br>可以提出两个假设：一个称为原假设或零假设，记为H0：μ=80（度）；另一个称为备择假设或对立假设，记为H1 ：μ≠80（度）这样，上述假设检验问题可以表示为：　　<br>H0：μ=80　　H1：μ≠80　　原假设与备择假设相互对立，两者有且只有一个正确，备择假设的含义是，一旦否定原假设H0，备择假设H1备你选择。所谓假设检验问题就是要<br>判断原假设H0是否正确，决定接受还是拒绝原假设，若拒绝原假设，就接受备择假设。　　应该如何作出判断呢？如果样本测定的结果是100度甚至更高（或很低），<br>我们从直观上能感到原假设可疑而否定它，因为原假设是真实时，在一次试验中出现了与80度相距甚远的小概率事件几乎是不可能的，而现在竟然出现了，当然要拒绝原假设H0。<br>现在的问题是样本平均工作温度为83度，结果虽然与厂方说的80度有差异，但样本具有随机性，80度与83度之间的差异很可能是样本的随机性造成的。在这种情况下，<br>要对原假设作出接受还是拒绝的抉择，就必须根据研究的问题和决策条件，对样本值与原假设的差异进行分析。若有充分理由认为这种差异并非是由偶然的随机因素造成的，<br>也即认为差异是显著的，才能拒绝原假设，否则就不能拒绝原假设。假设检验实质上是对原假设是否正确进行检验，因此，检验过程中要使原假设得到维护，使之不轻易被否定,<br>否定原假设必须有充分的理由；同时，当原假设被接受时，也只能认为否定它的根据不充分，而不是认为它绝对正确。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zzf-pyf.github.io/2020/05/27/spss3/" data-id="ckap5jf2n000lh0u3g0y56rhx" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-spss2" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/05/25/spss2/" class="article-date">
@@ -136,7 +193,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2020/05/25/spss2/" data-id="ckao37gro000icou3coyvhkiw" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2020/05/25/spss2/" data-id="ckap5jf2a000kh0u3bcw10yy4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -177,7 +234,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2020/05/18/spss/" data-id="ckao37grm000gcou3d4qa6yrw" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2020/05/18/spss/" data-id="ckap5jf26000ih0u3c0nwe9d4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -214,7 +271,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/12/15/ppt1/" data-id="ckao37gre000bcou34l1yab7q" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/12/15/ppt1/" data-id="ckap5jf22000eh0u3ea3z7dw4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -253,7 +310,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/12/07/distribution/" data-id="ckao37grn000hcou3by0dckth" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/12/07/distribution/" data-id="ckap5jf21000dh0u3beqbdfwt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -294,7 +351,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/12/04/dataclean/" data-id="ckao37gr60006cou3fm49b1pw" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/12/04/dataclean/" data-id="ckap5jf1s0006h0u35deh1wub" class="article-share-link">Share</a>
       
       
     </footer>
@@ -333,7 +390,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/12/03/matplotlib3/" data-id="ckao37grh000ccou3dg5830gd" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/12/03/matplotlib3/" data-id="ckap5jf20000ch0u3gjj8dzua" class="article-share-link">Share</a>
       
       
     </footer>
@@ -391,7 +448,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/28/matplotlib2/" data-id="ckao37grd000acou36p871tck" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/28/matplotlib2/" data-id="ckap5jf1x000bh0u3anc1e92k" class="article-share-link">Share</a>
       
       
     </footer>
@@ -501,7 +558,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/26/matplotib1/" data-id="ckao37grk000fcou3e5xq8pmz" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/26/matplotib1/" data-id="ckap5jf1w000ah0u35ogy13k9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -540,45 +597,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/26/consult/" data-id="ckao37gra0008cou32i6ica5q" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-datamining2" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/11/19/datamining2/" class="article-date">
-  <time datetime="2019-11-19T12:37:46.000Z" itemprop="datePublished">2019-11-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/19/datamining2/">datamining2</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="python数据导入实战"><a href="#python数据导入实战" class="headerlink" title="python数据导入实战"></a>python数据导入实战</h1><p>导入csv数据<br>csv是一种常见的数据存储格式，基本上我们遇到的数据可以转为这种存储格式。<br>在python数据分析中，我们可以使用pandas模块导入csv数据。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pda</span><br><span class="line">import os</span><br><span class="line">#导入csv文件</span><br><span class="line">i=pda.read_csv(&quot;C://Users//AbsolutelyYF//Desktop//survey.csv&quot;)#一定要把\改为//</span><br><span class="line">#i.describe()得到csv数据的一些信息</span><br><span class="line"></span><br><span class="line">#i.sort_values(by=&quot;Age&quot;) #按一属性排序</span><br><span class="line">#导入excel</span><br><span class="line">j=pda.read_excel(&quot;C://Users//AbsolutelyYF//Desktop//评价指数.xlsx&quot;)</span><br><span class="line"></span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">导入MySQL数据库中的数据</span><br><span class="line">import pymysql</span><br><span class="line">conn=pymysql.connect(host=&quot;112.27.238.135&quot;,user=&quot;root&quot;,passwd=&quot;root&quot;,db=&quot;hexun&quot;)</span><br><span class="line">sql=&quot;select*from myhexun&quot;</span><br><span class="line">k=pda.read_sql(sql,conn)</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line"></span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">导入html数据</span><br><span class="line">使用pandas,可以直接从html网页中加载table表格中的数据，但是在使用read_html()之前，需要先安装html5lib</span><br><span class="line">模块与beautifulsoup4模块</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">m=pda.read_html(&quot;https://book.douban.com/&quot;)#读取网页表格</span><br><span class="line"></span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line"></span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">导入文本数据</span><br><span class="line">有时候我们希望直接导入txt文本数据，其实也是可以的</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line"></span><br><span class="line">n=pda.read_table(&quot;C://Users//AbsolutelyYF//Desktop//1 (2).txt&quot;)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/19/datamining2/" data-id="ckao37grc0009cou3ehddhfie" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/26/consult/" data-id="ckap5jf1r0005h0u3c7i9htd7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -624,6 +643,10 @@
       <ul>
         
           <li>
+            <a href="/2020/05/27/spss3/">spss3</a>
+          </li>
+        
+          <li>
             <a href="/2020/05/25/spss2/">spss2</a>
           </li>
         
@@ -637,10 +660,6 @@
         
           <li>
             <a href="/2019/12/07/distribution/">distribution</a>
-          </li>
-        
-          <li>
-            <a href="/2019/12/04/dataclean/">dataclean</a>
           </li>
         
       </ul>
