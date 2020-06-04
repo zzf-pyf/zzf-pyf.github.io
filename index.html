@@ -61,6 +61,114 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-spss4" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/06/04/spss4/" class="article-date">
+  <time datetime="2020-06-04T01:57:45.000Z" itemprop="datePublished">2020-06-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/04/spss4/">spss4</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="非参数检验"><a href="#非参数检验" class="headerlink" title="非参数检验"></a>非参数检验</h2><p>一、概念</p>
+<p>参数检验：若总体分布已知（如为正态分布），对总体参数进行检验或估计。</p>
+<p>非参数检验：不依赖总体分布情况，对总体分布类型进行推断。</p>
+<p>二、内容</p>
+<p>参数检验包括：单样本t检验、两独立样本t检验、两配对样本t检验。</p>
+<p>非参数检验包括：卡方检验、单样本柯尔莫哥诺夫—斯米尔诺夫检验、两个独立样本检验、多个独立样本检验、两个相关样本检验、多个相关样本检验.、二项分布检验、游程检验。</p>
+<p>三、联系</p>
+<p>非参数检验与参数检验二者共同构成了统计推断的基本内容。</p>
+<p>四、区别</p>
+<p>1、参数检验是针对参数做的假设；</p>
+<p>非参数检验是针对总体分布情况做的假设，这是区分的一个重要特征；</p>
+<p>2、根本区别在于，参数检验要利用到总体的信息（总体的分布、总体的一些参数特征，如方差），以总体分布和样本信息对总体参数做出推断；</p>
+<p>非参数检验不需要利用总体信息，以样本信息对总体分布做出推断；</p>
+<p>3、正态分布用参数检验，非正态分布用非参数检验。</p>
+<p>五、优缺点：</p>
+<p>参数检验优点：对于符合条件的数据，检验效率高。</p>
+<p>参数检验缺点：对资料要求严格。</p>
+<p>非参数检验优点：应用范围广，什么类型的数据都可以检验（小样本、无分布样本、等级资料、数据污染样本、混杂样本等）。</p>
+<p>非参数检验缺点：若数据符合参数检验条件，则检验效率低于参数检验。</p>
+<h2 id="1-卡方检验"><a href="#1-卡方检验" class="headerlink" title="1.卡方检验"></a>1.卡方检验</h2><p>卡方检验就是统计样本的实际观测值与理论推断值之间的偏离程度。<br>实际观测值与理论推断值之间的偏离程度就决定卡方值的大小。</p>
+<p>作用：<br>卡方检验就是统计样本的实际观测值与理论推断值之间的偏离程度，实际观测值与<br>理论推断值之间的偏离程度就决定卡方值的大小，卡方值越大，越不符合；卡方值越小，偏差越小，越趋于符合，<br>若两个值完全相等时，卡方值就为0，表明理论值完全符合。</p>
+<h2 id="2-零假设"><a href="#2-零假设" class="headerlink" title="2.零假设"></a>2.零假设</h2><p>零假设（nullhypothesis），统计学术语，又称原假设，指进行统计检验时预先建立的假设。<br>零假设成立时，有关统计量应服从已知的某种概率分布。当统计量的计算值落入否定域时，<br>可知发生了小概率事件，应否定原假设。</p>
+<p>（一般设置零假设是大于0.05时，不能拒绝零假设。零假设是样本的分布与期望的分布无显著的差异）</p>
+<h2 id="3-二项分布检验"><a href="#3-二项分布检验" class="headerlink" title="3.二项分布检验"></a>3.二项分布检验</h2><p>现实生活中有很多数据的取值只有两类，如医学中的生与死、患病的有与无、性别中的男性和女性、<br>产品的合格与不合格等。从这种二分类总体中抽取的所有可能结果，要么是对立分类中的这一类，<br>要么是另一类，其频数分布称为二项分布。调用SPSS中的二项分布检验（Binomial）可对样本资料进行二项分布分析。</p>
+<p>SPSS二项分布检验就是根据收集到的样本数据，推断总体分布是否服从某个指定的二项分布。<br>其零假设是H0：样本来自的总体与所指定的某个二项分布不存在显著的差异。<br>（&gt;0.05不拒绝零假设，即样本来自的总体与所指定的某个二项分布不存在显著的差异）</p>
+<h2 id="游程检验"><a href="#游程检验" class="headerlink" title="游程检验"></a>游程检验</h2><p>对于游程检验，我们要掌握以下概念：</p>
+<ol>
+<li><p>游程检验用于判断数据的随机性。在做数据分析中，若数据不是随机抽取的，那么我们所做的推断将失去意义。</p>
+</li>
+<li><p>游程的含义：将连续的取值相同的值作为一个游程。（举个例子0012223455677，这13个数字中有8个游程，分为00、1、222、3、4、55、6、77。）</p>
+</li>
+<li><p>检验原理：将数据分为两类（以平均数或者中数或者众数或者自定义的值为基准，小于此基准的为一类，大于此基准的为一类），<br>看前一个个案的是否影响后一个个案的，若不影响，进而得到数据是随机抽取的。</p>
+</li>
+<li><p>假设检验中原假设H0：样本是随机抽取的。</p>
+</li>
+</ol>
+<h2 id="单样本k-s检验"><a href="#单样本k-s检验" class="headerlink" title="单样本k-s检验"></a>单样本k-s检验</h2><p>假设单样本所在的总体与指定的理论分布无显著差异，利用样本累计频率分布与理论累积频率分布的最大偏离值，<br>来检验样本分布与理论分布的符合程度。当KS统计量显著性水平值大于临界值P=0.05时，认为样本来自具有理论分布的总体，符合理论分布。</p>
+<p>K-S检验方法能够利用样本数据推断样本来自的总体是否服从某一理论分布，是一种 拟合优度的检验方法，适用于探索连续型随机变量的分布。<br>单样本K-S检验的原假设是：样本来自的总体与指定的理论分布无显著差异，SPSS的理论分布主要包括正态分布、均匀分布、 指数分布和 泊松分布等。</p>
+<h2 id="两独立样本非参数检验"><a href="#两独立样本非参数检验" class="headerlink" title="两独立样本非参数检验"></a>两独立样本非参数检验</h2><p>独立样本是指在一个总体中随机抽样对在另一个总体中随机抽样没有影响的情况下所获得的样本。</p>
+<p>1<br>什么是非参数两独立样本检验？<br>在对总体分布不了解的情况下，通过对两组独立样本的分析来推断样本来自的两个总体分布是否存在显著性差异。</p>
+<p>2<br>非参数两独立样本检验方法<br>包括曼-惠特尼U检验、K-S检验、W-W游程检验、极端反应检验。<br>不同的检验方法所得结果有时未必相同，这提醒我们要根据实际情况选择适用的检验方法，和反复检验的必要性。</p>
+<p>一、曼-惠特尼U检验</p>
+<p>两独立样本的曼-惠特尼U检验可用于对两总体分布的比例判断。其原假设：两组独立样本来自的两总体分布无显著差异。<br>曼-惠特尼U检验通过对两组样本平均秩的研究来实现判断。秩简单说就是变量值排序的名次，可以将数据按升序排列，<br>每个变量值都会有一个在整个变量值序列中的位置或名次，这个位置或名次就是变量值的秩。</p>
+<p>二、K-S检验</p>
+<p>K-S检验不仅能够检验单个总体是否服从某一理论分布，还能够检验两总体分布是否存在显著差异。<br>其原假设是：两组独立样本来自的两总体的分布无显著差异。这里是以变量值的秩作为分析对象，而非变量值本身。</p>
+<p>三、游程检验</p>
+<p>单样本游程检验是用来检验变量值的出现是否随机，而两独立变量的游程检验则是用来检验两独立样本来自的两总体的分布是否存在显著差异。<br>其原假设是：两组独立样本来自的两总体的分布无显著差异。两独立样本的游程检验与单样本游程检验的思想基本相同，<br>不同的是计算游程数的方法。两独立样本的游程检验中，游程数依赖于变量的秩。</p>
+<p>四、极端反应检验</p>
+<p>极端反应检验从另一个角度检验两独立样本所来自的两总体分布是否存在显著差异。其原假设是：两独立样本来自的两总体的分布无显著差异。<br>基本思想是：将一组样本作为控制样本，另一组样本作为实验样本。以控制样本作为对照，检验实验样本相对于控制样本是否出现了极端反应。<br>如果实验样本没有出现极端反应，则认为两总体分布无显著差异，相反则认为存在显著差异。</p>
+<h2 id="两配对样本检验"><a href="#两配对样本检验" class="headerlink" title="两配对样本检验"></a>两配对样本检验</h2><p>两配对样本的非参数检验是对 总体分布不甚了解的情况下，通过对两组配对样本的分析，<br>推断样本来自的两个总体的分布是否存在显著差异的方法。主要包括：</p>
+<p>1.McNemar检验：是一种变化 显著性检验，它将研究对象自身作为对照者检验其“前后”的变化是否显著。其原假设是：两配对样本来自的两总体的分布无显著差异。</p>
+<p>2.符号检验：也是用来检验两配对样本所来自的总体的分布是否存在显著差异的非参数方法。其原假设是：两配对样本来自的两总体的分布无显著差异。</p>
+<p>3.Wilcoxon符号秩检验：也是通过分析两配对样本，对样本来自的两总体的分布是否存在差异进行判断。其原假设是：两配对样本来自的两总体的分布无显著差异。</p>
+<h2 id="多独立样本的非参数检验"><a href="#多独立样本的非参数检验" class="headerlink" title="多独立样本的非参数检验"></a>多独立样本的非参数检验</h2><p>多独立样本的非参数检验是通过分析多组独立样本数据，推断样本来自的多个总体的中位数或分布是否存在显著差异。多组独立样本是指按独立抽样方式获得的多组样本。具体如下：</p>
+<p>一、中位数检验</p>
+<p>通过对多组独立样本的分析，检验它们来自的总体的中位数是否存在显著差异。其原假设是：多个独立样本来自的多个总体的中位数无显著差异。</p>
+<p>基本思想是：如果多个总体的中位数无显著差异，或者说多个总体有共同的中位数，那么这个共同的中位数应在各样本组中均处在中间位置上。</p>
+<p>于是，每组样本中大于该中位数或小于该中位数的样本数目应大致相同。</p>
+<p>二、Kruskal-Wallis检验</p>
+<p>Kruskal-Wallis检验实质是两独立样本的曼-惠特尼U检验在多个样本下的推广，也用于检验多个总体的分布是否存在显著差异。其原假设是：</p>
+<p>多个独立样本来自的多个总体的分布无显著差异。</p>
+<p>基本思想是：首先，将多组样本数据混合并按升序排序，求出各变量值的秩；然后，考察各组秩的 均值是否存在显著差异。容易理解：</p>
+<p>如果各组秩的均值不存在显著差异，则是多组数据充分混合，数值相差不大的结果，可以认为多个总体的分布无显著差异；反之，如果各组秩的均值存在显著差异，则是多组数据无法混合，</p>
+<p>某些组的数值普遍偏大，另一些组的数值普遍偏小的结果，可以认为多个总体的分布有显著差异。</p>
+<p>三、Jonckheere-Terpstra检验</p>
+<p>Jonckheere-Terpstra检验也是用于检验多个独立样本来自的多个总体的分布是否存在显著差异的非参数检验方法，其原假设是：多个独立样本来自的多个总体的分布无显著差异。</p>
+<p>基本思想与两独立样本的曼-惠特尼U检验类似，也是计算一组样本的观察值小于其他组样本的观察值的个数。</p>
+<h2 id="多配对样本的检验"><a href="#多配对样本的检验" class="headerlink" title="多配对样本的检验"></a>多配对样本的检验</h2><p>多配对样本的非参数检验是通过分析多组配对样本数据，推断样本来自的多个总体的中位数或分布是否存在显著差异。</p>
+<p>1.Friedman检验：利用秩实现对多个 总体分布是否存在显著差异的非参数检验方法，其原假设是：多个配对样本来自的多个总体分布无显著差异。</p>
+<p>2.Cochran Q检验：通过对多个配对样本的分析，推断样本来自的多个总体的分布是否存在显著差异。其原假设是：多个配对样本来自的多个总体的分布无显著差异。</p>
+<p>3.Kendall协同系数检验：一种对多配对样本进行检验的非参数检验方法，与第一种检验方法向结合，可方便地实现对评判者的评判标准是否一致的分析。</p>
+<p>其原假设是：评判者的评判标准不一致。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zzf-pyf.github.io/2020/06/04/spss4/" data-id="ckb0rm81e000jjou36tcfeb1t" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-spss3" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/05/27/spss3/" class="article-date">
@@ -83,7 +191,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="单样本t检验"><a href="#单样本t检验" class="headerlink" title="单样本t检验"></a>单样本t检验</h1><p>作用：单样本t检验用于检验一个样本均值与假设的总体均值的差异是否显著。<br>要求样本满足正态分布，方差齐性。<br>它的理想就是样本数据的平均值与检验值无显著差异。</p>
+        <h2 id="参数检验"><a href="#参数检验" class="headerlink" title="参数检验"></a>参数检验</h2><h1 id="单样本t检验"><a href="#单样本t检验" class="headerlink" title="单样本t检验"></a>单样本t检验</h1><p>作用：单样本t检验用于检验一个样本均值与假设的总体均值的差异是否显著。<br>要求样本满足正态分布，方差齐性。<br>它的理想就是样本数据的平均值与检验值无显著差异。</p>
 <h1 id="平均值检验"><a href="#平均值检验" class="headerlink" title="平均值检验"></a>平均值检验</h1><p>判断两个总体的均值是否相等。</p>
 <p>均值过程可以按指定条件分组计算均值和标准差等统计量，还可以执行单因素方差分析和线性相关检验。</p>
 <h1 id="两独立样本的t检验"><a href="#两独立样本的t检验" class="headerlink" title="两独立样本的t检验"></a>两独立样本的t检验</h1><p>两独立样本T检验的目的是利用来自两个正态总体的独立样本，推断两个总体的均值是否存在显著差异。</p>
@@ -108,7 +216,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2020/05/27/spss3/" data-id="ckap5jf2n000lh0u3g0y56rhx" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2020/05/27/spss3/" data-id="ckb0rm81d000ijou30plig2r5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -193,7 +301,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2020/05/25/spss2/" data-id="ckap5jf2a000kh0u3bcw10yy4" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2020/05/25/spss2/" data-id="ckb0rm81g000ljou35pwcg98n" class="article-share-link">Share</a>
       
       
     </footer>
@@ -234,7 +342,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2020/05/18/spss/" data-id="ckap5jf26000ih0u3c0nwe9d4" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2020/05/18/spss/" data-id="ckb0rm81t000mjou327lu3n3q" class="article-share-link">Share</a>
       
       
     </footer>
@@ -271,7 +379,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/12/15/ppt1/" data-id="ckap5jf22000eh0u3ea3z7dw4" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/12/15/ppt1/" data-id="ckb0rm817000ejou31jla386t" class="article-share-link">Share</a>
       
       
     </footer>
@@ -310,7 +418,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/12/07/distribution/" data-id="ckap5jf21000dh0u3beqbdfwt" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/12/07/distribution/" data-id="ckb0rm80y0008jou3eb5y8ebo" class="article-share-link">Share</a>
       
       
     </footer>
@@ -351,7 +459,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/12/04/dataclean/" data-id="ckap5jf1s0006h0u35deh1wub" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/12/04/dataclean/" data-id="ckb0rm80t0005jou3fxd53qd9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -390,7 +498,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/12/03/matplotlib3/" data-id="ckap5jf20000ch0u3gjj8dzua" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/12/03/matplotlib3/" data-id="ckb0rm810000ajou3hdtveul3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -448,7 +556,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/28/matplotlib2/" data-id="ckap5jf1x000bh0u3anc1e92k" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/28/matplotlib2/" data-id="ckb0rm814000cjou30gbc3nzu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -558,46 +666,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/26/matplotib1/" data-id="ckap5jf1w000ah0u35ogy13k9" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-consult" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/11/26/consult/" class="article-date">
-  <time datetime="2019-11-26T05:30:22.000Z" itemprop="datePublished">2019-11-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/26/consult/">consult</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="随机数的生成"><a href="#随机数的生成" class="headerlink" title="随机数的生成"></a>随机数的生成</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import numpy as npy</span><br><span class="line">data=npy.random.random_integers(1,20,10) #(最小值，最大值，个数)</span><br><span class="line">print(data)</span><br></pre></td></tr></table></figure>
-
-<h2 id="生成具有正态分布的数据"><a href="#生成具有正态分布的数据" class="headerlink" title="生成具有正态分布的数据"></a>生成具有正态分布的数据</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import numpy as npy</span><br><span class="line">data=npy.random.random_integers(1,20,10) #(最小值，最大值，个数)</span><br><span class="line">#print(data)</span><br><span class="line">#生成具有正太分布的数据</span><br><span class="line">data2=npy.random.normal(5.0,2.0,10)#(均数，希格玛，个数） 希格玛越大越平缓</span><br><span class="line">print(data2)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/26/consult/" data-id="ckap5jf1r0005h0u3c7i9htd7" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/26/matplotib1/" data-id="ckb0rm812000bjou36xhd759s" class="article-share-link">Share</a>
       
       
     </footer>
@@ -630,7 +699,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li></ul>
     </div>
   </div>
 
@@ -641,6 +710,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2020/06/04/spss4/">spss4</a>
+          </li>
         
           <li>
             <a href="/2020/05/27/spss3/">spss3</a>
@@ -656,10 +729,6 @@
         
           <li>
             <a href="/2019/12/15/ppt1/">ppt1</a>
-          </li>
-        
-          <li>
-            <a href="/2019/12/07/distribution/">distribution</a>
           </li>
         
       </ul>
