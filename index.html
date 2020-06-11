@@ -61,6 +61,121 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-numpymat" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/06/11/numpymat/" class="article-date">
+  <time datetime="2020-06-11T07:11:54.000Z" itemprop="datePublished">2020-06-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/11/numpymat/">numpymat</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Python中Numpy-mat的使用"><a href="#Python中Numpy-mat的使用" class="headerlink" title="Python中Numpy mat的使用"></a>Python中Numpy mat的使用</h2><p>‘’’</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>m= np.mat([1,2,3])  #创建矩阵<br>m<br>matrix([[1, 2, 3]])</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>m[0]                #取一行<br>matrix([[1, 2, 3]])<br>m[0,1]              #第一行，第2个数据<br>2<br>m[0][1]             #注意不能像数组那样取值了<br>Traceback (most recent call last):<br>  File “<stdin>“, line 1, in <module><br>  File “/usr/lib64/python2.7/site-packages/numpy/matrixlib/defmatrix.py”, line 305, in <strong>getitem</strong><br>    out = N.ndarray.<strong>getitem</strong>(self, index)<br>IndexError: index 1 is out of bounds for axis 0 with size 1</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>#将Python的列表转换成NumPy的矩阵</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>list=[1,2,3]<br>mat(list)<br>matrix([[1, 2, 3]])</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>#Numpy dnarray转换成Numpy矩阵</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>n = np.array([1,2,3])<br>n<br>array([1, 2, 3])<br>np.mat(n)<br>matrix([[1, 2, 3]])</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>#排序</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>m=np.mat([[2,5,1],[4,6,2]])    #创建2行3列矩阵<br>m<br>matrix([[2, 5, 1],<br>        [4, 6, 2]])<br>m.sort()                    #对每一行进行排序<br>m<br>matrix([[1, 2, 5],<br>        [2, 4, 6]])</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>m.shape                     #获得矩阵的行列数<br>(2, 3)<br>m.shape[0]                  #获得矩阵的行数<br>2<br>m.shape[1]                  #获得矩阵的列数<br>3</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>#索引取值</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>m[1,:]                      #取得第一行的所有元素<br>matrix([[2, 4, 6]])<br>m[1,0:1]                    #第一行第0个元素，注意左闭右开<br>matrix([[2]])<br>m[1,0:3]<br>matrix([[2, 4, 6]])<br>m[1,0:2]<br>matrix([[2, 4]])<br>‘’’</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="矩阵乘法"><a href="#矩阵乘法" class="headerlink" title="矩阵乘法"></a>矩阵乘法</h2><p>矩阵乘，与Numpy dnarray类似，可以使用np.dot()和np.matmul()，<br>除此之外，由于matrix中重载了“<em>”，因此“</em>”也能用于矩阵乘。<br>‘’’</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>a = np.mat([[1,2,3], [2,3,4]])<br>b = np.mat([[1,2], [3,4], [5,6]])<br>a<br>matrix([[1, 2, 3],<br>        [2, 3, 4]])<br>b<br>matrix([[1, 2],<br>        [3, 4],<br>        [5, 6]])<br>a * b         #方法一<br>matrix([[22, 28],<br>        [31, 40]])<br>np.matmul(a, b)   #方法二<br>matrix([[22, 28],<br>        [31, 40]])<br>np.dot(a, b)     #方法三<br>matrix([[22, 28],<br>        [31, 40]])<br>‘’’</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>点乘，只剩下multiply方法了。</p>
+<p>‘’’</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>a = np.mat([[1,2], [3,4]])<br>b = np.mat([[2,2], [3,3]])<br>np.multiply(a, b)<br>matrix([[ 2,  4],<br>        [ 9, 12]])<br>‘’’</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="矩阵转置"><a href="#矩阵转置" class="headerlink" title="矩阵转置"></a>矩阵转置</h2><p>两种方法<br>‘’’</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>a<br>matrix([[1, 2],<br>        [3, 4]])<br>a.T           #方法一，ndarray也行<br>matrix([[1, 3],<br>        [2, 4]])<br>np.transpose(a)   #方法二<br>matrix([[1, 3],<br>        [2, 4]])<br>‘’’<br>值得一提的是，matrix中求逆还有一种简便方法<br>‘’’<br>a<br>matrix([[1, 2],<br>        [3, 4]])<br>a.I<br>matrix([[-2. ,  1. ],<br>        [ 1.5, -0.5]])<br>‘’’</p>
+</blockquote>
+</blockquote>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zzf-pyf.github.io/2020/06/11/numpymat/" data-id="ckbagdqjw0008jsu32a05ddtp" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-spss4" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/06/04/spss4/" class="article-date">
@@ -159,7 +274,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2020/06/04/spss4/" data-id="ckb0rm81e000jjou36tcfeb1t" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2020/06/04/spss4/" data-id="ckbagdqkc000mjsu3bb441rpf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -216,7 +331,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2020/05/27/spss3/" data-id="ckb0rm81d000ijou30plig2r5" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2020/05/27/spss3/" data-id="ckbagdqk9000jjsu36no0aqhx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -301,7 +416,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2020/05/25/spss2/" data-id="ckb0rm81g000ljou35pwcg98n" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2020/05/25/spss2/" data-id="ckbagdqk8000ijsu3780m7ci1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -342,7 +457,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2020/05/18/spss/" data-id="ckb0rm81t000mjou327lu3n3q" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2020/05/18/spss/" data-id="ckbagdqk7000hjsu350kz3akh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -379,7 +494,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/12/15/ppt1/" data-id="ckb0rm817000ejou31jla386t" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/12/15/ppt1/" data-id="ckbagdqk5000ejsu35kt71dse" class="article-share-link">Share</a>
       
       
     </footer>
@@ -418,7 +533,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/12/07/distribution/" data-id="ckb0rm80y0008jou3eb5y8ebo" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/12/07/distribution/" data-id="ckbagdqjz000ajsu3478v2jln" class="article-share-link">Share</a>
       
       
     </footer>
@@ -459,7 +574,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/12/04/dataclean/" data-id="ckb0rm80t0005jou3fxd53qd9" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/12/04/dataclean/" data-id="ckbagdqjs0005jsu3bk3tg411" class="article-share-link">Share</a>
       
       
     </footer>
@@ -498,7 +613,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/12/03/matplotlib3/" data-id="ckb0rm810000ajou3hdtveul3" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/12/03/matplotlib3/" data-id="ckbagdqk0000cjsu3ax8df5md" class="article-share-link">Share</a>
       
       
     </footer>
@@ -556,117 +671,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/28/matplotlib2/" data-id="ckb0rm814000cjou30gbc3nzu" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-matplotib1" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/11/26/matplotib1/" class="article-date">
-  <time datetime="2019-11-26T05:47:51.000Z" itemprop="datePublished">2019-11-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/26/matplotib1/">matplotib1</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="matplotlib"><a href="#matplotlib" class="headerlink" title="matplotlib"></a>matplotlib</h2><h1 id="折线图和散点图"><a href="#折线图和散点图" class="headerlink" title="折线图和散点图"></a>折线图和散点图</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib.pylab as pyl</span><br><span class="line">import numpy as npy</span><br><span class="line">x=[1,2,3,4,8]</span><br><span class="line">y=[5,7,2,1,5]</span><br><span class="line">#默认是折线图</span><br><span class="line">#pyl.plot(x,y) #plot(x轴数据，y轴数据，展现形式)一般会有三个参数 第三个参数可有可无</span><br><span class="line"></span><br><span class="line">#散点图</span><br><span class="line">pyl.plot(x,y,&apos;o&apos;)</span><br><span class="line"></span><br><span class="line">pyl.show()</span><br><span class="line">#若使用多个plot几个图是叠加的</span><br></pre></td></tr></table></figure>
-
-<h1 id="设置颜色"><a href="#设置颜色" class="headerlink" title="设置颜色"></a>设置颜色</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib.pylab as pyl</span><br><span class="line">import numpy as npy</span><br><span class="line">x=[1,2,3,4,8]</span><br><span class="line">y=[5,7,2,1,5]</span><br><span class="line"># 展示颜色</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">pyl.plot(x,y,&apos;o&apos;)</span><br><span class="line">pyl.plot(x,y,&apos;c&apos;)#若加上这一句，就与上一句叠加起来。</span><br><span class="line"></span><br><span class="line">#pyl.plot(x,y,&apos;oc&apos;)#即是散点图又是青色的</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">c--cyan--青色</span><br><span class="line">r--red--红色</span><br><span class="line">m--magente--品红</span><br><span class="line">g--green--绿色</span><br><span class="line">b--blue--蓝色</span><br><span class="line">y--yellow--黄</span><br><span class="line">k--black--黑</span><br><span class="line">w--white--白</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line"></span><br><span class="line">pyl.show()</span><br></pre></td></tr></table></figure>
-
-<h1 id="线条样式-点的样式-设置x和y轴的范围"><a href="#线条样式-点的样式-设置x和y轴的范围" class="headerlink" title="线条样式,点的样式,设置x和y轴的范围"></a>线条样式,点的样式,设置x和y轴的范围</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib.pylab as pyl</span><br><span class="line">import numpy as npy</span><br><span class="line">x=[1,2,3,4,8]</span><br><span class="line">y=[5,7,2,1,5]</span><br><span class="line">#线条样式</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">-    直线</span><br><span class="line">--   虚线</span><br><span class="line">-.   -.形式</span><br><span class="line">:    细小虚线</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">#pyl.plot(x,y,&apos;--&apos;)</span><br><span class="line">#pyl.show()</span><br><span class="line"></span><br><span class="line">#点的样式</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">s--方形</span><br><span class="line">h--六角形</span><br><span class="line">H--六角形</span><br><span class="line">*--星形</span><br><span class="line">+--加号</span><br><span class="line">x--x型</span><br><span class="line">d--菱形</span><br><span class="line">D--菱形</span><br><span class="line">p--五角形</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line"></span><br><span class="line">#pyl.plot(x,y,&quot;*&quot;)#加入点的参数默认为散点图</span><br><span class="line">pyl.plot(x,y)</span><br><span class="line">x2=[1,3,6,8,10,12,19]</span><br><span class="line">y2=[1,6,9,10,19,23,35]</span><br><span class="line">pyl.plot(x2,y2)         #同一个图中会有两个图像</span><br><span class="line"></span><br><span class="line">pyl.title(&quot;GEM&quot;)#j加标题</span><br><span class="line">pyl.xlabel(&quot;ages&quot;)#加x轴名称</span><br><span class="line">pyl.ylabel(&quot;temp&quot;)#加y轴名称</span><br><span class="line"></span><br><span class="line">pyl.xlim(0,20)</span><br><span class="line">pyl.ylim(0,40)</span><br><span class="line">pyl.show()</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/26/matplotib1/" data-id="ckb0rm812000bjou36xhd759s" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/28/matplotlib2/" data-id="ckbagdqk5000fjsu39qvve720" class="article-share-link">Share</a>
       
       
     </footer>
@@ -712,6 +717,10 @@
       <ul>
         
           <li>
+            <a href="/2020/06/11/numpymat/">numpymat</a>
+          </li>
+        
+          <li>
             <a href="/2020/06/04/spss4/">spss4</a>
           </li>
         
@@ -725,10 +734,6 @@
         
           <li>
             <a href="/2020/05/18/spss/">spss</a>
-          </li>
-        
-          <li>
-            <a href="/2019/12/15/ppt1/">ppt1</a>
           </li>
         
       </ul>
