@@ -61,6 +61,86 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-dataclean" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/04/dataclean/" class="article-date">
+  <time datetime="2019-12-03T21:23:02.000Z" itemprop="datePublished">2019-12-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/04/dataclean/">dataclean</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="数据探索与数据清洗"><a href="#数据探索与数据清洗" class="headerlink" title="数据探索与数据清洗"></a>数据探索与数据清洗</h2><p>数据探索的目的是及早发现数据的一些简单规律和特征，将数据清洗的目的是留下可靠<br>的数据，避免脏数据的干扰。这两者没用严格的先后顺序，经常在一个阶段进行。</p>
+<h1 id="数据探索的核心"><a href="#数据探索的核心" class="headerlink" title="数据探索的核心"></a>数据探索的核心</h1><p>1.数据质量分析（与数据清洗密切相关）<br>2.数据特征分析（分布，对比，周期性，相关性，常见统计量等）</p>
+<h1 id="数据清洗的步骤"><a href="#数据清洗的步骤" class="headerlink" title="数据清洗的步骤"></a>数据清洗的步骤</h1><p>1.缺失值处理（通过describe与len直接发现、通过0数据发现）<br>2.异常值处理（通过散点图发现）<br>一般遇到缺失值，处理方法为（删除、插补、不处理）;<br>插补的方式：均值插补，中位数插补，众数插补，固定值插补，最近数据插补，<br>回归插补，拉格朗日插值，牛顿插值法，分段插值等等。<br>遇到异常值，一般处理方式为视为缺失值，删除，修补（平均数，中位数），不处理）</p>
+<h1 id="以淘宝零食类商品数据为例进行实战。"><a href="#以淘宝零食类商品数据为例进行实战。" class="headerlink" title="以淘宝零食类商品数据为例进行实战。"></a>以淘宝零食类商品数据为例进行实战。</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">#导入数据</span><br><span class="line">import pandas as pda</span><br><span class="line">import os</span><br><span class="line">import numpy as npy</span><br><span class="line">import matplotlib.pylab as pyl</span><br><span class="line">data=pda.read_csv(&quot;C://Users//AbsolutelyYF//Desktop//商品数据清洗.csv&quot;)</span><br><span class="line">print(data.describe())</span><br><span class="line">#数据清洗</span><br><span class="line">#发现缺失值</span><br><span class="line">x=0</span><br><span class="line">data[&quot;price&quot;][(data[&quot;price&quot;]==0)]=None #将价格为0的数据统统变为空值</span><br><span class="line">for i in data.columns:</span><br><span class="line">    for j in range(len(data)):</span><br><span class="line">        if(data[i].isnull())[j]:</span><br><span class="line">            data[i][j]=&quot;36&quot;</span><br><span class="line">            x+=1</span><br><span class="line">print(x)</span><br><span class="line">#异常值处理</span><br><span class="line">#画散点图（横轴为价格，纵轴为评论数）</span><br><span class="line">#得到价格</span><br><span class="line">data2=data.T</span><br><span class="line">price=data2.values[1]</span><br><span class="line">#得到评论数据</span><br><span class="line">comment=data2.values[2]</span><br><span class="line">#通过散点图找异常点</span><br><span class="line">pyl.plot(price,comment,&apos;o&apos;)</span><br><span class="line">pyl.show()</span><br><span class="line">#评论数异常&gt;100000  价格异常&gt;2300</span><br><span class="line">line=len(data.values)     #几行</span><br><span class="line">column=len(data.values[0])#几列</span><br><span class="line">da=data.values</span><br><span class="line">for i in range(0,line):</span><br><span class="line">    for j in range(0,column):</span><br><span class="line">        if(da[i][1]&gt;2300):   #定位到价格 价格大于2300说明价格值异常</span><br><span class="line">            print(da[i][j])  #输出异常的商品</span><br><span class="line">            da[i][j]=36      #修正</span><br><span class="line">        if(da[i][2]&gt;100000):</span><br><span class="line">            print(da[i][j])  #输出异常的商品</span><br><span class="line">            da[i][j]=657     #修正</span><br><span class="line"></span><br><span class="line">#处理了异常之后再绘制一次图</span><br><span class="line">da2=da.T</span><br><span class="line">price=da2[1]</span><br><span class="line">comment=da2[2]</span><br><span class="line">pyl.plot(price,comment,&apos;o&apos;)</span><br><span class="line">pyl.show()</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zzf-pyf.github.io/2019/12/04/dataclean/" data-id="ckbelqj0t0004pwu33u3v8v1k" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-matplotlib3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/03/matplotlib3/" class="article-date">
+  <time datetime="2019-12-02T16:41:07.000Z" itemprop="datePublished">2019-12-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/03/matplotlib3/">matplotlib3</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="读取数据并可视化分析数据"><a href="#读取数据并可视化分析数据" class="headerlink" title="读取数据并可视化分析数据"></a>读取数据并可视化分析数据</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pda</span><br><span class="line">import os</span><br><span class="line">import numpy as npy</span><br><span class="line">import matplotlib.pylab as pyl</span><br><span class="line">data=pda.read_csv(&quot;C://Users//AbsolutelyYF//Desktop//q数据.csv&quot;)</span><br><span class="line"></span><br><span class="line"># data.values#[第几行][第几列]</span><br><span class="line">#要想取第四行的全部数据</span><br><span class="line">#先data.T(转置）</span><br><span class="line">#data2=data.T</span><br><span class="line">#data2.values[3]  得到需要的列数据</span><br><span class="line">#data2.values[2]</span><br><span class="line"></span><br><span class="line">data2=data.T</span><br><span class="line">y1=data2.values[3]  </span><br><span class="line">x1=data2.values[4]</span><br><span class="line">pyl.plot(x1,y1)        #通过折线图可视化分析数据</span><br><span class="line">pyl.show()</span><br></pre></td></tr></table></figure>
+
+<p>通过这样的数据可视化为图形 来分析数据之间，属性之间的联系</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zzf-pyf.github.io/2019/12/03/matplotlib3/" data-id="ckbelqj15000cpwu3gq9m7yyz" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-matplotlib2" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/11/28/matplotlib2/" class="article-date">
@@ -109,7 +189,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/28/matplotlib2/" data-id="ckbdhc0ou000d2su3hljm1i06" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/28/matplotlib2/" data-id="ckbelqj19000fpwu38lr190h4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -219,7 +299,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/26/matplotib1/" data-id="ckbdhc0os000c2su3djav74ei" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/26/matplotib1/" data-id="ckbelqj17000dpwu36sp5d9aa" class="article-share-link">Share</a>
       
       
     </footer>
@@ -258,7 +338,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/26/consult/" data-id="ckbdhc0p9000m2su3br0u10af" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/26/consult/" data-id="ckbelqj0s0003pwu359m3egvc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -296,7 +376,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/19/datamining2/" data-id="ckbdhc0ok00072su3aoc96zlf" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/19/datamining2/" data-id="ckbelqj0y0008pwu3574u905b" class="article-share-link">Share</a>
       
       
     </footer>
@@ -401,7 +481,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/13/datamining1/" data-id="ckbdhc0ol00082su34jyv2rog" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/13/datamining1/" data-id="ckbelqj0v0005pwu3eokv3qlm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -507,7 +587,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/07/reptile3-1/" data-id="ckbdhc0oy000h2su3f1so25v7" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/07/reptile3-1/" data-id="ckbelqj1g000jpwu31y9g3ghb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -550,7 +630,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile3/" data-id="ckbdhc0p0000j2su3dm1b28mo" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile3/" data-id="ckbelqj1i000lpwu394qj9vxj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -604,84 +684,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile2/" data-id="ckbdhc0ox000g2su351ld8h0m" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-reptile1" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/11/05/reptile1/" class="article-date">
-  <time datetime="2019-11-05T00:37:00.000Z" itemprop="datePublished">2019-11-05</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/05/reptile1/">reptile1</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="爬虫"><a href="#爬虫" class="headerlink" title="爬虫"></a>爬虫</h2><h1 id="python如何访问互联网？"><a href="#python如何访问互联网？" class="headerlink" title="python如何访问互联网？"></a>python如何访问互联网？</h1><p>urllib<br>1.URL的一般格式为（带方括号[]的为可选项）<br>protocol://hostname[:port]/path/[;parameters][?query][?query]#fragment<br>2.URL由三部分组成：<br>（1）第一部分是协议：http,https,ftp,file,ed2k…<br> (2) 第二部分是存放资源的服务器的域名系统或IP地址（有时候要包含端口号，各种<br> 传输协议都有默认的端口号，如http的默认端口为80）<br> （3）第三部分是资源的具体地址，如目录或文件名</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import urllib.request</span><br><span class="line">reponse=urllib.request.urlopen(&quot;http://www.fishc.com&quot;) #打开网页的过程就是从服务器上获取网页的过程</span><br><span class="line">html=reponse.read() #读这对象</span><br><span class="line">html=html.decode(&apos;utf-8&apos;) #解码</span><br><span class="line">print(html)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile1/" data-id="ckbdhc0oz000i2su3gij8405g" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Study5" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/11/04/Study5/" class="article-date">
-  <time datetime="2019-11-03T23:54:53.000Z" itemprop="datePublished">2019-11-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/04/Study5/">Study5</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="构造程序逻辑经典的例子"><a href="#构造程序逻辑经典的例子" class="headerlink" title="构造程序逻辑经典的例子"></a>构造程序逻辑经典的例子</h1><p>1.水仙花数<br>说明：水仙花数也被称为超完全数字不变数、自恋数、自幂数、阿姆斯特朗数，<br>它是一个3位数，该数字每个位上数字的立方之和正好等于它本身，<br>例如：$1^3 + 5^3+ 3^3=153$。<br>‘’’<br>for num in range(100,1000):<br>    low=num%10<br>    mid=num//10%10<br>    high=num//100<br>    if num==low<strong>3+mid</strong>3+high**3:<br>        print(num)<br>‘’’</p>
-<p>2.CRAPS赌博游戏<br>CRAPS又称花旗骰，是美国拉斯维加斯非常受欢迎的一种的桌上赌博游戏。<br>该游戏使用两粒骰子，玩家通过摇两粒骰子获得点数进行游戏。简单的规则是：<br>玩家第一次摇骰子如果摇出了7点或11点，玩家胜；玩家第一次如果摇出2点、3点或12点，<br>庄家胜；其他点数玩家继续摇骰子，如果玩家摇出了7点，庄家胜；<br>如果玩家摇出了第一次摇的点数，玩家胜；其他点数，玩家继续要骰子，直到分出胜负。<br>‘’’<br>Craps赌博游戏<br>我们设定玩家开始游戏时有1000元的赌注<br>游戏结束的条件是玩家输光所有的赌注</p>
-<p>from random import randint<br>money=1000<br>while money&gt;0:<br>    print(‘你的资产:’,money)<br>    needs_go_on=False<br>    while True:<br>        debt=int(input(‘请下注:’))<br>        if 0&lt;debt&lt;=money:<br>            break<br>    first=randint(1,6)+randint(1,6)<br>    print(‘玩家摇出的%d点数’ %first)<br>    if first==7 or first==11:<br>        print(‘玩家胜’)<br>        money+=debt<br>    elif first==2 or first==3 or first==12:<br>        print(‘庄家胜’)<br>        money-=debt<br>    else:<br>        needs_go_on=True<br>    while needs_go_on:<br>        needs_go_on=False<br>        current=randint(1,6)+randint(1,6)<br>        print(‘玩家摇出的%d点数’%current）<br>        if current==7:<br>            print(‘庄家胜’)<br>            money-=debt<br>        elif current==first:<br>            print(‘玩家胜’)<br>            money+=debt<br>        else:<br>            needs_go_on=True<br>print(‘你破产了游戏结束’)</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/11/04/Study5/" data-id="ckbdhc0of00032su349a5bw80" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/11/05/reptile2/" data-id="ckbelqj1a000gpwu3a84g00mz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -727,6 +730,14 @@
       <ul>
         
           <li>
+            <a href="/2020/06/14/BPsjwl/">BPsjwl</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/13/sensor/">sensor</a>
+          </li>
+        
+          <li>
             <a href="/2020/06/11/regression1/">regression1</a>
           </li>
         
@@ -736,14 +747,6 @@
         
           <li>
             <a href="/2020/06/04/spss4/">spss4</a>
-          </li>
-        
-          <li>
-            <a href="/2020/05/27/spss3/">spss3</a>
-          </li>
-        
-          <li>
-            <a href="/2020/05/25/spss2/">spss2</a>
           </li>
         
       </ul>

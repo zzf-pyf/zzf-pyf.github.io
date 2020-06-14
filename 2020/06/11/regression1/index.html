@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="Logistic回归基础篇之梯度上升算法实战numpy的ones()Return a new array of given shape and type, filled with ones.返回一个给定形状和类型的新数组，并用一个默认值填充 subplots简介fig,ax = plt.subplots() 使用该函数确定图的位置，掉用时要XXX=ax.(ax是位置） 等价于： fig = plt">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-06-12T14:32:37.913Z">
+<meta property="og:updated_time" content="2020-06-13T10:18:13.928Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -112,43 +112,12 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line"></span><br><span class="line">s1=pd.Series([1,2,3,4],index=[1,2,3,4])</span><br><span class="line">s2=pd.Series([1,1,1,1])</span><br><span class="line">s3=s1+s2</span><br><span class="line">print s3</span><br></pre></td></tr></table></figure>
 
 
+<h1 id="logistic回归之梯度上升算法"><a href="#logistic回归之梯度上升算法" class="headerlink" title="logistic回归之梯度上升算法"></a>logistic回归之梯度上升算法</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding:UTF-8 -*-</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import numpy as np</span><br><span class="line"> </span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">函数说明:加载数据</span><br><span class="line"> </span><br><span class="line">Parameters:</span><br><span class="line">    无</span><br><span class="line">Returns:</span><br><span class="line">    dataMat - 数据列表</span><br><span class="line">    labelMat - 标签列表</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">def loadDataSet():</span><br><span class="line">    dataMat = []                                                        #创建数据列表</span><br><span class="line">    labelMat = []                                                        #创建标签列表</span><br><span class="line">    fr = open(&apos;testSet.txt&apos;)                                            #打开文件   </span><br><span class="line">    for line in fr.readlines():                                            #逐行读取</span><br><span class="line">        lineArr = line.strip().split()                                    #去回车，放入列表</span><br><span class="line">        dataMat.append([1.0, float(lineArr[0]), float(lineArr[1])])        #添加数据</span><br><span class="line">        labelMat.append(int(lineArr[2]))                                #添加标签</span><br><span class="line">    fr.close()                                                            #关闭文件</span><br><span class="line">    return dataMat, labelMat                                            #返回</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">函数说明:sigmoid函数</span><br><span class="line"> </span><br><span class="line">Parameters:</span><br><span class="line">    inX - 数据</span><br><span class="line">Returns:</span><br><span class="line">    sigmoid函数</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">def sigmoid(inX):</span><br><span class="line">    return 1.0 / (1 + np.exp(-inX))</span><br><span class="line"> </span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">函数说明:梯度上升算法</span><br><span class="line"> </span><br><span class="line">Parameters:</span><br><span class="line">    dataMatIn - 数据集</span><br><span class="line">    classLabels - 数据标签</span><br><span class="line">Returns:</span><br><span class="line">    weights.getA() - 求得的权重数组(最优参数)</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">def gradAscent(dataMatIn, classLabels):</span><br><span class="line">    dataMatrix = np.mat(dataMatIn)                                        #转换成numpy的mat(矩阵）</span><br><span class="line">    labelMat = np.mat(classLabels).transpose()                            #转换成numpy的mat(矩阵）,并进行转置</span><br><span class="line">    m, n = np.shape(dataMatrix)                                            #返回dataMatrix的大小。m为行数,n为列数。</span><br><span class="line">    alpha = 0.001                                                        #移动步长,也就是学习速率,控制更新的幅度。</span><br><span class="line">    maxCycles = 500                                                        #最大迭代次数</span><br><span class="line">    weights = np.ones((n,1))</span><br><span class="line">    for k in range(maxCycles):</span><br><span class="line">        h = sigmoid(dataMatrix * weights)                                #梯度上升矢量化公式</span><br><span class="line">        error = labelMat - h</span><br><span class="line">        weights = weights + alpha * dataMatrix.transpose() * error</span><br><span class="line">    return weights.getA()                                                #将矩阵转换为数组，返回权重数组</span><br><span class="line"> </span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">函数说明:绘制数据集</span><br><span class="line"> </span><br><span class="line">Parameters:</span><br><span class="line">    weights - 权重参数数组</span><br><span class="line">Returns:</span><br><span class="line">    无</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">def plotBestFit(weights):</span><br><span class="line">    dataMat, labelMat = loadDataSet()                                    #加载数据集</span><br><span class="line">    dataArr = np.array(dataMat)                                            #转换成numpy的array数组</span><br><span class="line">    n = np.shape(dataMat)[0]                                            #数据个数</span><br><span class="line">    xcord1 = []; ycord1 = []                                            #正样本</span><br><span class="line">    xcord2 = []; ycord2 = []                                            #负样本</span><br><span class="line">    for i in range(n):                                                    #根据数据集标签进行分类</span><br><span class="line">        if int(labelMat[i]) == 1:</span><br><span class="line">            xcord1.append(dataArr[i,1]); ycord1.append(dataArr[i,2])    #1为正样本</span><br><span class="line">        else:</span><br><span class="line">            xcord2.append(dataArr[i,1]); ycord2.append(dataArr[i,2])    #0为负样本</span><br><span class="line">    fig = plt.figure()</span><br><span class="line">    ax = fig.add_subplot(111)                                            #添加subplot</span><br><span class="line">    ax.scatter(xcord1, ycord1, s = 20, c = &apos;red&apos;, marker = &apos;s&apos;,alpha=.5)#绘制正样本</span><br><span class="line">    ax.scatter(xcord2, ycord2, s = 20, c = &apos;green&apos;,alpha=.5)            #绘制负样本</span><br><span class="line">    x = np.arange(-3.0, 3.0, 0.1)</span><br><span class="line">    y = (-weights[0] - weights[1] * x) / weights[2]</span><br><span class="line">    ax.plot(x, y)                                                   #使用默认线条样式和颜色绘制x和y</span><br><span class="line"></span><br><span class="line">    plt.title(&apos;BestFit&apos;)                                                #绘制title</span><br><span class="line">    plt.xlabel(&apos;X1&apos;); plt.ylabel(&apos;X2&apos;)                                    #绘制label</span><br><span class="line">    plt.show()       </span><br><span class="line"> </span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    dataMat, labelMat = loadDataSet()           </span><br><span class="line">    weights = gradAscent(dataMat, labelMat)</span><br><span class="line">    plotBestFit(weights)</span><br></pre></td></tr></table></figure>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h1 id="数据集分布情况"><a href="#数据集分布情况" class="headerlink" title="数据集分布情况"></a>数据集分布情况</h1><pre><code></code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2020/06/11/regression1/" data-id="ckbdhc0ow000f2su34twa9ray" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2020/06/11/regression1/" data-id="ckbelqj1c000hpwu37qxv2vw6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -156,6 +125,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2020/06/13/sensor/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          sensor
+        
+      </div>
+    </a>
   
   
     <a href="/2020/06/11/numpymat/" id="article-nav-older" class="article-nav-link-wrap">
@@ -197,6 +175,14 @@
       <ul>
         
           <li>
+            <a href="/2020/06/14/BPsjwl/">BPsjwl</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/13/sensor/">sensor</a>
+          </li>
+        
+          <li>
             <a href="/2020/06/11/regression1/">regression1</a>
           </li>
         
@@ -206,14 +192,6 @@
         
           <li>
             <a href="/2020/06/04/spss4/">spss4</a>
-          </li>
-        
-          <li>
-            <a href="/2020/05/27/spss3/">spss3</a>
-          </li>
-        
-          <li>
-            <a href="/2020/05/25/spss2/">spss2</a>
           </li>
         
       </ul>

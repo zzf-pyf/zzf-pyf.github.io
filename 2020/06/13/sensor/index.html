@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>sensor | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="感知器算法1、什么是感知器 本文假设数据为：二维二类、线性可分 感知器就是一个分类器，如：给两类数据做训练集A,B，训练完成之后，给定一个测试数据，通过感知器，可以分成A或B。 因为数据是二维线性可分的，我们不妨假设该线性方程为w0x0+w1x1+w2 = 0 2、如何训练 训练的最终结果是训练集中A的结果在直线的一侧，假设经过过滤器后其值&amp;lt;0; B的结果在直线的另一侧经过过滤器后其值&amp;gt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sensor">
+<meta property="og:url" content="https:&#x2F;&#x2F;zzf-pyf.github.io&#x2F;2020&#x2F;06&#x2F;13&#x2F;sensor&#x2F;index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="感知器算法1、什么是感知器 本文假设数据为：二维二类、线性可分 感知器就是一个分类器，如：给两类数据做训练集A,B，训练完成之后，给定一个测试数据，通过感知器，可以分成A或B。 因为数据是二维线性可分的，我们不妨假设该线性方程为w0x0+w1x1+w2 = 0 2、如何训练 训练的最终结果是训练集中A的结果在直线的一侧，假设经过过滤器后其值&amp;lt;0; B的结果在直线的另一侧经过过滤器后其值&amp;gt">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-06-14T04:35:31.415Z">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://zzf-pyf.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-sensor" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/06/13/sensor/" class="article-date">
+  <time datetime="2020-06-13T10:17:39.000Z" itemprop="datePublished">2020-06-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      sensor
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="感知器算法"><a href="#感知器算法" class="headerlink" title="感知器算法"></a>感知器算法</h1><p>1、什么是感知器</p>
+<p>本文假设数据为：二维二类、线性可分</p>
+<p>感知器就是一个分类器，如：给两类数据做训练集A,B，训练完成之后，给定一个测试数据，通过感知器，可以分成A或B。</p>
+<p>因为数据是二维线性可分的，我们不妨假设该线性方程为w0<em>x0+w1</em>x1+w2 = 0</p>
+<p>2、如何训练</p>
+<p>训练的最终结果是训练集中A的结果在直线的一侧，假设经过过滤器后其值&lt;0; B的结果在直线的另一侧经过过滤器后其值&gt;0。</p>
+<p>可以先给w=[w0,w1,w2]赋一个初始值如w=[1,1,1]。</p>
+<p>如果训练集中的点x的标签为A，且带入线性方程后的值&lt;0，则当前感知器对x点分类正确，不对w进行调整</p>
+<p>如果训练集中的点x的标签为A，且带入线性方程后的值&gt;=0，则当前感知器对x点分类不正确，对w进行调整。</p>
+<p>本来应该&lt;0，但结果&gt;=0，所以w调整原则为w =w-x。因为wx&gt;(w-x)*x，能够使调整后的结果变小</p>
+<p>如果训练集中的点x的标签为B，且带入线性方程后的值&gt;0，则当前感知器对x点分类正确，不对w进行调整</p>
+<p>如果训练集中的点x的标签为B，且带入线性方程后的值&lt;=0，则当前感知器对x点分类不正确，对w进行调整。</p>
+<p>本来应该&gt;0，但结果&lt;=0，所以w调整原则为w =w+x。因为wx&lt;(w+x)*x，能够使调整后的结果变大</p>
+<p>其中应为w比x多了一个维度，对x的处理方式是采用增量模式，即每个样本的第三维度都为1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"> </span><br><span class="line">w = [1,1,1]</span><br><span class="line">x1 =[[1,0,1],[0,1,1],[2,0,1],[2,2,1]]</span><br><span class="line">x2=[[-1,-1,1],[-1,0,1],[-2,-1,1],[0,-2,1]]</span><br><span class="line"></span><br><span class="line">flag = False</span><br><span class="line">while flag != True:</span><br><span class="line">    for i in range(4):</span><br><span class="line">        t = 0</span><br><span class="line">        for j in range(3):</span><br><span class="line">            t += w[j]*x1[i][j]</span><br><span class="line">        if(t &lt;= 0):</span><br><span class="line">           for j in range(3):</span><br><span class="line">            w[j] +=x1[i][j]</span><br><span class="line">    for i in range(4):</span><br><span class="line">       t = 0</span><br><span class="line">       for j in range(3):</span><br><span class="line">           t += w[j]*x2[i][j]</span><br><span class="line">       if(t &gt;= 0):</span><br><span class="line">           for j in range(3):</span><br><span class="line">                w[j] -=x2[i][j]</span><br><span class="line">    flag = True</span><br><span class="line">    for i in range(4):</span><br><span class="line">        t1 = 0</span><br><span class="line">        t2 = 0</span><br><span class="line">        for j in range(3):</span><br><span class="line">            t1 += w[j]*x1[i][j]</span><br><span class="line">            t2 += w[j]*x2[i][j]</span><br><span class="line">        if (t1 &lt;=0 ):</span><br><span class="line">            flag =False</span><br><span class="line">            break</span><br><span class="line">        if(t2 &gt;=0):</span><br><span class="line">            flag = False</span><br><span class="line">            break</span><br><span class="line">print(&quot;判别函数：&quot; + &quot;d(x)= %d&quot; % (w[0]) + &quot;x&quot; +&quot;+&quot;+ &quot;%d&quot; % (w[1]) + &quot;y&quot; +&quot;+&quot;+ &quot;%d&quot; % (w[2]) )</span><br><span class="line">plt.figure()</span><br><span class="line">for i in range(4):</span><br><span class="line">    plt.scatter(x1[i][0],x1[i][1],c = &apos;r&apos;,marker=&apos;o&apos;)</span><br><span class="line">    plt.scatter(x2[i][0],x2[i][1],c = &apos;g&apos;,marker=&apos;*&apos;)</span><br><span class="line">plt.grid()                       #画网格</span><br><span class="line">p1=[-2.0,2.0]                    #横轴坐标的范围</span><br><span class="line">p2=[(-w[2]+2*w[0])/w[1],(-w[2]-2*w[0])/w[1]]</span><br><span class="line">plt.plot(p1,p2)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zzf-pyf.github.io/2020/06/13/sensor/" data-id="ckbelqj1h000kpwu31udx0tk1" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/06/14/BPsjwl/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          BPsjwl
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/06/11/regression1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">regression1</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/06/14/BPsjwl/">BPsjwl</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/13/sensor/">sensor</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/11/regression1/">regression1</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/11/numpymat/">numpymat</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/04/spss4/">spss4</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 pyf<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

@@ -61,6 +61,92 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-BPsjwl" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/06/14/BPsjwl/" class="article-date">
+  <time datetime="2020-06-14T05:01:53.000Z" itemprop="datePublished">2020-06-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/14/BPsjwl/">BPsjwl</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zzf-pyf.github.io/2020/06/14/BPsjwl/" data-id="ckbelqj0k0000pwu3buvkcjd6" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-sensor" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/06/13/sensor/" class="article-date">
+  <time datetime="2020-06-13T10:17:39.000Z" itemprop="datePublished">2020-06-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/13/sensor/">sensor</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="感知器算法"><a href="#感知器算法" class="headerlink" title="感知器算法"></a>感知器算法</h1><p>1、什么是感知器</p>
+<p>本文假设数据为：二维二类、线性可分</p>
+<p>感知器就是一个分类器，如：给两类数据做训练集A,B，训练完成之后，给定一个测试数据，通过感知器，可以分成A或B。</p>
+<p>因为数据是二维线性可分的，我们不妨假设该线性方程为w0<em>x0+w1</em>x1+w2 = 0</p>
+<p>2、如何训练</p>
+<p>训练的最终结果是训练集中A的结果在直线的一侧，假设经过过滤器后其值&lt;0; B的结果在直线的另一侧经过过滤器后其值&gt;0。</p>
+<p>可以先给w=[w0,w1,w2]赋一个初始值如w=[1,1,1]。</p>
+<p>如果训练集中的点x的标签为A，且带入线性方程后的值&lt;0，则当前感知器对x点分类正确，不对w进行调整</p>
+<p>如果训练集中的点x的标签为A，且带入线性方程后的值&gt;=0，则当前感知器对x点分类不正确，对w进行调整。</p>
+<p>本来应该&lt;0，但结果&gt;=0，所以w调整原则为w =w-x。因为wx&gt;(w-x)*x，能够使调整后的结果变小</p>
+<p>如果训练集中的点x的标签为B，且带入线性方程后的值&gt;0，则当前感知器对x点分类正确，不对w进行调整</p>
+<p>如果训练集中的点x的标签为B，且带入线性方程后的值&lt;=0，则当前感知器对x点分类不正确，对w进行调整。</p>
+<p>本来应该&gt;0，但结果&lt;=0，所以w调整原则为w =w+x。因为wx&lt;(w+x)*x，能够使调整后的结果变大</p>
+<p>其中应为w比x多了一个维度，对x的处理方式是采用增量模式，即每个样本的第三维度都为1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"> </span><br><span class="line">w = [1,1,1]</span><br><span class="line">x1 =[[1,0,1],[0,1,1],[2,0,1],[2,2,1]]</span><br><span class="line">x2=[[-1,-1,1],[-1,0,1],[-2,-1,1],[0,-2,1]]</span><br><span class="line"></span><br><span class="line">flag = False</span><br><span class="line">while flag != True:</span><br><span class="line">    for i in range(4):</span><br><span class="line">        t = 0</span><br><span class="line">        for j in range(3):</span><br><span class="line">            t += w[j]*x1[i][j]</span><br><span class="line">        if(t &lt;= 0):</span><br><span class="line">           for j in range(3):</span><br><span class="line">            w[j] +=x1[i][j]</span><br><span class="line">    for i in range(4):</span><br><span class="line">       t = 0</span><br><span class="line">       for j in range(3):</span><br><span class="line">           t += w[j]*x2[i][j]</span><br><span class="line">       if(t &gt;= 0):</span><br><span class="line">           for j in range(3):</span><br><span class="line">                w[j] -=x2[i][j]</span><br><span class="line">    flag = True</span><br><span class="line">    for i in range(4):</span><br><span class="line">        t1 = 0</span><br><span class="line">        t2 = 0</span><br><span class="line">        for j in range(3):</span><br><span class="line">            t1 += w[j]*x1[i][j]</span><br><span class="line">            t2 += w[j]*x2[i][j]</span><br><span class="line">        if (t1 &lt;=0 ):</span><br><span class="line">            flag =False</span><br><span class="line">            break</span><br><span class="line">        if(t2 &gt;=0):</span><br><span class="line">            flag = False</span><br><span class="line">            break</span><br><span class="line">print(&quot;判别函数：&quot; + &quot;d(x)= %d&quot; % (w[0]) + &quot;x&quot; +&quot;+&quot;+ &quot;%d&quot; % (w[1]) + &quot;y&quot; +&quot;+&quot;+ &quot;%d&quot; % (w[2]) )</span><br><span class="line">plt.figure()</span><br><span class="line">for i in range(4):</span><br><span class="line">    plt.scatter(x1[i][0],x1[i][1],c = &apos;r&apos;,marker=&apos;o&apos;)</span><br><span class="line">    plt.scatter(x2[i][0],x2[i][1],c = &apos;g&apos;,marker=&apos;*&apos;)</span><br><span class="line">plt.grid()                       #画网格</span><br><span class="line">p1=[-2.0,2.0]                    #横轴坐标的范围</span><br><span class="line">p2=[(-w[2]+2*w[0])/w[1],(-w[2]-2*w[0])/w[1]]</span><br><span class="line">plt.plot(p1,p2)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zzf-pyf.github.io/2020/06/13/sensor/" data-id="ckbelqj1h000kpwu31udx0tk1" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="logistic-regression1" class="article article-type-logistic" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/06/11/regression1/" class="article-date">
@@ -111,43 +197,12 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line"></span><br><span class="line">s1=pd.Series([1,2,3,4],index=[1,2,3,4])</span><br><span class="line">s2=pd.Series([1,1,1,1])</span><br><span class="line">s3=s1+s2</span><br><span class="line">print s3</span><br></pre></td></tr></table></figure>
 
 
+<h1 id="logistic回归之梯度上升算法"><a href="#logistic回归之梯度上升算法" class="headerlink" title="logistic回归之梯度上升算法"></a>logistic回归之梯度上升算法</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding:UTF-8 -*-</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import numpy as np</span><br><span class="line"> </span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">函数说明:加载数据</span><br><span class="line"> </span><br><span class="line">Parameters:</span><br><span class="line">    无</span><br><span class="line">Returns:</span><br><span class="line">    dataMat - 数据列表</span><br><span class="line">    labelMat - 标签列表</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">def loadDataSet():</span><br><span class="line">    dataMat = []                                                        #创建数据列表</span><br><span class="line">    labelMat = []                                                        #创建标签列表</span><br><span class="line">    fr = open(&apos;testSet.txt&apos;)                                            #打开文件   </span><br><span class="line">    for line in fr.readlines():                                            #逐行读取</span><br><span class="line">        lineArr = line.strip().split()                                    #去回车，放入列表</span><br><span class="line">        dataMat.append([1.0, float(lineArr[0]), float(lineArr[1])])        #添加数据</span><br><span class="line">        labelMat.append(int(lineArr[2]))                                #添加标签</span><br><span class="line">    fr.close()                                                            #关闭文件</span><br><span class="line">    return dataMat, labelMat                                            #返回</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">函数说明:sigmoid函数</span><br><span class="line"> </span><br><span class="line">Parameters:</span><br><span class="line">    inX - 数据</span><br><span class="line">Returns:</span><br><span class="line">    sigmoid函数</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">def sigmoid(inX):</span><br><span class="line">    return 1.0 / (1 + np.exp(-inX))</span><br><span class="line"> </span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">函数说明:梯度上升算法</span><br><span class="line"> </span><br><span class="line">Parameters:</span><br><span class="line">    dataMatIn - 数据集</span><br><span class="line">    classLabels - 数据标签</span><br><span class="line">Returns:</span><br><span class="line">    weights.getA() - 求得的权重数组(最优参数)</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">def gradAscent(dataMatIn, classLabels):</span><br><span class="line">    dataMatrix = np.mat(dataMatIn)                                        #转换成numpy的mat(矩阵）</span><br><span class="line">    labelMat = np.mat(classLabels).transpose()                            #转换成numpy的mat(矩阵）,并进行转置</span><br><span class="line">    m, n = np.shape(dataMatrix)                                            #返回dataMatrix的大小。m为行数,n为列数。</span><br><span class="line">    alpha = 0.001                                                        #移动步长,也就是学习速率,控制更新的幅度。</span><br><span class="line">    maxCycles = 500                                                        #最大迭代次数</span><br><span class="line">    weights = np.ones((n,1))</span><br><span class="line">    for k in range(maxCycles):</span><br><span class="line">        h = sigmoid(dataMatrix * weights)                                #梯度上升矢量化公式</span><br><span class="line">        error = labelMat - h</span><br><span class="line">        weights = weights + alpha * dataMatrix.transpose() * error</span><br><span class="line">    return weights.getA()                                                #将矩阵转换为数组，返回权重数组</span><br><span class="line"> </span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">函数说明:绘制数据集</span><br><span class="line"> </span><br><span class="line">Parameters:</span><br><span class="line">    weights - 权重参数数组</span><br><span class="line">Returns:</span><br><span class="line">    无</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">def plotBestFit(weights):</span><br><span class="line">    dataMat, labelMat = loadDataSet()                                    #加载数据集</span><br><span class="line">    dataArr = np.array(dataMat)                                            #转换成numpy的array数组</span><br><span class="line">    n = np.shape(dataMat)[0]                                            #数据个数</span><br><span class="line">    xcord1 = []; ycord1 = []                                            #正样本</span><br><span class="line">    xcord2 = []; ycord2 = []                                            #负样本</span><br><span class="line">    for i in range(n):                                                    #根据数据集标签进行分类</span><br><span class="line">        if int(labelMat[i]) == 1:</span><br><span class="line">            xcord1.append(dataArr[i,1]); ycord1.append(dataArr[i,2])    #1为正样本</span><br><span class="line">        else:</span><br><span class="line">            xcord2.append(dataArr[i,1]); ycord2.append(dataArr[i,2])    #0为负样本</span><br><span class="line">    fig = plt.figure()</span><br><span class="line">    ax = fig.add_subplot(111)                                            #添加subplot</span><br><span class="line">    ax.scatter(xcord1, ycord1, s = 20, c = &apos;red&apos;, marker = &apos;s&apos;,alpha=.5)#绘制正样本</span><br><span class="line">    ax.scatter(xcord2, ycord2, s = 20, c = &apos;green&apos;,alpha=.5)            #绘制负样本</span><br><span class="line">    x = np.arange(-3.0, 3.0, 0.1)</span><br><span class="line">    y = (-weights[0] - weights[1] * x) / weights[2]</span><br><span class="line">    ax.plot(x, y)                                                   #使用默认线条样式和颜色绘制x和y</span><br><span class="line"></span><br><span class="line">    plt.title(&apos;BestFit&apos;)                                                #绘制title</span><br><span class="line">    plt.xlabel(&apos;X1&apos;); plt.ylabel(&apos;X2&apos;)                                    #绘制label</span><br><span class="line">    plt.show()       </span><br><span class="line"> </span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    dataMat, labelMat = loadDataSet()           </span><br><span class="line">    weights = gradAscent(dataMat, labelMat)</span><br><span class="line">    plotBestFit(weights)</span><br></pre></td></tr></table></figure>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h1 id="数据集分布情况"><a href="#数据集分布情况" class="headerlink" title="数据集分布情况"></a>数据集分布情况</h1><pre><code></code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2020/06/11/regression1/" data-id="ckbdhc0ow000f2su34twa9ray" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2020/06/11/regression1/" data-id="ckbelqj1c000hpwu37qxv2vw6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -236,7 +291,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2020/06/11/numpymat/" data-id="ckbdhc0oo000a2su3h6zwbiht" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2020/06/11/numpymat/" data-id="ckbelqj1f000ipwu31qgp2fwz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -344,7 +399,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2020/06/04/spss4/" data-id="ckbdhc0pa000n2su3g95ufs95" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2020/06/04/spss4/" data-id="ckbelqj1l000opwu3hutnfup7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -401,7 +456,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2020/05/27/spss3/" data-id="ckbdhc0pb000o2su3ffthh6dy" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2020/05/27/spss3/" data-id="ckbelqj1m000ppwu33nizgel9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -486,7 +541,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2020/05/25/spss2/" data-id="ckbdhc0p1000l2su3112n1x6q" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2020/05/25/spss2/" data-id="ckbelqj1k000npwu383wja26l" class="article-share-link">Share</a>
       
       
     </footer>
@@ -527,7 +582,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2020/05/18/spss/" data-id="ckbdhc0p1000k2su36wo7aoyu" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2020/05/18/spss/" data-id="ckbelqj1n000qpwu3djar6gzg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -564,7 +619,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/12/15/ppt1/" data-id="ckbdhc0ov000e2su3b5za7shx" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/12/15/ppt1/" data-id="ckbelqj18000epwu3fj0t2zoa" class="article-share-link">Share</a>
       
       
     </footer>
@@ -603,87 +658,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/12/07/distribution/" data-id="ckbdhc0op000b2su3fsy18999" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-dataclean" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/12/04/dataclean/" class="article-date">
-  <time datetime="2019-12-03T21:23:02.000Z" itemprop="datePublished">2019-12-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/04/dataclean/">dataclean</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="数据探索与数据清洗"><a href="#数据探索与数据清洗" class="headerlink" title="数据探索与数据清洗"></a>数据探索与数据清洗</h2><p>数据探索的目的是及早发现数据的一些简单规律和特征，将数据清洗的目的是留下可靠<br>的数据，避免脏数据的干扰。这两者没用严格的先后顺序，经常在一个阶段进行。</p>
-<h1 id="数据探索的核心"><a href="#数据探索的核心" class="headerlink" title="数据探索的核心"></a>数据探索的核心</h1><p>1.数据质量分析（与数据清洗密切相关）<br>2.数据特征分析（分布，对比，周期性，相关性，常见统计量等）</p>
-<h1 id="数据清洗的步骤"><a href="#数据清洗的步骤" class="headerlink" title="数据清洗的步骤"></a>数据清洗的步骤</h1><p>1.缺失值处理（通过describe与len直接发现、通过0数据发现）<br>2.异常值处理（通过散点图发现）<br>一般遇到缺失值，处理方法为（删除、插补、不处理）;<br>插补的方式：均值插补，中位数插补，众数插补，固定值插补，最近数据插补，<br>回归插补，拉格朗日插值，牛顿插值法，分段插值等等。<br>遇到异常值，一般处理方式为视为缺失值，删除，修补（平均数，中位数），不处理）</p>
-<h1 id="以淘宝零食类商品数据为例进行实战。"><a href="#以淘宝零食类商品数据为例进行实战。" class="headerlink" title="以淘宝零食类商品数据为例进行实战。"></a>以淘宝零食类商品数据为例进行实战。</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">#导入数据</span><br><span class="line">import pandas as pda</span><br><span class="line">import os</span><br><span class="line">import numpy as npy</span><br><span class="line">import matplotlib.pylab as pyl</span><br><span class="line">data=pda.read_csv(&quot;C://Users//AbsolutelyYF//Desktop//商品数据清洗.csv&quot;)</span><br><span class="line">print(data.describe())</span><br><span class="line">#数据清洗</span><br><span class="line">#发现缺失值</span><br><span class="line">x=0</span><br><span class="line">data[&quot;price&quot;][(data[&quot;price&quot;]==0)]=None #将价格为0的数据统统变为空值</span><br><span class="line">for i in data.columns:</span><br><span class="line">    for j in range(len(data)):</span><br><span class="line">        if(data[i].isnull())[j]:</span><br><span class="line">            data[i][j]=&quot;36&quot;</span><br><span class="line">            x+=1</span><br><span class="line">print(x)</span><br><span class="line">#异常值处理</span><br><span class="line">#画散点图（横轴为价格，纵轴为评论数）</span><br><span class="line">#得到价格</span><br><span class="line">data2=data.T</span><br><span class="line">price=data2.values[1]</span><br><span class="line">#得到评论数据</span><br><span class="line">comment=data2.values[2]</span><br><span class="line">#通过散点图找异常点</span><br><span class="line">pyl.plot(price,comment,&apos;o&apos;)</span><br><span class="line">pyl.show()</span><br><span class="line">#评论数异常&gt;100000  价格异常&gt;2300</span><br><span class="line">line=len(data.values)     #几行</span><br><span class="line">column=len(data.values[0])#几列</span><br><span class="line">da=data.values</span><br><span class="line">for i in range(0,line):</span><br><span class="line">    for j in range(0,column):</span><br><span class="line">        if(da[i][1]&gt;2300):   #定位到价格 价格大于2300说明价格值异常</span><br><span class="line">            print(da[i][j])  #输出异常的商品</span><br><span class="line">            da[i][j]=36      #修正</span><br><span class="line">        if(da[i][2]&gt;100000):</span><br><span class="line">            print(da[i][j])  #输出异常的商品</span><br><span class="line">            da[i][j]=657     #修正</span><br><span class="line"></span><br><span class="line">#处理了异常之后再绘制一次图</span><br><span class="line">da2=da.T</span><br><span class="line">price=da2[1]</span><br><span class="line">comment=da2[2]</span><br><span class="line">pyl.plot(price,comment,&apos;o&apos;)</span><br><span class="line">pyl.show()</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/12/04/dataclean/" data-id="ckbdhc0oj00062su33vkccpkd" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-matplotlib3" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/12/03/matplotlib3/" class="article-date">
-  <time datetime="2019-12-02T16:41:07.000Z" itemprop="datePublished">2019-12-03</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/03/matplotlib3/">matplotlib3</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="读取数据并可视化分析数据"><a href="#读取数据并可视化分析数据" class="headerlink" title="读取数据并可视化分析数据"></a>读取数据并可视化分析数据</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pda</span><br><span class="line">import os</span><br><span class="line">import numpy as npy</span><br><span class="line">import matplotlib.pylab as pyl</span><br><span class="line">data=pda.read_csv(&quot;C://Users//AbsolutelyYF//Desktop//q数据.csv&quot;)</span><br><span class="line"></span><br><span class="line"># data.values#[第几行][第几列]</span><br><span class="line">#要想取第四行的全部数据</span><br><span class="line">#先data.T(转置）</span><br><span class="line">#data2=data.T</span><br><span class="line">#data2.values[3]  得到需要的列数据</span><br><span class="line">#data2.values[2]</span><br><span class="line"></span><br><span class="line">data2=data.T</span><br><span class="line">y1=data2.values[3]  </span><br><span class="line">x1=data2.values[4]</span><br><span class="line">pyl.plot(x1,y1)        #通过折线图可视化分析数据</span><br><span class="line">pyl.show()</span><br></pre></td></tr></table></figure>
-
-<p>通过这样的数据可视化为图形 来分析数据之间，属性之间的联系</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/12/03/matplotlib3/" data-id="ckbdhc0on00092su3er9z0cng" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2019/12/07/distribution/" data-id="ckbelqj100009pwu3eyw5cddk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -729,6 +704,14 @@
       <ul>
         
           <li>
+            <a href="/2020/06/14/BPsjwl/">BPsjwl</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/13/sensor/">sensor</a>
+          </li>
+        
+          <li>
             <a href="/2020/06/11/regression1/">regression1</a>
           </li>
         
@@ -738,14 +721,6 @@
         
           <li>
             <a href="/2020/06/04/spss4/">spss4</a>
-          </li>
-        
-          <li>
-            <a href="/2020/05/27/spss3/">spss3</a>
-          </li>
-        
-          <li>
-            <a href="/2020/05/25/spss2/">spss2</a>
           </li>
         
       </ul>
