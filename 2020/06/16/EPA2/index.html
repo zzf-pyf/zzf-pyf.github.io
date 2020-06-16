@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="数据探索性分析2特征分析seller’和‘offerType’已被删除，其他特征均经过了label coding。若需要处理的数据未label coding，则可通过如下代码对特征进行区分： 123456# 数字特征numeric_features = Train_data.select_dtypes(include=[np.number])numeric_features.columns# 类型">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-06-16T13:27:31.459Z">
+<meta property="og:updated_time" content="2020-06-16T13:31:51.751Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -95,7 +95,7 @@
 
 <h1 id="类别特征的探索"><a href="#类别特征的探索" class="headerlink" title="类别特征的探索"></a>类别特征的探索</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">import numpy as np</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import seaborn as sns</span><br><span class="line">import missingno as msno  # 用于可视化缺失值分布</span><br><span class="line">import scipy.stats as st</span><br><span class="line"></span><br><span class="line">train_data = pd.read_csv(&quot;C://Users//AbsolutelyYF//Desktop//used_car_train_20200313.csv&quot;, sep=&apos; &apos;)#sep：如果不指定参数，则会尝试使用逗号分隔。</span><br><span class="line">test_data = pd.read_csv(&quot;C://Users//AbsolutelyYF//Desktop//used_car_testB_20200421.csv&quot;, sep=&apos; &apos;)</span><br><span class="line"></span><br><span class="line">train_data[&apos;notRepairedDamage&apos;].replace(&apos;-&apos;, np.nan, inplace=True)</span><br><span class="line">&quot;&quot;&quot;人为设定&quot;&quot;&quot;</span><br><span class="line">numeric_features = [&apos;power&apos;, &apos;kilometer&apos;].extend([&apos;v_&apos;+str(i) for i in range(15)])</span><br><span class="line"></span><br><span class="line"># 这里我感觉这个name和预测值没有关系，所以虽然是类别，可以先去掉看看, 日期的也去掉</span><br><span class="line">categorical_features = [&apos;model&apos;, &apos;brand&apos;, &apos;bodyType&apos;, &apos;fuelType&apos;, &apos;gearbox&apos;, </span><br><span class="line">                        &apos;notRepairedDamage&apos;,&apos;regionCode&apos;, &apos;seller&apos;, &apos;offerType&apos;]</span><br><span class="line"></span><br><span class="line">#类别偏斜处理主要是重点查看一下类别特征有没有数量严重偏斜的情况（由于太多，不在这里显示），这样的情况一般对预测没有什么帮助</span><br><span class="line">for cate_fea in categorical_features:</span><br><span class="line">    print(cate_fea + &apos;特征分布如下：&apos;)</span><br><span class="line">    print(&apos;&#123;&#125;特征有&#123;&#125;不同的值&apos;.format(cate_fea, len(train_data[cate_fea].unique())))</span><br><span class="line">    print(train_data[cate_fea].value_counts())</span><br><span class="line">    print()</span><br><span class="line"></span><br><span class="line">categorical_features.remove(&apos;seller&apos;)</span><br><span class="line">categorical_features.remove(&apos;offerType&apos;)</span><br><span class="line">categorical_features.remove(&apos;regionCode&apos;)</span><br><span class="line">print(categorical_features)# 因为regionCode的类别太稀疏了，所以先去掉，因为后面要可视化，不画稀疏的</span><br></pre></td></tr></table></figure>
 
-<h1 id="箱型图的绘制"><a href="#箱型图的绘制" class="headerlink" title="箱型图的绘制"></a>箱型图的绘制</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">import numpy as np</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import seaborn as sns</span><br><span class="line">import missingno as msno  # 用于可视化缺失值分布</span><br><span class="line">import scipy.stats as st</span><br><span class="line"></span><br><span class="line">train_data = pd.read_csv(&quot;C://Users//AbsolutelyYF//Desktop//used_car_train_20200313.csv&quot;, sep=&apos; &apos;)#sep：如果不指定参数，则会尝试使用逗号分隔。</span><br><span class="line">test_data = pd.read_csv(&quot;C://Users//AbsolutelyYF//Desktop//used_car_testB_20200421.csv&quot;, sep=&apos; &apos;)</span><br><span class="line"></span><br><span class="line">train_data[&apos;notRepairedDamage&apos;].replace(&apos;-&apos;, np.nan, inplace=True)</span><br><span class="line">&quot;&quot;&quot;人为设定&quot;&quot;&quot;</span><br><span class="line">numeric_features = [&apos;power&apos;, &apos;kilometer&apos;].extend([&apos;v_&apos;+str(i) for i in range(15)])</span><br><span class="line"></span><br><span class="line"># 这里我感觉这个name和预测值没有关系，所以虽然是类别，可以先去掉看看, 日期的也去掉</span><br><span class="line">categorical_features = [&apos;model&apos;, &apos;brand&apos;, &apos;bodyType&apos;, &apos;fuelType&apos;, &apos;gearbox&apos;, </span><br><span class="line">                        &apos;notRepairedDamage&apos;,&apos;regionCode&apos;, &apos;seller&apos;, &apos;offerType&apos;]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">categorical_features.remove(&apos;seller&apos;)</span><br><span class="line">categorical_features.remove(&apos;offerType&apos;)</span><br><span class="line">categorical_features.remove(&apos;regionCode&apos;)</span><br><span class="line">print(categorical_features)# 因为regionCode的类别太稀疏了，所以先去掉，因为后面要可视化，不画稀疏的</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;类别特征箱型图可视化&quot;&quot;&quot;</span><br></pre></td></tr></table></figure>
+<h1 id="箱型图的绘制"><a href="#箱型图的绘制" class="headerlink" title="箱型图的绘制"></a>箱型图的绘制</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import pandas as pd</span><br><span class="line">import numpy as np</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import seaborn as sns</span><br><span class="line">import missingno as msno  # 用于可视化缺失值分布</span><br><span class="line">import scipy.stats as st</span><br><span class="line"></span><br><span class="line">train_data = pd.read_csv(&quot;C://Users//AbsolutelyYF//Desktop//used_car_train_20200313.csv&quot;, sep=&apos; &apos;)#sep：如果不指定参数，则会尝试使用逗号分隔。</span><br><span class="line">test_data = pd.read_csv(&quot;C://Users//AbsolutelyYF//Desktop//used_car_testB_20200421.csv&quot;, sep=&apos; &apos;)</span><br><span class="line"></span><br><span class="line">train_data[&apos;notRepairedDamage&apos;].replace(&apos;-&apos;, np.nan, inplace=True)</span><br><span class="line">&quot;&quot;&quot;人为设定&quot;&quot;&quot;</span><br><span class="line">numeric_features = [&apos;power&apos;, &apos;kilometer&apos;].extend([&apos;v_&apos;+str(i) for i in range(15)])</span><br><span class="line"></span><br><span class="line"># 这里我感觉这个name和预测值没有关系，所以虽然是类别，可以先去掉看看, 日期的也去掉</span><br><span class="line">categorical_features = [&apos;model&apos;, &apos;brand&apos;, &apos;bodyType&apos;, &apos;fuelType&apos;, &apos;gearbox&apos;, </span><br><span class="line">                        &apos;notRepairedDamage&apos;,&apos;regionCode&apos;, &apos;seller&apos;, &apos;offerType&apos;]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">categorical_features.remove(&apos;seller&apos;)</span><br><span class="line">categorical_features.remove(&apos;offerType&apos;)</span><br><span class="line">categorical_features.remove(&apos;regionCode&apos;)</span><br><span class="line">print(categorical_features)# 因为regionCode的类别太稀疏了，所以先去掉，因为后面要可视化，不画稀疏的</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;类别特征箱型图可视化&quot;&quot;&quot;</span><br></pre></td></tr></table></figure>
 <p>import pandas as pd<br>import numpy as np<br>import matplotlib.pyplot as plt<br>import seaborn as sns<br>import missingno as msno  # 用于可视化缺失值分布<br>import scipy.stats as st</p>
 <p>train_data = pd.read_csv(“C://Users//AbsolutelyYF//Desktop//used_car_train_20200313.csv”, sep=’ ‘)#sep：如果不指定参数，则会尝试使用逗号分隔。<br>test_data = pd.read_csv(“C://Users//AbsolutelyYF//Desktop//used_car_testB_20200421.csv”, sep=’ ‘)</p>
 <p>train_data[‘notRepairedDamage’].replace(‘-‘, np.nan, inplace=True)<br>“””人为设定”””<br>numeric_features = [‘power’, ‘kilometer’].extend([‘v_’+str(i) for i in range(15)])</p>
@@ -132,7 +132,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2020/06/16/EPA2/" data-id="ckbhyp0yg00002wu367scetk8" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2020/06/16/EPA2/" data-id="ckbhyu9i800017wu38604bw5p" class="article-share-link">Share</a>
       
       
     </footer>
@@ -141,11 +141,11 @@
     
 <nav id="article-nav">
   
-    <a href="/2020/06/16/args/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/06/16/args0kwargs/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          args
+          args0kwargs
         
       </div>
     </a>
@@ -194,10 +194,6 @@
           </li>
         
           <li>
-            <a href="/2020/06/16/args/">args</a>
-          </li>
-        
-          <li>
             <a href="/2020/06/16/EPA2/">EPA2</a>
           </li>
         
@@ -207,6 +203,10 @@
         
           <li>
             <a href="/2020/06/14/BPsjwl/">BPsjwl</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/13/sensor/">sensor</a>
           </li>
         
       </ul>
