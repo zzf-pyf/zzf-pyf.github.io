@@ -103,7 +103,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2020/06/16/args0kwargs/" data-id="ckbhyu9ii00087wu3152d8mkf" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2020/06/16/args0kwargs/" data-id="ckbhyyjww0009p4u360f9biu1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -113,9 +113,9 @@
 
 
   
-    <article id="post-EPA2" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-EDA2" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/06/16/EPA2/" class="article-date">
+    <a href="/2020/06/16/EDA2/" class="article-date">
   <time datetime="2020-06-16T08:24:09.000Z" itemprop="datePublished">2020-06-16</time>
 </a>
     
@@ -127,7 +127,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/16/EPA2/">EPA2</a>
+      <a class="article-title" href="/2020/06/16/EDA2/">EPA2</a>
     </h1>
   
 
@@ -146,20 +146,8 @@
 
 <h1 id="类别特征的探索"><a href="#类别特征的探索" class="headerlink" title="类别特征的探索"></a>类别特征的探索</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">import numpy as np</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import seaborn as sns</span><br><span class="line">import missingno as msno  # 用于可视化缺失值分布</span><br><span class="line">import scipy.stats as st</span><br><span class="line"></span><br><span class="line">train_data = pd.read_csv(&quot;C://Users//AbsolutelyYF//Desktop//used_car_train_20200313.csv&quot;, sep=&apos; &apos;)#sep：如果不指定参数，则会尝试使用逗号分隔。</span><br><span class="line">test_data = pd.read_csv(&quot;C://Users//AbsolutelyYF//Desktop//used_car_testB_20200421.csv&quot;, sep=&apos; &apos;)</span><br><span class="line"></span><br><span class="line">train_data[&apos;notRepairedDamage&apos;].replace(&apos;-&apos;, np.nan, inplace=True)</span><br><span class="line">&quot;&quot;&quot;人为设定&quot;&quot;&quot;</span><br><span class="line">numeric_features = [&apos;power&apos;, &apos;kilometer&apos;].extend([&apos;v_&apos;+str(i) for i in range(15)])</span><br><span class="line"></span><br><span class="line"># 这里我感觉这个name和预测值没有关系，所以虽然是类别，可以先去掉看看, 日期的也去掉</span><br><span class="line">categorical_features = [&apos;model&apos;, &apos;brand&apos;, &apos;bodyType&apos;, &apos;fuelType&apos;, &apos;gearbox&apos;, </span><br><span class="line">                        &apos;notRepairedDamage&apos;,&apos;regionCode&apos;, &apos;seller&apos;, &apos;offerType&apos;]</span><br><span class="line"></span><br><span class="line">#类别偏斜处理主要是重点查看一下类别特征有没有数量严重偏斜的情况（由于太多，不在这里显示），这样的情况一般对预测没有什么帮助</span><br><span class="line">for cate_fea in categorical_features:</span><br><span class="line">    print(cate_fea + &apos;特征分布如下：&apos;)</span><br><span class="line">    print(&apos;&#123;&#125;特征有&#123;&#125;不同的值&apos;.format(cate_fea, len(train_data[cate_fea].unique())))</span><br><span class="line">    print(train_data[cate_fea].value_counts())</span><br><span class="line">    print()</span><br><span class="line"></span><br><span class="line">categorical_features.remove(&apos;seller&apos;)</span><br><span class="line">categorical_features.remove(&apos;offerType&apos;)</span><br><span class="line">categorical_features.remove(&apos;regionCode&apos;)</span><br><span class="line">print(categorical_features)# 因为regionCode的类别太稀疏了，所以先去掉，因为后面要可视化，不画稀疏的</span><br></pre></td></tr></table></figure>
 
-<h1 id="箱型图的绘制"><a href="#箱型图的绘制" class="headerlink" title="箱型图的绘制"></a>箱型图的绘制</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import pandas as pd</span><br><span class="line">import numpy as np</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import seaborn as sns</span><br><span class="line">import missingno as msno  # 用于可视化缺失值分布</span><br><span class="line">import scipy.stats as st</span><br><span class="line"></span><br><span class="line">train_data = pd.read_csv(&quot;C://Users//AbsolutelyYF//Desktop//used_car_train_20200313.csv&quot;, sep=&apos; &apos;)#sep：如果不指定参数，则会尝试使用逗号分隔。</span><br><span class="line">test_data = pd.read_csv(&quot;C://Users//AbsolutelyYF//Desktop//used_car_testB_20200421.csv&quot;, sep=&apos; &apos;)</span><br><span class="line"></span><br><span class="line">train_data[&apos;notRepairedDamage&apos;].replace(&apos;-&apos;, np.nan, inplace=True)</span><br><span class="line">&quot;&quot;&quot;人为设定&quot;&quot;&quot;</span><br><span class="line">numeric_features = [&apos;power&apos;, &apos;kilometer&apos;].extend([&apos;v_&apos;+str(i) for i in range(15)])</span><br><span class="line"></span><br><span class="line"># 这里我感觉这个name和预测值没有关系，所以虽然是类别，可以先去掉看看, 日期的也去掉</span><br><span class="line">categorical_features = [&apos;model&apos;, &apos;brand&apos;, &apos;bodyType&apos;, &apos;fuelType&apos;, &apos;gearbox&apos;, </span><br><span class="line">                        &apos;notRepairedDamage&apos;,&apos;regionCode&apos;, &apos;seller&apos;, &apos;offerType&apos;]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">categorical_features.remove(&apos;seller&apos;)</span><br><span class="line">categorical_features.remove(&apos;offerType&apos;)</span><br><span class="line">categorical_features.remove(&apos;regionCode&apos;)</span><br><span class="line">print(categorical_features)# 因为regionCode的类别太稀疏了，所以先去掉，因为后面要可视化，不画稀疏的</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;类别特征箱型图可视化&quot;&quot;&quot;</span><br></pre></td></tr></table></figure>
-<p>import pandas as pd<br>import numpy as np<br>import matplotlib.pyplot as plt<br>import seaborn as sns<br>import missingno as msno  # 用于可视化缺失值分布<br>import scipy.stats as st</p>
-<p>train_data = pd.read_csv(“C://Users//AbsolutelyYF//Desktop//used_car_train_20200313.csv”, sep=’ ‘)#sep：如果不指定参数，则会尝试使用逗号分隔。<br>test_data = pd.read_csv(“C://Users//AbsolutelyYF//Desktop//used_car_testB_20200421.csv”, sep=’ ‘)</p>
-<p>train_data[‘notRepairedDamage’].replace(‘-‘, np.nan, inplace=True)<br>“””人为设定”””<br>numeric_features = [‘power’, ‘kilometer’].extend([‘v_’+str(i) for i in range(15)])</p>
-<h1 id="这里我感觉这个name和预测值没有关系，所以虽然是类别，可以先去掉看看-日期的也去掉"><a href="#这里我感觉这个name和预测值没有关系，所以虽然是类别，可以先去掉看看-日期的也去掉" class="headerlink" title="这里我感觉这个name和预测值没有关系，所以虽然是类别，可以先去掉看看, 日期的也去掉"></a>这里我感觉这个name和预测值没有关系，所以虽然是类别，可以先去掉看看, 日期的也去掉</h1><p>categorical_features = [‘model’, ‘brand’, ‘bodyType’, ‘fuelType’, ‘gearbox’,<br>                        ‘notRepairedDamage’,’regionCode’, ‘seller’, ‘offerType’]</p>
-<p>categorical_features.remove(‘seller’)<br>categorical_features.remove(‘offerType’)<br>categorical_features.remove(‘regionCode’)<br>print(categorical_features)# 因为regionCode的类别太稀疏了，所以先去掉，因为后面要可视化，不画稀疏的</p>
-<p>“””类别特征箱型图可视化”””<br>‘’’<br>Categoricals 是 pandas 的一种数据类型，对应着被统计的变量。Categoricals 是由固定的且有限数量的变量组成的。<br>比如：性别、社会阶层、血型、国籍、观察时段、赞美程度等等。<br>‘’’<br>for c in categorical_features:  #[‘model’, ‘brand’, ‘bodyType’, ‘fuelType’, ‘gearbox’, ‘notRepairedDamage’]<br>    train_data[c] = train_data[c].astype(‘category’)#将列的类型设置为category<br>    if train_data[c].isnull().any():#如果列有空值就执行下面的语句<br>        train_data[c] = train_data[c].cat.add_categories([‘MISSING’])#可以使用add_categories()方法完成附加类别<br>        train_data[c] = train_data[c].fillna(‘MISSING’)#将空元素替换成MISSING</p>
-<p>def boxplot(x, y, **kwargs):<br>    sns.boxenplot(x=x, y=y)<br>    x = plt.xticks(rotation=90)</p>
-<p>#数据分析的时候经常要把宽数据—&gt;&gt;长数据,用melt处理<br>f = pd.melt(train_data, id_vars=[‘price’], value_vars=categorical_features)<br>#train_data是要处理的数据集，id_vars:不需要被转换的列名，value_vars:需要转换的列名</p>
-<p>‘’’<br>FacetGrid 是一个绘制多个图表（以网格形式显示）的接口。</p>
-<p>步骤：<br>1、实例化对象<br>2、map，映射到具体的 seaborn 图表类型<br>3、添加图例<br>‘’’</p>
-<p>g = sns.FacetGrid(f, col=”variable”,  col_wrap=3, sharex=False, sharey=False, size=5)<br>#col=”variable”定义数据子集的变量，这些变量将在网格的不同方面绘制<br>#col_wrap=3以此参数值来限制网格的列维度<br>#share{x,y}：布尔值，’col’ 或 ‘row’可选.如果为true，则跨列共享y轴或者跨行共享x轴,显然本例不跨</p>
-<p>#如果不想对boxplot有什么设置g = g.map(sns.boxplot, “value”, “price”)，这样就可以了。若要更改boxplot,需要def一个新的boxplot的函数<br>g = g.map(boxplot, “value”, “price”)#作图  value是x轴，price是y轴</p>
-<pre><code>
+<h1 id="箱型图的绘制"><a href="#箱型图的绘制" class="headerlink" title="箱型图的绘制"></a>箱型图的绘制</h1><p>“””类别特征箱型图可视化”””</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">import numpy as np</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import seaborn as sns</span><br><span class="line">import missingno as msno  # 用于可视化缺失值分布</span><br><span class="line">import scipy.stats as st</span><br><span class="line"></span><br><span class="line">train_data = pd.read_csv(&quot;C://Users//AbsolutelyYF//Desktop//used_car_train_20200313.csv&quot;, sep=&apos; &apos;)#sep：如果不指定参数，则会尝试使用逗号分隔。</span><br><span class="line">test_data = pd.read_csv(&quot;C://Users//AbsolutelyYF//Desktop//used_car_testB_20200421.csv&quot;, sep=&apos; &apos;)</span><br><span class="line"></span><br><span class="line">train_data[&apos;notRepairedDamage&apos;].replace(&apos;-&apos;, np.nan, inplace=True)</span><br><span class="line">&quot;&quot;&quot;人为设定&quot;&quot;&quot;</span><br><span class="line">numeric_features = [&apos;power&apos;, &apos;kilometer&apos;].extend([&apos;v_&apos;+str(i) for i in range(15)])</span><br><span class="line"></span><br><span class="line"># 这里我感觉这个name和预测值没有关系，所以虽然是类别，可以先去掉看看, 日期的也去掉</span><br><span class="line">categorical_features = [&apos;model&apos;, &apos;brand&apos;, &apos;bodyType&apos;, &apos;fuelType&apos;, &apos;gearbox&apos;, </span><br><span class="line">                        &apos;notRepairedDamage&apos;,&apos;regionCode&apos;, &apos;seller&apos;, &apos;offerType&apos;]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">categorical_features.remove(&apos;seller&apos;)</span><br><span class="line">categorical_features.remove(&apos;offerType&apos;)</span><br><span class="line">categorical_features.remove(&apos;regionCode&apos;)</span><br><span class="line">print(categorical_features)# 因为regionCode的类别太稀疏了，所以先去掉，因为后面要可视化，不画稀疏的</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;类别特征箱型图可视化&quot;&quot;&quot;</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">Categoricals 是 pandas 的一种数据类型，对应着被统计的变量。Categoricals 是由固定的且有限数量的变量组成的。</span><br><span class="line">比如：性别、社会阶层、血型、国籍、观察时段、赞美程度等等。</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">for c in categorical_features:  #[&apos;model&apos;, &apos;brand&apos;, &apos;bodyType&apos;, &apos;fuelType&apos;, &apos;gearbox&apos;, &apos;notRepairedDamage&apos;]</span><br><span class="line">    train_data[c] = train_data[c].astype(&apos;category&apos;)#将列的类型设置为category</span><br><span class="line">    if train_data[c].isnull().any():#如果列有空值就执行下面的语句</span><br><span class="line">        train_data[c] = train_data[c].cat.add_categories([&apos;MISSING&apos;])#可以使用add_categories()方法完成附加类别</span><br><span class="line">        train_data[c] = train_data[c].fillna(&apos;MISSING&apos;)#将空元素替换成MISSING</span><br><span class="line"></span><br><span class="line">def boxplot(x, y, **kwargs):</span><br><span class="line">    sns.boxenplot(x=x, y=y)     </span><br><span class="line">    x = plt.xticks(rotation=90)</span><br><span class="line"></span><br><span class="line">#数据分析的时候经常要把宽数据---&gt;&gt;长数据,用melt处理</span><br><span class="line">f = pd.melt(train_data, id_vars=[&apos;price&apos;], value_vars=categorical_features)</span><br><span class="line">#train_data是要处理的数据集，id_vars:不需要被转换的列名，value_vars:需要转换的列名</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">FacetGrid 是一个绘制多个图表（以网格形式显示）的接口。</span><br><span class="line"></span><br><span class="line">步骤：</span><br><span class="line">1、实例化对象</span><br><span class="line">2、map，映射到具体的 seaborn 图表类型</span><br><span class="line">3、添加图例</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">g = sns.FacetGrid(f, col=&quot;variable&quot;,  col_wrap=3, sharex=False, sharey=False, size=5)</span><br><span class="line">#col=&quot;variable&quot;定义数据子集的变量，这些变量将在网格的不同方面绘制</span><br><span class="line">#col_wrap=3以此参数值来限制网格的列维度</span><br><span class="line">#share&#123;x,y&#125;：布尔值，&apos;col&apos; 或 &apos;row&apos;可选.如果为true，则跨列共享y轴或者跨行共享x轴,显然本例不跨</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#如果不想对boxplot有什么设置g = g.map(sns.boxplot, &quot;value&quot;, &quot;price&quot;)，这样就可以了。若要更改boxplot,需要def一个新的boxplot的函数</span><br><span class="line">g = g.map(boxplot, &quot;value&quot;, &quot;price&quot;)#作图  value是x轴，price是y轴</span><br></pre></td></tr></table></figure>
 
 
 
@@ -179,11 +167,13 @@
 
 
 
-</code></pre>
+
+
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2020/06/16/EPA2/" data-id="ckbhyu9i800017wu38604bw5p" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2020/06/16/EDA2/" data-id="ckbhyyjwl0001p4u3a11b09cn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -238,7 +228,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2020/06/15/EDA/" data-id="ckbhyu9ia00027wu33e1484gs" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2020/06/15/EDA/" data-id="ckbhyyjwp0003p4u39cy42e37" class="article-share-link">Share</a>
       
       
     </footer>
@@ -274,7 +264,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2020/06/14/BPsjwl/" data-id="ckbhyu9i200007wu3geuh4wy9" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2020/06/14/BPsjwl/" data-id="ckbhyyjwb0000p4u3296s152l" class="article-share-link">Share</a>
       
       
     </footer>
@@ -324,7 +314,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2020/06/13/sensor/" data-id="ckbhyu9ix000o7wu3b877a6y6" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2020/06/13/sensor/" data-id="ckbhyyjxd000pp4u37ziqapat" class="article-share-link">Share</a>
       
       
     </footer>
@@ -389,7 +379,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2020/06/11/regression1/" data-id="ckbhyu9it000j7wu3cw7nd2dm" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2020/06/11/regression1/" data-id="ckbhyyjx9000kp4u31aas9g9i" class="article-share-link">Share</a>
       
       
     </footer>
@@ -478,7 +468,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2020/06/11/numpymat/" data-id="ckbhyu9it000i7wu3g85c694z" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2020/06/11/numpymat/" data-id="ckbhyyjx8000jp4u3aza40r1m" class="article-share-link">Share</a>
       
       
     </footer>
@@ -586,7 +576,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2020/06/04/spss4/" data-id="ckbhyu9j1000t7wu34dvv0xk9" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2020/06/04/spss4/" data-id="ckbhyyjxg000tp4u36pz8afhd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -643,7 +633,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2020/05/27/spss3/" data-id="ckbhyu9j0000s7wu3ddty1uch" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2020/05/27/spss3/" data-id="ckbhyyjxg000sp4u38fw18rnq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -728,7 +718,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2020/05/25/spss2/" data-id="ckbhyu9iz000r7wu3c4hl2c6j" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2020/05/25/spss2/" data-id="ckbhyyjxf000rp4u3ep8v2l8s" class="article-share-link">Share</a>
       
       
     </footer>
@@ -778,7 +768,7 @@
           </li>
         
           <li>
-            <a href="/2020/06/16/EPA2/">EPA2</a>
+            <a href="/2020/06/16/EDA2/">EPA2</a>
           </li>
         
           <li>
