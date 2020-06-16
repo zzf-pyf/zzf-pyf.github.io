@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>EDA | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="EDA（探索性数据分析）数据背景：https:&#x2F;&#x2F;tianchi.aliyun.com&#x2F;competition&#x2F;entrance&#x2F;231784&#x2F;information 1.EDA的目标: 熟悉数据集，了解数据集，对数据集进行验证来确定所获得数据集可以用于接下来的机器学习或者深度学习使用。 了解变量间的相互关系以及变量与预测值之间的存在关系。 引导数据科学从业者进行数据处理以及特征工程的步骤,使数据">
+<meta property="og:type" content="article">
+<meta property="og:title" content="EDA">
+<meta property="og:url" content="https:&#x2F;&#x2F;zzf-pyf.github.io&#x2F;2020&#x2F;06&#x2F;15&#x2F;EDA&#x2F;index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="EDA（探索性数据分析）数据背景：https:&#x2F;&#x2F;tianchi.aliyun.com&#x2F;competition&#x2F;entrance&#x2F;231784&#x2F;information 1.EDA的目标: 熟悉数据集，了解数据集，对数据集进行验证来确定所获得数据集可以用于接下来的机器学习或者深度学习使用。 了解变量间的相互关系以及变量与预测值之间的存在关系。 引导数据科学从业者进行数据处理以及特征工程的步骤,使数据">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-06-16T13:27:22.069Z">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://zzf-pyf.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-EDA" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/06/15/EDA/" class="article-date">
+  <time datetime="2020-06-15T07:39:02.000Z" itemprop="datePublished">2020-06-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      EDA
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="EDA（探索性数据分析）"><a href="#EDA（探索性数据分析）" class="headerlink" title="EDA（探索性数据分析）"></a>EDA（探索性数据分析）</h2><p>数据背景：<a href="https://tianchi.aliyun.com/competition/entrance/231784/information" target="_blank" rel="noopener">https://tianchi.aliyun.com/competition/entrance/231784/information</a></p>
+<p>1.EDA的目标:</p>
+<p>熟悉数据集，了解数据集，对数据集进行验证来确定所获得数据集可以用于接下来的机器学习或者深度学习使用。</p>
+<p>了解变量间的相互关系以及变量与预测值之间的存在关系。</p>
+<p>引导数据科学从业者进行数据处理以及特征工程的步骤,使数据集的结构和特征集让接下来的预测问题更加可靠。</p>
+<p>2.数据载入及总览：</p>
+<pre><code>载入各种数据科学以及可视化库</code></pre><p>missingno库用于可视化缺失值分布，是基于matplotlib的，接受pandas数据源</p>
+<h1 id="简略观察数据head-shape"><a href="#简略观察数据head-shape" class="headerlink" title="简略观察数据head()+shape"></a>简略观察数据head()+shape</h1><p>Train_data.head().append(Train_data.tail())<br>Test_data.head().append(Test_data.tail())<br>Train_data.shape<br>Test_data.shape</p>
+<h1 id="describe-熟悉相关统计量"><a href="#describe-熟悉相关统计量" class="headerlink" title="describe()熟悉相关统计量"></a>describe()熟悉相关统计量</h1><p>Train_data.describe()</p>
+<h1 id="info-熟悉数据类型-通过info-来了解数据每列的type，有助于了解是否存在除了nan-缺失值）以外的特殊符号异常。"><a href="#info-熟悉数据类型-通过info-来了解数据每列的type，有助于了解是否存在除了nan-缺失值）以外的特殊符号异常。" class="headerlink" title="info()熟悉数据类型 通过info()来了解数据每列的type，有助于了解是否存在除了nan(缺失值）以外的特殊符号异常。"></a>info()熟悉数据类型 通过info()来了解数据每列的type，有助于了解是否存在除了nan(缺失值）以外的特殊符号异常。</h1><p>Train_data.info()</p>
+<h1 id="查看每列的缺失值情况"><a href="#查看每列的缺失值情况" class="headerlink" title="查看每列的缺失值情况"></a>查看每列的缺失值情况</h1><p>Train_data.isnull().sum()<br>Test_data.isnull().sum()</p>
+<h1 id="排序函数sort-values"><a href="#排序函数sort-values" class="headerlink" title="排序函数sort_values()"></a>排序函数sort_values()</h1><p>可以将数据集依照某个字段中的数据进行排序,该函数即可根据指定列数据也可根据指定行的</p>
+<h1 id="预测值分布"><a href="#预测值分布" class="headerlink" title="预测值分布"></a>预测值分布</h1><p>总体分布概况</p>
+<p>数据整体服从正态分布，样本均值和方差则相互独立，正态分布具有很多好的性质，很多模型也假设数据服从正态分布。<br>例如线性回归（linear regression），它假设误差服从正态分布，从而每个样本点出现的概率就可以表示为正态分布形式，<br>将多个样本点连乘再取对数，就是所有训练集样本出现的条件概率，最大化该条件概率就是LR最终求解的问题。<br>这个条件概率的最终表达式的形式就是我们熟悉的误差平方和。<br>总之， 机器学习中很多model都假设数据或参数服从正态分布。当样本不服从正态分布时，可以做如下转换：</p>
+<p>线性变化z-scores</p>
+<p>使用Boxcox变换</p>
+<p>使用yeo-johnson变换</p>
+<p>盲目假设变量服从正态分布可能导致不准确的结果，要结合分析。例如：不能假设股票价格服从正态分布，<br>因为价格不能为负，故我们可以将股票价格假设为服从对数正态分布，以确保其值≥0；而股票收益可能是负数，<br>因此收益可以假设服从正态分布。<br>当样本数据表明质量特征的分布为非正态时，应用基于正态分布的方法会作出不正确的判决。约翰逊分布族即为<br>经约翰(yeo-johnson)变换后服从正态分布的随机变量的概率分布，约翰逊分布体系建立了三族分布，分别为有界SB 、对数正态SL和无界SU。<br>本案例的预测值为价格，显然不符合正态分布，故分别采用无界约翰逊分布Johnson SU、正态分布normal、<br>对数正态分布lognormal，综合来看无界约翰逊分布对price的拟合效果更好。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">import numpy as np</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import seaborn as sns</span><br><span class="line">import missingno as msno  # 用于可视化缺失值分布</span><br><span class="line">import scipy.stats as st</span><br><span class="line"></span><br><span class="line">Train_data = pd.read_csv(&quot;C://Users//AbsolutelyYF//Desktop//used_car_train_20200313.csv&quot;, sep=&apos; &apos;)#sep：如果不指定参数，则会尝试使用逗号分隔。</span><br><span class="line">Test_data = pd.read_csv(&quot;C://Users//AbsolutelyYF//Desktop//used_car_testB_20200421.csv&quot;, sep=&apos; &apos;)</span><br><span class="line">pd.set_option(&apos;display.width&apos;,None)#解决输出中间省略号问题</span><br><span class="line"></span><br><span class="line"># 简略观察数据head()+shape</span><br><span class="line">Train_data.head().append(Train_data.tail())</span><br><span class="line">Test_data.head().append(Test_data.tail())</span><br><span class="line">Train_data.shape</span><br><span class="line">Test_data.shape</span><br><span class="line"># describe()熟悉相关统计量</span><br><span class="line">Train_data.describe()</span><br><span class="line"># info()熟悉数据类型 通过info()来了解数据每列的type，有助于了解是否存在除了nan(缺失值）以外的特殊符号异常。</span><br><span class="line">Train_data.info()</span><br><span class="line">#查看每列的缺失值情况</span><br><span class="line">Train_data.isnull().sum()</span><br><span class="line">Test_data.isnull().sum()</span><br><span class="line"></span><br><span class="line">#通过以下两句可以很直观的了解哪些列存在 “nan”, 并可以把nan的个数打印。</span><br><span class="line">#主要的目的在于 nan存在的个数是否真的很大，如果很小一般选择填充，如果使用lgb等树模型可以直接空缺，让树自己去优化，但如果nan存在的过多、可以考虑删掉。</span><br><span class="line"></span><br><span class="line"># nan可视化</span><br><span class="line">missing = Train_data.isnull().sum()</span><br><span class="line">missing = missing[missing &gt; 0]       #缺失值大于0的进入直方图中</span><br><span class="line">missing.sort_values(inplace=True)#是否用排序后的数据代替原来的数据，默认false不替换</span><br><span class="line"></span><br><span class="line">missing.plot.bar()</span><br><span class="line">#plt.show()#显示直方图</span><br><span class="line"></span><br><span class="line"># 可视化缺省值</span><br><span class="line"># 无效矩阵的数据密集显示可以一目了然的看到每个变量的缺失情况。</span><br><span class="line">msno.matrix(Train_data.sample(250))#sample(250)表示抽取250个样本</span><br><span class="line">msno.matrix(Test_data.sample(250))</span><br><span class="line"># 条形图利用条形图可以更直观的看出每个变量缺失的比例和数量情况。</span><br><span class="line">msno.bar(Train_data.sample(1000))</span><br><span class="line">msno.bar(Test_data.sample(1000))</span><br><span class="line"># 热图相关性missingno相关性热图措施无效的相关性：一个变量的存在或不存在如何强烈影响的另一个的存在：</span><br><span class="line">msno.heatmap(Train_data)</span><br><span class="line"></span><br><span class="line">#plt.show()</span><br><span class="line"></span><br><span class="line">#从上面Train_data.info()的统计信息可以发现，除了notRepairedDamage 为object类型其他都为数字。接下来将notRepairedDamage中几个不同的值都进行显示如下：</span><br><span class="line">Train_data[&apos;notRepairedDamage&apos;].value_counts()</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">结果</span><br><span class="line">0.0    111361</span><br><span class="line">-       24324</span><br><span class="line">1.0     14315</span><br><span class="line">Name: notRepairedDamage, dtype: int64</span><br><span class="line">这个字段里面居然有个-值，如果单看比赛给的字段描述：0 代表有未修复的损害，1 代表没有，如果我们不持着怀疑的态度，很难发现这里还有个-，</span><br><span class="line">这个也代表缺失，因为很多模型可以对 nan 直接处理，所以这里我们先将-替换为 nan</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">Train_data[&apos;notRepairedDamage&apos;].replace(&apos;-&apos;, np.nan, inplace=True)</span><br><span class="line">Train_data[&apos;notRepairedDamage&apos;].value_counts()</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">结果</span><br><span class="line">0.0    111361</span><br><span class="line">1.0     14315</span><br><span class="line">Name: notRepairedDamage, dtype: int64</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">Train_data.isnull().sum()#结果只有notRepairedDamage变成了24324，其他的和原来一样</span><br><span class="line"></span><br><span class="line">#以下两个类别特征：seller和offerType严重倾斜，一般不会对预测有什么帮助，故这边先删掉，当然你也可以继续挖掘，但是一般意义不大</span><br><span class="line">Train_data[&quot;seller&quot;].value_counts()</span><br><span class="line">Train_data[&quot;offerType&quot;].value_counts() #value_counts()是一种查看表格某列中有多少个不同值的快捷方法，并计算每个不同值有在该列中有多少重复值。</span><br><span class="line"></span><br><span class="line"># 预测值分布</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">本案例的预测值为价格，显然不符合正态分布，故分别采用无界约翰逊分布Johnson SU、正态分布normal、</span><br><span class="line">对数正态分布lognormal，综合来看无界约翰逊分布对price的拟合效果更好。</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">&quot;&quot;&quot;查看预测值的频数&quot;&quot;&quot;</span><br><span class="line">Train_data[&apos;price&apos;].value_counts()</span><br><span class="line"></span><br><span class="line"># 直方图可视化 自动划分10（默认值）个价格区间 统计每个区间的频数</span><br><span class="line">plt.hist(Train_data[&apos;price&apos;], orientation=&apos;vertical&apos;, histtype=&apos;bar&apos;, color=&apos;red&apos;)</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line">y = Train_data[&apos;price&apos;]</span><br><span class="line">plt.figure(1);</span><br><span class="line">plt.title(&apos;Johnson SU&apos;)</span><br><span class="line">sns.distplot(y,kde=False,fit=st.johnsonsu)#无界约翰逊分布Johnson SU</span><br><span class="line">plt.figure(2);</span><br><span class="line">plt.title(&apos;Normal&apos;)</span><br><span class="line">sns.distplot(y,kde=False,fit=st.norm)#正态分布normal</span><br><span class="line">plt.figure(3);</span><br><span class="line">plt.title(&apos;Log Normal&apos;)</span><br><span class="line">sns.distplot(y,kde=False,fit=st.lognorm)#对数正态分布lognormal</span><br><span class="line">#plt.show() #可以发现，价格不服从正态分布，所以在进行回归之前，必须将它进行转换。最佳拟合的是无界约翰逊分布</span><br><span class="line"></span><br><span class="line"># log变换之后的分布会变得比较均匀，可以进行log变换进行预测，这也是预测问题常用的trick</span><br><span class="line">plt.hist(np.log(Train_data[&apos;price&apos;]), orientation=&apos;vertical&apos;, histtype=&apos;bar&apos;, color=&apos;red&apos;)</span><br><span class="line">#plt.show()</span><br><span class="line"></span><br><span class="line">#对预测标签做 log 转换，使其更加服从正态分布</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;查看偏度和峰度&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">sns.distplot(Train_data[&apos;price&apos;])#查看seaborn中的单变量分布的最便捷方法是distplot()函数</span><br><span class="line">print(&apos;Skewness : %f&apos; % Train_data[&apos;price&apos;].skew())#偏度</span><br><span class="line">print(&apos;Kurtosis : %f&apos; % Train_data[&apos;price&apos;].kurt())#峰度</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(20, 5))#其中figsize用来设置图形的大小，a为图形的宽， b为图形的高，单位为英寸。</span><br><span class="line">plt.subplot(121)</span><br><span class="line">sns.distplot(Train_data.skew(), color=&apos;blue&apos;, axlabel=&apos;Skewness&apos;)</span><br><span class="line">plt.subplot(122)</span><br><span class="line">sns.distplot(Train_data.kurt(), color=&apos;orange&apos;, axlabel=&apos;Kurtness&apos;)</span><br><span class="line">#plt.show()</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zzf-pyf.github.io/2020/06/15/EDA/" data-id="ckbhyp0yl00012wu35i0t1y1y" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/06/16/EPA2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          EPA2
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/06/14/BPsjwl/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">BPsjwl</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/06/16/args0kwargs/">args0kwargs</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/16/args/">args</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/16/EPA2/">EPA2</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/15/EDA/">EDA</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/14/BPsjwl/">BPsjwl</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 pyf<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

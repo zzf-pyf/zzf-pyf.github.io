@@ -61,6 +61,229 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-args0kwargs" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/06/16/args0kwargs/" class="article-date">
+  <time datetime="2020-06-16T11:33:34.000Z" itemprop="datePublished">2020-06-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/16/args0kwargs/">args0kwargs</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="什么是args和-kwargs？"><a href="#什么是args和-kwargs？" class="headerlink" title="什么是args和*kwargs？"></a>什么是<em>args和*</em>kwargs？</h1><p>函数的入参是<em>args与*</em>kwargs，其中args是一些入参的元组，kwargs就不知道，google了一下，<br>恍然大悟，kwargs就是传入的多个键值对key = value参数。</p>
+<p>eg:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">def test(a, *args, **kwargs):</span><br><span class="line">    print(a)</span><br><span class="line">    print(args)</span><br><span class="line">    print(kwargs)</span><br><span class="line"></span><br><span class="line">test(1, 2, 3, d = &apos;4&apos;, e = 5)</span><br></pre></td></tr></table></figure>
+<p>输出结果<br>1<br>(2, 3)<br>{‘d’: ‘4’, ‘e’: 5}</p>
+<p>即1是参数a的值，元组（2, 3）是args的值，kwargs表示在args之后的多个键值对。再看一个例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">def foo(*args, **kwargs):</span><br><span class="line">    print(&apos;args = &apos;, args)</span><br><span class="line">    print(&apos;kwargs = &apos;, kwargs)</span><br><span class="line">    print(&apos;---------------------------------------&apos;)</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    foo(1, 2, 3, 4)</span><br><span class="line">    foo(a = 1, b = 2, c = 3)</span><br><span class="line">    foo(1, 2, 3, 4, a = 1, b = 2, c = 3)</span><br><span class="line">    foo(&apos;a&apos;, 1, None, a = 1, b = &apos;2&apos;, c = 3)</span><br></pre></td></tr></table></figure>
+<p>输出结果：</p>
+<p>args =  (1, 2, 3, 4)<br>kwargs =  {}</p>
+<hr>
+<p>args =  ()<br>kwargs =  {‘a’: 1, ‘b’: 2, ‘c’: 3}</p>
+<hr>
+<p>args =  (1, 2, 3, 4)<br>kwargs =  {‘a’: 1, ‘b’: 2, ‘c’: 3}</p>
+<hr>
+<p>args =  (‘a’, 1, None)<br>kwargs =  {‘a’: 1, ‘b’: ‘2’, ‘c’: 3}</p>
+<p>可以看到，args和kwargs是python中的可变参数：args表示任意多个无名参数，<br>返回一个tuple；kwargs表示关键字参数，返回一个dict。</p>
+<p>同时使用args和kwargs时，args参数必须在kwargs参数之前，<br>像foo(a = 1, b = ‘2’, c = 3, ‘a’, 1, None)这样的调用，<br>会提示语法错误“SyntaxError: non-keyword arg after keyword arg”。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zzf-pyf.github.io/2020/06/16/args0kwargs/" data-id="ckbhyp0yv00062wu36yg0ge9e" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-args" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/06/16/args/" class="article-date">
+  <time datetime="2020-06-16T11:32:59.000Z" itemprop="datePublished">2020-06-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/16/args/">args</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zzf-pyf.github.io/2020/06/16/args/" data-id="ckbhyp0yt00042wu32zye3rna" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-EPA2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/06/16/EPA2/" class="article-date">
+  <time datetime="2020-06-16T08:24:09.000Z" itemprop="datePublished">2020-06-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/16/EPA2/">EPA2</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="数据探索性分析2"><a href="#数据探索性分析2" class="headerlink" title="数据探索性分析2"></a>数据探索性分析2</h2><h1 id="特征分析"><a href="#特征分析" class="headerlink" title="特征分析"></a>特征分析</h1><p>seller’和‘offerType’已被删除，<br>其他特征均经过了label coding。若需要处理的数据未label coding，<br>则可通过如下代码对特征进行区分：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 数字特征</span><br><span class="line">numeric_features = Train_data.select_dtypes(include=[np.number])</span><br><span class="line">numeric_features.columns</span><br><span class="line"># 类型特征</span><br><span class="line">categorical_features = Train_data.select_dtypes(include=[np.object])</span><br><span class="line">categorical_features.columns</span><br></pre></td></tr></table></figure>
+
+<p>本文数据已经label coding，故采用人工区分方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">numeric_features = [&apos;power&apos;, &apos;kilometer&apos;, &apos;v_0&apos;, &apos;v_1&apos;, &apos;v_2&apos;, &apos;v_3&apos;, &apos;v_4&apos;, &apos;v_5&apos;, &apos;v_6&apos;, &apos;v_7&apos;, &apos;v_8&apos;, &apos;v_9&apos;, &apos;v_10&apos;, &apos;v_11&apos;, &apos;v_12&apos;, &apos;v_13&apos;,&apos;v_14&apos; ]</span><br><span class="line">categorical_features = [&apos;name&apos;, &apos;model&apos;, &apos;brand&apos;, &apos;bodyType&apos;, &apos;fuelType&apos;, &apos;gearbox&apos;, &apos;notRepairedDamage&apos;, &apos;regionCode&apos;]</span><br></pre></td></tr></table></figure>
+
+<p>总览</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">numeric_features.append(&apos;price&apos;)</span><br><span class="line">print(numeric_features)</span><br></pre></td></tr></table></figure>
+
+<h1 id="类别特征的探索"><a href="#类别特征的探索" class="headerlink" title="类别特征的探索"></a>类别特征的探索</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">import numpy as np</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import seaborn as sns</span><br><span class="line">import missingno as msno  # 用于可视化缺失值分布</span><br><span class="line">import scipy.stats as st</span><br><span class="line"></span><br><span class="line">train_data = pd.read_csv(&quot;C://Users//AbsolutelyYF//Desktop//used_car_train_20200313.csv&quot;, sep=&apos; &apos;)#sep：如果不指定参数，则会尝试使用逗号分隔。</span><br><span class="line">test_data = pd.read_csv(&quot;C://Users//AbsolutelyYF//Desktop//used_car_testB_20200421.csv&quot;, sep=&apos; &apos;)</span><br><span class="line"></span><br><span class="line">train_data[&apos;notRepairedDamage&apos;].replace(&apos;-&apos;, np.nan, inplace=True)</span><br><span class="line">&quot;&quot;&quot;人为设定&quot;&quot;&quot;</span><br><span class="line">numeric_features = [&apos;power&apos;, &apos;kilometer&apos;].extend([&apos;v_&apos;+str(i) for i in range(15)])</span><br><span class="line"></span><br><span class="line"># 这里我感觉这个name和预测值没有关系，所以虽然是类别，可以先去掉看看, 日期的也去掉</span><br><span class="line">categorical_features = [&apos;model&apos;, &apos;brand&apos;, &apos;bodyType&apos;, &apos;fuelType&apos;, &apos;gearbox&apos;, </span><br><span class="line">                        &apos;notRepairedDamage&apos;,&apos;regionCode&apos;, &apos;seller&apos;, &apos;offerType&apos;]</span><br><span class="line"></span><br><span class="line">#类别偏斜处理主要是重点查看一下类别特征有没有数量严重偏斜的情况（由于太多，不在这里显示），这样的情况一般对预测没有什么帮助</span><br><span class="line">for cate_fea in categorical_features:</span><br><span class="line">    print(cate_fea + &apos;特征分布如下：&apos;)</span><br><span class="line">    print(&apos;&#123;&#125;特征有&#123;&#125;不同的值&apos;.format(cate_fea, len(train_data[cate_fea].unique())))</span><br><span class="line">    print(train_data[cate_fea].value_counts())</span><br><span class="line">    print()</span><br><span class="line"></span><br><span class="line">categorical_features.remove(&apos;seller&apos;)</span><br><span class="line">categorical_features.remove(&apos;offerType&apos;)</span><br><span class="line">categorical_features.remove(&apos;regionCode&apos;)</span><br><span class="line">print(categorical_features)# 因为regionCode的类别太稀疏了，所以先去掉，因为后面要可视化，不画稀疏的</span><br></pre></td></tr></table></figure>
+
+<h1 id="箱型图的绘制"><a href="#箱型图的绘制" class="headerlink" title="箱型图的绘制"></a>箱型图的绘制</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">import numpy as np</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import seaborn as sns</span><br><span class="line">import missingno as msno  # 用于可视化缺失值分布</span><br><span class="line">import scipy.stats as st</span><br><span class="line"></span><br><span class="line">train_data = pd.read_csv(&quot;C://Users//AbsolutelyYF//Desktop//used_car_train_20200313.csv&quot;, sep=&apos; &apos;)#sep：如果不指定参数，则会尝试使用逗号分隔。</span><br><span class="line">test_data = pd.read_csv(&quot;C://Users//AbsolutelyYF//Desktop//used_car_testB_20200421.csv&quot;, sep=&apos; &apos;)</span><br><span class="line"></span><br><span class="line">train_data[&apos;notRepairedDamage&apos;].replace(&apos;-&apos;, np.nan, inplace=True)</span><br><span class="line">&quot;&quot;&quot;人为设定&quot;&quot;&quot;</span><br><span class="line">numeric_features = [&apos;power&apos;, &apos;kilometer&apos;].extend([&apos;v_&apos;+str(i) for i in range(15)])</span><br><span class="line"></span><br><span class="line"># 这里我感觉这个name和预测值没有关系，所以虽然是类别，可以先去掉看看, 日期的也去掉</span><br><span class="line">categorical_features = [&apos;model&apos;, &apos;brand&apos;, &apos;bodyType&apos;, &apos;fuelType&apos;, &apos;gearbox&apos;, </span><br><span class="line">                        &apos;notRepairedDamage&apos;,&apos;regionCode&apos;, &apos;seller&apos;, &apos;offerType&apos;]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">categorical_features.remove(&apos;seller&apos;)</span><br><span class="line">categorical_features.remove(&apos;offerType&apos;)</span><br><span class="line">categorical_features.remove(&apos;regionCode&apos;)</span><br><span class="line">print(categorical_features)# 因为regionCode的类别太稀疏了，所以先去掉，因为后面要可视化，不画稀疏的</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;类别特征箱型图可视化&quot;&quot;&quot;</span><br></pre></td></tr></table></figure>
+<p>import pandas as pd<br>import numpy as np<br>import matplotlib.pyplot as plt<br>import seaborn as sns<br>import missingno as msno  # 用于可视化缺失值分布<br>import scipy.stats as st</p>
+<p>train_data = pd.read_csv(“C://Users//AbsolutelyYF//Desktop//used_car_train_20200313.csv”, sep=’ ‘)#sep：如果不指定参数，则会尝试使用逗号分隔。<br>test_data = pd.read_csv(“C://Users//AbsolutelyYF//Desktop//used_car_testB_20200421.csv”, sep=’ ‘)</p>
+<p>train_data[‘notRepairedDamage’].replace(‘-‘, np.nan, inplace=True)<br>“””人为设定”””<br>numeric_features = [‘power’, ‘kilometer’].extend([‘v_’+str(i) for i in range(15)])</p>
+<h1 id="这里我感觉这个name和预测值没有关系，所以虽然是类别，可以先去掉看看-日期的也去掉"><a href="#这里我感觉这个name和预测值没有关系，所以虽然是类别，可以先去掉看看-日期的也去掉" class="headerlink" title="这里我感觉这个name和预测值没有关系，所以虽然是类别，可以先去掉看看, 日期的也去掉"></a>这里我感觉这个name和预测值没有关系，所以虽然是类别，可以先去掉看看, 日期的也去掉</h1><p>categorical_features = [‘model’, ‘brand’, ‘bodyType’, ‘fuelType’, ‘gearbox’,<br>                        ‘notRepairedDamage’,’regionCode’, ‘seller’, ‘offerType’]</p>
+<p>categorical_features.remove(‘seller’)<br>categorical_features.remove(‘offerType’)<br>categorical_features.remove(‘regionCode’)<br>print(categorical_features)# 因为regionCode的类别太稀疏了，所以先去掉，因为后面要可视化，不画稀疏的</p>
+<p>“””类别特征箱型图可视化”””<br>‘’’<br>Categoricals 是 pandas 的一种数据类型，对应着被统计的变量。Categoricals 是由固定的且有限数量的变量组成的。<br>比如：性别、社会阶层、血型、国籍、观察时段、赞美程度等等。<br>‘’’<br>for c in categorical_features:  #[‘model’, ‘brand’, ‘bodyType’, ‘fuelType’, ‘gearbox’, ‘notRepairedDamage’]<br>    train_data[c] = train_data[c].astype(‘category’)#将列的类型设置为category<br>    if train_data[c].isnull().any():#如果列有空值就执行下面的语句<br>        train_data[c] = train_data[c].cat.add_categories([‘MISSING’])#可以使用add_categories()方法完成附加类别<br>        train_data[c] = train_data[c].fillna(‘MISSING’)#将空元素替换成MISSING</p>
+<p>def boxplot(x, y, **kwargs):<br>    sns.boxenplot(x=x, y=y)<br>    x = plt.xticks(rotation=90)</p>
+<p>#数据分析的时候经常要把宽数据—&gt;&gt;长数据,用melt处理<br>f = pd.melt(train_data, id_vars=[‘price’], value_vars=categorical_features)<br>#train_data是要处理的数据集，id_vars:不需要被转换的列名，value_vars:需要转换的列名</p>
+<p>‘’’<br>FacetGrid 是一个绘制多个图表（以网格形式显示）的接口。</p>
+<p>步骤：<br>1、实例化对象<br>2、map，映射到具体的 seaborn 图表类型<br>3、添加图例<br>‘’’</p>
+<p>g = sns.FacetGrid(f, col=”variable”,  col_wrap=3, sharex=False, sharey=False, size=5)<br>#col=”variable”定义数据子集的变量，这些变量将在网格的不同方面绘制<br>#col_wrap=3以此参数值来限制网格的列维度<br>#share{x,y}：布尔值，’col’ 或 ‘row’可选.如果为true，则跨列共享y轴或者跨行共享x轴,显然本例不跨</p>
+<p>#如果不想对boxplot有什么设置g = g.map(sns.boxplot, “value”, “price”)，这样就可以了。若要更改boxplot,需要def一个新的boxplot的函数<br>g = g.map(boxplot, “value”, “price”)#作图  value是x轴，price是y轴</p>
+<pre><code>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zzf-pyf.github.io/2020/06/16/EPA2/" data-id="ckbhyp0yg00002wu367scetk8" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-EDA" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/06/15/EDA/" class="article-date">
+  <time datetime="2020-06-15T07:39:02.000Z" itemprop="datePublished">2020-06-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/15/EDA/">EDA</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="EDA（探索性数据分析）"><a href="#EDA（探索性数据分析）" class="headerlink" title="EDA（探索性数据分析）"></a>EDA（探索性数据分析）</h2><p>数据背景：<a href="https://tianchi.aliyun.com/competition/entrance/231784/information" target="_blank" rel="noopener">https://tianchi.aliyun.com/competition/entrance/231784/information</a></p>
+<p>1.EDA的目标:</p>
+<p>熟悉数据集，了解数据集，对数据集进行验证来确定所获得数据集可以用于接下来的机器学习或者深度学习使用。</p>
+<p>了解变量间的相互关系以及变量与预测值之间的存在关系。</p>
+<p>引导数据科学从业者进行数据处理以及特征工程的步骤,使数据集的结构和特征集让接下来的预测问题更加可靠。</p>
+<p>2.数据载入及总览：</p>
+<pre><code>载入各种数据科学以及可视化库</code></pre><p>missingno库用于可视化缺失值分布，是基于matplotlib的，接受pandas数据源</p>
+<h1 id="简略观察数据head-shape"><a href="#简略观察数据head-shape" class="headerlink" title="简略观察数据head()+shape"></a>简略观察数据head()+shape</h1><p>Train_data.head().append(Train_data.tail())<br>Test_data.head().append(Test_data.tail())<br>Train_data.shape<br>Test_data.shape</p>
+<h1 id="describe-熟悉相关统计量"><a href="#describe-熟悉相关统计量" class="headerlink" title="describe()熟悉相关统计量"></a>describe()熟悉相关统计量</h1><p>Train_data.describe()</p>
+<h1 id="info-熟悉数据类型-通过info-来了解数据每列的type，有助于了解是否存在除了nan-缺失值）以外的特殊符号异常。"><a href="#info-熟悉数据类型-通过info-来了解数据每列的type，有助于了解是否存在除了nan-缺失值）以外的特殊符号异常。" class="headerlink" title="info()熟悉数据类型 通过info()来了解数据每列的type，有助于了解是否存在除了nan(缺失值）以外的特殊符号异常。"></a>info()熟悉数据类型 通过info()来了解数据每列的type，有助于了解是否存在除了nan(缺失值）以外的特殊符号异常。</h1><p>Train_data.info()</p>
+<h1 id="查看每列的缺失值情况"><a href="#查看每列的缺失值情况" class="headerlink" title="查看每列的缺失值情况"></a>查看每列的缺失值情况</h1><p>Train_data.isnull().sum()<br>Test_data.isnull().sum()</p>
+<h1 id="排序函数sort-values"><a href="#排序函数sort-values" class="headerlink" title="排序函数sort_values()"></a>排序函数sort_values()</h1><p>可以将数据集依照某个字段中的数据进行排序,该函数即可根据指定列数据也可根据指定行的</p>
+<h1 id="预测值分布"><a href="#预测值分布" class="headerlink" title="预测值分布"></a>预测值分布</h1><p>总体分布概况</p>
+<p>数据整体服从正态分布，样本均值和方差则相互独立，正态分布具有很多好的性质，很多模型也假设数据服从正态分布。<br>例如线性回归（linear regression），它假设误差服从正态分布，从而每个样本点出现的概率就可以表示为正态分布形式，<br>将多个样本点连乘再取对数，就是所有训练集样本出现的条件概率，最大化该条件概率就是LR最终求解的问题。<br>这个条件概率的最终表达式的形式就是我们熟悉的误差平方和。<br>总之， 机器学习中很多model都假设数据或参数服从正态分布。当样本不服从正态分布时，可以做如下转换：</p>
+<p>线性变化z-scores</p>
+<p>使用Boxcox变换</p>
+<p>使用yeo-johnson变换</p>
+<p>盲目假设变量服从正态分布可能导致不准确的结果，要结合分析。例如：不能假设股票价格服从正态分布，<br>因为价格不能为负，故我们可以将股票价格假设为服从对数正态分布，以确保其值≥0；而股票收益可能是负数，<br>因此收益可以假设服从正态分布。<br>当样本数据表明质量特征的分布为非正态时，应用基于正态分布的方法会作出不正确的判决。约翰逊分布族即为<br>经约翰(yeo-johnson)变换后服从正态分布的随机变量的概率分布，约翰逊分布体系建立了三族分布，分别为有界SB 、对数正态SL和无界SU。<br>本案例的预测值为价格，显然不符合正态分布，故分别采用无界约翰逊分布Johnson SU、正态分布normal、<br>对数正态分布lognormal，综合来看无界约翰逊分布对price的拟合效果更好。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">import numpy as np</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import seaborn as sns</span><br><span class="line">import missingno as msno  # 用于可视化缺失值分布</span><br><span class="line">import scipy.stats as st</span><br><span class="line"></span><br><span class="line">Train_data = pd.read_csv(&quot;C://Users//AbsolutelyYF//Desktop//used_car_train_20200313.csv&quot;, sep=&apos; &apos;)#sep：如果不指定参数，则会尝试使用逗号分隔。</span><br><span class="line">Test_data = pd.read_csv(&quot;C://Users//AbsolutelyYF//Desktop//used_car_testB_20200421.csv&quot;, sep=&apos; &apos;)</span><br><span class="line">pd.set_option(&apos;display.width&apos;,None)#解决输出中间省略号问题</span><br><span class="line"></span><br><span class="line"># 简略观察数据head()+shape</span><br><span class="line">Train_data.head().append(Train_data.tail())</span><br><span class="line">Test_data.head().append(Test_data.tail())</span><br><span class="line">Train_data.shape</span><br><span class="line">Test_data.shape</span><br><span class="line"># describe()熟悉相关统计量</span><br><span class="line">Train_data.describe()</span><br><span class="line"># info()熟悉数据类型 通过info()来了解数据每列的type，有助于了解是否存在除了nan(缺失值）以外的特殊符号异常。</span><br><span class="line">Train_data.info()</span><br><span class="line">#查看每列的缺失值情况</span><br><span class="line">Train_data.isnull().sum()</span><br><span class="line">Test_data.isnull().sum()</span><br><span class="line"></span><br><span class="line">#通过以下两句可以很直观的了解哪些列存在 “nan”, 并可以把nan的个数打印。</span><br><span class="line">#主要的目的在于 nan存在的个数是否真的很大，如果很小一般选择填充，如果使用lgb等树模型可以直接空缺，让树自己去优化，但如果nan存在的过多、可以考虑删掉。</span><br><span class="line"></span><br><span class="line"># nan可视化</span><br><span class="line">missing = Train_data.isnull().sum()</span><br><span class="line">missing = missing[missing &gt; 0]       #缺失值大于0的进入直方图中</span><br><span class="line">missing.sort_values(inplace=True)#是否用排序后的数据代替原来的数据，默认false不替换</span><br><span class="line"></span><br><span class="line">missing.plot.bar()</span><br><span class="line">#plt.show()#显示直方图</span><br><span class="line"></span><br><span class="line"># 可视化缺省值</span><br><span class="line"># 无效矩阵的数据密集显示可以一目了然的看到每个变量的缺失情况。</span><br><span class="line">msno.matrix(Train_data.sample(250))#sample(250)表示抽取250个样本</span><br><span class="line">msno.matrix(Test_data.sample(250))</span><br><span class="line"># 条形图利用条形图可以更直观的看出每个变量缺失的比例和数量情况。</span><br><span class="line">msno.bar(Train_data.sample(1000))</span><br><span class="line">msno.bar(Test_data.sample(1000))</span><br><span class="line"># 热图相关性missingno相关性热图措施无效的相关性：一个变量的存在或不存在如何强烈影响的另一个的存在：</span><br><span class="line">msno.heatmap(Train_data)</span><br><span class="line"></span><br><span class="line">#plt.show()</span><br><span class="line"></span><br><span class="line">#从上面Train_data.info()的统计信息可以发现，除了notRepairedDamage 为object类型其他都为数字。接下来将notRepairedDamage中几个不同的值都进行显示如下：</span><br><span class="line">Train_data[&apos;notRepairedDamage&apos;].value_counts()</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">结果</span><br><span class="line">0.0    111361</span><br><span class="line">-       24324</span><br><span class="line">1.0     14315</span><br><span class="line">Name: notRepairedDamage, dtype: int64</span><br><span class="line">这个字段里面居然有个-值，如果单看比赛给的字段描述：0 代表有未修复的损害，1 代表没有，如果我们不持着怀疑的态度，很难发现这里还有个-，</span><br><span class="line">这个也代表缺失，因为很多模型可以对 nan 直接处理，所以这里我们先将-替换为 nan</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">Train_data[&apos;notRepairedDamage&apos;].replace(&apos;-&apos;, np.nan, inplace=True)</span><br><span class="line">Train_data[&apos;notRepairedDamage&apos;].value_counts()</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">结果</span><br><span class="line">0.0    111361</span><br><span class="line">1.0     14315</span><br><span class="line">Name: notRepairedDamage, dtype: int64</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">Train_data.isnull().sum()#结果只有notRepairedDamage变成了24324，其他的和原来一样</span><br><span class="line"></span><br><span class="line">#以下两个类别特征：seller和offerType严重倾斜，一般不会对预测有什么帮助，故这边先删掉，当然你也可以继续挖掘，但是一般意义不大</span><br><span class="line">Train_data[&quot;seller&quot;].value_counts()</span><br><span class="line">Train_data[&quot;offerType&quot;].value_counts() #value_counts()是一种查看表格某列中有多少个不同值的快捷方法，并计算每个不同值有在该列中有多少重复值。</span><br><span class="line"></span><br><span class="line"># 预测值分布</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">本案例的预测值为价格，显然不符合正态分布，故分别采用无界约翰逊分布Johnson SU、正态分布normal、</span><br><span class="line">对数正态分布lognormal，综合来看无界约翰逊分布对price的拟合效果更好。</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">&quot;&quot;&quot;查看预测值的频数&quot;&quot;&quot;</span><br><span class="line">Train_data[&apos;price&apos;].value_counts()</span><br><span class="line"></span><br><span class="line"># 直方图可视化 自动划分10（默认值）个价格区间 统计每个区间的频数</span><br><span class="line">plt.hist(Train_data[&apos;price&apos;], orientation=&apos;vertical&apos;, histtype=&apos;bar&apos;, color=&apos;red&apos;)</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line">y = Train_data[&apos;price&apos;]</span><br><span class="line">plt.figure(1);</span><br><span class="line">plt.title(&apos;Johnson SU&apos;)</span><br><span class="line">sns.distplot(y,kde=False,fit=st.johnsonsu)#无界约翰逊分布Johnson SU</span><br><span class="line">plt.figure(2);</span><br><span class="line">plt.title(&apos;Normal&apos;)</span><br><span class="line">sns.distplot(y,kde=False,fit=st.norm)#正态分布normal</span><br><span class="line">plt.figure(3);</span><br><span class="line">plt.title(&apos;Log Normal&apos;)</span><br><span class="line">sns.distplot(y,kde=False,fit=st.lognorm)#对数正态分布lognormal</span><br><span class="line">#plt.show() #可以发现，价格不服从正态分布，所以在进行回归之前，必须将它进行转换。最佳拟合的是无界约翰逊分布</span><br><span class="line"></span><br><span class="line"># log变换之后的分布会变得比较均匀，可以进行log变换进行预测，这也是预测问题常用的trick</span><br><span class="line">plt.hist(np.log(Train_data[&apos;price&apos;]), orientation=&apos;vertical&apos;, histtype=&apos;bar&apos;, color=&apos;red&apos;)</span><br><span class="line">#plt.show()</span><br><span class="line"></span><br><span class="line">#对预测标签做 log 转换，使其更加服从正态分布</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;查看偏度和峰度&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">sns.distplot(Train_data[&apos;price&apos;])#查看seaborn中的单变量分布的最便捷方法是distplot()函数</span><br><span class="line">print(&apos;Skewness : %f&apos; % Train_data[&apos;price&apos;].skew())#偏度</span><br><span class="line">print(&apos;Kurtosis : %f&apos; % Train_data[&apos;price&apos;].kurt())#峰度</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(20, 5))#其中figsize用来设置图形的大小，a为图形的宽， b为图形的高，单位为英寸。</span><br><span class="line">plt.subplot(121)</span><br><span class="line">sns.distplot(Train_data.skew(), color=&apos;blue&apos;, axlabel=&apos;Skewness&apos;)</span><br><span class="line">plt.subplot(122)</span><br><span class="line">sns.distplot(Train_data.kurt(), color=&apos;orange&apos;, axlabel=&apos;Kurtness&apos;)</span><br><span class="line">#plt.show()</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zzf-pyf.github.io/2020/06/15/EDA/" data-id="ckbhyp0yl00012wu35i0t1y1y" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-BPsjwl" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/06/14/BPsjwl/" class="article-date">
@@ -87,7 +310,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2020/06/14/BPsjwl/" data-id="ckbelqj0k0000pwu3buvkcjd6" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2020/06/14/BPsjwl/" data-id="ckbhyp0zr000i2wu3hakkf563" class="article-share-link">Share</a>
       
       
     </footer>
@@ -137,7 +360,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2020/06/13/sensor/" data-id="ckbelqj1h000kpwu31udx0tk1" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2020/06/13/sensor/" data-id="ckbhyp0zx000m2wu38ig2hrus" class="article-share-link">Share</a>
       
       
     </footer>
@@ -202,7 +425,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2020/06/11/regression1/" data-id="ckbelqj1c000hpwu37qxv2vw6" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2020/06/11/regression1/" data-id="ckbhyp0zy000n2wu3a67l1rkh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -291,7 +514,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2020/06/11/numpymat/" data-id="ckbelqj1f000ipwu31qgp2fwz" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2020/06/11/numpymat/" data-id="ckbhyp0zo000g2wu3bhifcaro" class="article-share-link">Share</a>
       
       
     </footer>
@@ -399,7 +622,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2020/06/04/spss4/" data-id="ckbelqj1l000opwu3hutnfup7" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2020/06/04/spss4/" data-id="ckbhyp104000r2wu37gdwc3xl" class="article-share-link">Share</a>
       
       
     </footer>
@@ -456,209 +679,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2020/05/27/spss3/" data-id="ckbelqj1m000ppwu33nizgel9" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-spss2" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/05/25/spss2/" class="article-date">
-  <time datetime="2020-05-25T13:58:18.000Z" itemprop="datePublished">2020-05-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/25/spss2/">spss2</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="偏度和峰度"><a href="#偏度和峰度" class="headerlink" title="偏度和峰度"></a>偏度和峰度</h2><h1 id="偏度"><a href="#偏度" class="headerlink" title="偏度"></a>偏度</h1><p>Skewness，是研究数据分布对称的统计量。通过对偏度系数的测量，<br>我们能够判定数据分布的不对称程度以及方向。</p>
-<p>偏度的衡量是相对于正态分布来说，正态分布的偏度为0。因此我们说，若数据分布是对称的，<br>偏度为0.若偏度&gt;0,则可认为分布为右偏，即分布有一条长尾在右；若偏度&lt;0，则可认为分<br>布为左偏，即分布有一条长尾在左，同时偏度的绝对值越大，说明分布的偏移程度越严重。<br>另外，偏度&gt;0，分布右偏，长尾在右，高峰在左，这似乎与一般认知不太一致。但<br>其实我们可以发现偏度实际上是三阶标准中心矩，而一个数据距离“中心”越远，<br>对中心矩的计算影响越大。而当数据长尾在右，即有更多正偏的离群值，因此偏度&gt;0 </p>
-<h1 id="峰度"><a href="#峰度" class="headerlink" title="峰度"></a>峰度</h1><p>Kurtosis，是研究数据分布陡峭或平滑的统计量，通过对峰度系数的测量，<br>我们能够判定数据分布相对于正态分布而言是更陡峭还是平缓。<br>当峰度系数&gt;0，从形态上看，它相比于正态分布要更陡峭或尾部更厚；而峰度系数&lt;0,从形态山看，<br>则它相比于正态分布更平缓或尾部更薄。在实际环境当中，如果一个分部是厚尾的，<br>这个分布往往比正态分布的尾部具有更大的“质量”，即含又更多的极端值。</p>
-<h1 id="四分位数"><a href="#四分位数" class="headerlink" title="四分位数"></a>四分位数</h1><p>四分位数（Quartile）应用于统计学中的箱线图绘制，是统计学中分位数的一种，<br>即把所有数值由小到大排列并分成四等份，处于三个分割点位置的数值就是四分位数。</p>
-<p>第一四分位数 (Q1)，又称“较小四分位数”，等于该样本中所有数值由小到大排列后第25%的数字。</p>
-<p>第二四分位数 (Q2)，又称“中位数”，等于该样本中所有数值由小到大排列后第50%的数字。</p>
-<p>第三四分位数 (Q3)，又称“较大四分位数”，等于该样本中所有数值由小到大排列后第75%的数字。</p>
-<p>第三四分位数与第一四分位数的差距又称四分位距（InterQuartile Range,IQR）</p>
-<p>四分位数在统计学中的箱线图绘制方面应用也很广泛。所谓箱线图就是 由一组数据5个特征绘制的一个<br>箱子和两条线段的图形，这种直观的箱线图不仅能反映出一组数据的分布特征，而且还可以进行多组数据的分析比较。<br>这五个特征值，即数据的最大值、最小值、中位数和两个四分位数。</p>
-<h1 id="茎叶图"><a href="#茎叶图" class="headerlink" title="茎叶图"></a>茎叶图</h1><p>茎叶图（stem-leaf plot），是将数据分离成整数和尾数两部分，整数部分为图的茎，尾数部分为图的叶。<br>茎叶图的排列方式与频数表有些相似，<br>每行由一个整数的茎和若干叶构成。左边是茎的数值，茎宽一般标在图的下方。右边是叶，<br>图显示每个叶的尾数数值，同样在图的下方表示每个叶<br>代表实际观察值的个数，即频数。</p>
-<p>eg：频数   茎&amp;叶<br>     11    3.88888999999</p>
-<p>意思就是3.8出现了5次，3.9出现了6次。频数共计11次</p>
-<h1 id="定类变量"><a href="#定类变量" class="headerlink" title="定类变量"></a>定类变量</h1><p>定类变量 变量的一种，<br>根据定性的原则区分总体各个案类别的变量。定类变量的值只能把研究对象分类，也即只能决定研究对象是同类抑或不同类，<br>具有=与≠的数学性质。例如性别区分为男性和女性两类；出生地区分为农村、城市、城镇三类；<br>民族背景区分为汉、蒙、回、苗、壮、藏、维吾尔等；婚姻状况区分为未婚、已婚、分居、离婚、丧偶等类。这些变量的值，<br>只能区别异同，属于定类层次。设计定类变量的各个类别时，要注意两个原则。一个是类与类之间要互相排斥，也即每个研究对象只能归入一类；<br>另一个是所有研究对象均有归属，不可遗漏。例如性别分为男女两类，它既概括了人的性别的全部类别，同时类别之间又具有排斥性。</p>
-<h1 id="列联表分析（定类变量）"><a href="#列联表分析（定类变量）" class="headerlink" title="列联表分析（定类变量）"></a>列联表分析（定类变量）</h1><p>列联表分析( Contingency Table Analysis)基于列联表所进行的相关统计分析与推断。<br>列联表分析的基本问题是，判明所考察的各属性之间有无关联，即是否独立。</p>
-<p>在考虑变量之间的关系时，我们通常摘要变量之间的相关程度。对于数值型变量，通常计算相关系数和进行回归分析，<br>而对于定类型变量则通常采用列联表过程进行分析。<br>列联表给出了多个变量在不同取值下的数据分布，从而可摘要变量之间的相互关系。</p>
-<h1 id="列联表分析的主要功能"><a href="#列联表分析的主要功能" class="headerlink" title="列联表分析的主要功能"></a>列联表分析的主要功能</h1><p>1.常用于研究离散变量的名义变量和有序变量有无相关。</p>
-<p>2.调用列联表分析过程可进行计数资料和某些等级资料的列联表分析。</p>
-<p>3.在分析中，可以对二维和多维列联表（RC表）资料进行统计描述和x检验，并计算相应的百分数指标。</p>
-<p>4.可以计算四格表的确切概率（Fisher’s 精确 Test）且有单双侧（One-Tail 和 Two-Tail）、对数似然比检验（Likelihood Ratio）以及线性关系的Mantel-Haenszel x检验。</p>
-<h1 id="列联表分析步骤解释"><a href="#列联表分析步骤解释" class="headerlink" title="列联表分析步骤解释"></a>列联表分析步骤解释</h1><p>1.打开数据文件</p>
-<p>选择“分析”—“统计描述”—“交叉表格”，弹出交叉表格对话框。部分项的含义如下：</p>
-<p>行列表：从左侧的变量列表中选择一个或多个变量进入其中作为行变量。</p>
-<p>列列表：从左侧的变量列表中选择一个或多个变量进入其中作为列变量。</p>
-<p>层：分层变量，决定频数分布表的层，如果要增加一个分层变量，就单击【下一页】按钮，<br>再选择一个分层。如果选择一个或多个层变量，那么将对每个层变量的每个类别产生单独的交叉制表。</p>
-<p>2.单击精确按钮</p>
-<p>弹出“精确检验”对话框。部分项的含义如下：</p>
-<p>仅渐进法：基于渐进分布计算的概率值，一般情况下值小于0.05，则认为显著。</p>
-<p>Monte Carlo：统计量是精确显著水平的无偏估计。置信度框中可输入0.01-99.9的置信水平。样本数框中可输入1-1000000000之间的样本数。</p>
-<p>精确：精确计算概率，当值小于0.05，则认为是显著，行、列变量之间相互独立，适合在期望数有小于5的情况下使用。</p>
-<p>3.单击【Statistics】按钮</p>
-<p>弹出“交叉表格：统计”对话框，该对话框是用来选择统计分析量。部分项的含义如下:</p>
-<p>卡方：卡方检验包括皮尔逊卡方检验、似然比卡方检验等，当两个表变量都是定<br>量变量时，用来检验行变量和列变量之间是否相关。</p>
-<p>相关性：选择此项，将生成Spearman相关系数Rho, 用来测量等级顺序之间的相关性。当两个表变量都是定量变量时，相关产生Pearson 相关性系数R,这是变量之间的线性相关性测量。</p>
-<p>4.单击【单元格】按钮</p>
-<p>弹出“交叉表格：单元格显示”对话框，设置单元格显示内容。部分项含义如下：</p>
-<p>（一）计数复选框</p>
-<p>观察值：显示实际频数，系统默认。</p>
-<p>期望值：显示期望频数。</p>
-<p>隐藏较小计数：选择此项，在输入框中输入一个数值n的整数，则可以隐藏频数小于指定整数n的计数。n必须大于或等于2。</p>
-<p>（二）百分比复选框误 </p>
-<p>行：显示行百分比，单元格频数占所在行观测量的百分比。</p>
-<p>列： 显示列百分比，单元格频数占所在列观测量的百分比。</p>
-<p>总计：单元格频数占全部观测量的百分比。</p>
-<p>（三）z-检验</p>
-<p> 比较列的比例：勾选此项，将计算列属性的成对比较，并指出给定行中的哪对列明显不同。使用下标字母以APA样式格式在交叉表中标识显著性差异，并以0.05显著性水平对其进行计算。</p>
-<p>调整ρ值(Bonfcroni 方法)：列比例的成对比较使用了Bonferroni 修正，可在进行了多个比较后调整观察到的显著性水平。</p>
-<p>5.单击【格式】按钮</p>
-<p>弹出“交叉表：表格格式”对话框，可以选择按行变量值的升序或降序来排列行。</p>
-<h1 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h1><p>（1）打开“data3.sav”数据文件，选择“分析”—“描述统计”—“交叉表格”，弹出“交叉表格”对话框。<br>（2）在左侧的变量列表中选中“性别”变量，单击【选入】按钮，将其选入“行变量列表”；选中“工作满意度”变量，单击【选入】按钮，将其选入“列变量列表”，并勾选“显示集群条形图”。<br>（3）单击【精确】按钮，弹出“精确检验”对话框，勾选“仅渐进法”选项。单击【继续】按钮返回主对话框。<br>（4）单击【Statistics】按钮。弹出“交叉表格：统计”对话框，勾选“卡方”复选框，单击【继续】返回主对话框。<br>（5）单击【单元格】按钮，弹出“交叉表格：单元格显示”对话框，勾选“观察值”复选框、“期望值”复选框、“行”复选框、“列”复选框和“四舍五入单元格计数”选项，单击【继续】按钮返回主对话框。<br>（6）单击【格式】按钮，弹出“交叉表：表格格式”对话框。勾选“升序”选项。单击【继续】按钮返回主对话框。<br>（7）完成所有设置后，单击【确定】按钮执行命令。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2020/05/25/spss2/" data-id="ckbelqj1k000npwu383wja26l" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-spss" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/05/18/spss/" class="article-date">
-  <time datetime="2020-05-18T09:33:06.000Z" itemprop="datePublished">2020-05-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/18/spss/">spss</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="SPSS"><a href="#SPSS" class="headerlink" title="SPSS"></a>SPSS</h2><h1 id="1-数据文件的合并"><a href="#1-数据文件的合并" class="headerlink" title="1.数据文件的合并"></a>1.数据文件的合并</h1><p>如果你的数据是存储于几个不同的数据文件之中，那么在分析之前，<br>你需要先将这些数据进行合并。分两种情况：<br>（1）添加变量<br>第①种是添加变量，也称为横向合并：也就是你的数据的不同列是<br>分散存储在不同数据文件中的，需要把它们合并起来，比方说，part1，part2，<br>part3中的数据原本来自于3个不同的数据文件，合并起来之后，组成了完整的数据集。</p>
-<p>这种数据合并实际用处是：比如你的研究小组在进行问卷数据录入的时候，<br>让不同的小组成员录入不同的题目，最后要把不同小组成员录入的数据合并到一起进行分析，<br>就使用这种方法。特别要注意的是：每个小组成员在录入的时候，<br>都需要为问卷进行编号，也就是每个人都要建立一个ID变量，<br>否则最后你们的数据合并到一起就会错位，导致分析出现问题。</p>
-<p>（2）添加个案<br>第②种是添加记录，也称为纵向合并：也就是你的数据集有很多行，<br>按照行分散存储在了不同数据文件中，比方说，原来你的数据集中的part1，<br>和part2是分别存储在两个不同文件中的，进行合并之后，就到了一个数据集中了。</p>
-<p>这种数据合并实际用处是：比如你的研究小组在进行问卷数据录入的时候，<br>让不同的小组成员录入不同的问卷，最后要把不同小组成员录入的<br>数据合并到一起进行分析，就使用这种方法。需要特别注意的是：<br>不同小组成员必须使用相同的表结构（表中变量名称，变量顺序一致）进行数据录入，<br>如果不一致，那么就无法实现合并。</p>
-<h1 id="2-数据文件的结构重组"><a href="#2-数据文件的结构重组" class="headerlink" title="2.数据文件的结构重组"></a>2.数据文件的结构重组</h1><p>eg：如果有一组数据的变量是ph1，ph2一直到ph6.我希望把这六个变量结构重组变成两个变量<br>一个是批次，批次的值是123456，随后的变量是ph值。<br>下面是操作步骤：<br>1.首先点击顶部的文件菜单，在下拉菜单中选择数据选项<br>2.在打开的对话框界面中选择要进行结构重组的数据文件<br>3.接下来点击顶部的数据文件，在下拉菜单中选择重组选项<br>4.然后就会进入重组数据向导界面，这里我们选择第一个选项，将选定变量重组为个案<br>5.接着会让我们选择要重组的变量组数，这里我们选择第一个选项即可<br>6.然后设置目标变量，固定变量，个案组标识，如下图所示，注意目标变量是重组的关键点<br>7.接下来会进入索引创建的界面，这里我们选择创建一个索引变量<br>8.然后我们对索引的值进行设置，选择有序数即可，再编辑索引变量名称为批次，设置索引值<br>9.最后进入完成界面我们勾选自己重组数据选项，然后点击完成按钮<br>10.接着SPSS软件就会把我们的数据按照固定变量进行结构重组了</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2020/05/18/spss/" data-id="ckbelqj1n000qpwu3djar6gzg" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-ppt1" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/12/15/ppt1/" class="article-date">
-  <time datetime="2019-12-15T08:00:15.000Z" itemprop="datePublished">2019-12-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/15/ppt1/">ppt1</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="面向对象建模迭代器代码实现"><a href="#面向对象建模迭代器代码实现" class="headerlink" title="面向对象建模迭代器代码实现"></a>面向对象建模迭代器代码实现</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br></pre></td><td class="code"><pre><span class="line">package iterator;</span><br><span class="line">import java.awt.*;</span><br><span class="line">import java.awt.event.*;</span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import javax.swing.*;</span><br><span class="line">public class PictureIterator&#123;</span><br><span class="line">    public static void main(String[] args)</span><br><span class="line">    &#123;</span><br><span class="line">        new PictureFrame();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//相框类</span><br><span class="line">class PictureFrame extends JFrame implements ActionListener</span><br><span class="line">&#123;</span><br><span class="line">    private static final long serialVersionUID=1L;</span><br><span class="line">    ViewSpotSet ag; //婺源景点集接口</span><br><span class="line">    ViewSpotIterator it; //婺源景点迭代器接口</span><br><span class="line">    WyViewSpot ob;    //婺源景点类</span><br><span class="line">    PictureFrame()</span><br><span class="line">    &#123;</span><br><span class="line">        super(&quot;中国最美乡村“婺源”的部分风景图&quot;);</span><br><span class="line">        this.setResizable(false);</span><br><span class="line">        ag=new WyViewSpotSet(); </span><br><span class="line">        ag.add(new WyViewSpot(&quot;江湾&quot;,&quot;江湾景区是婺源的一个国家5A级旅游景区，景区内有萧江宗祠、永思街、滕家老屋、婺源人家、乡贤园、百工坊等一大批古建筑，精美绝伦，做工精细。&quot;)); </span><br><span class="line">        ag.add(new WyViewSpot(&quot;李坑&quot;,&quot;李坑村是一个以李姓聚居为主的古村落，是国家4A级旅游景区，其建筑风格独特，是著名的徽派建筑，给人一种安静、祥和的感觉。&quot;)); </span><br><span class="line">        ag.add(new WyViewSpot(&quot;思溪延村&quot;,&quot;思溪延村位于婺源县思口镇境内，始建于南宋庆元五年（1199年），当时建村者俞氏以（鱼）思清溪水而名。&quot;));</span><br><span class="line">        ag.add(new WyViewSpot(&quot;晓起村&quot;,&quot;晓起有“中国茶文化第一村”与“国家级生态示范村”之美誉，村屋多为清代建筑，风格各具特色，村中小巷均铺青石，曲曲折折，回环如棋局。&quot;)); </span><br><span class="line">        ag.add(new WyViewSpot(&quot;菊径村&quot;,&quot;菊径村形状为山环水绕型，小河成大半圆型，绕村庄将近一周，四周为高山环绕，符合中国的八卦“后山前水”设计，当地人称“脸盆村”。&quot;)); </span><br><span class="line">        ag.add(new WyViewSpot(&quot;篁岭&quot;,&quot;篁岭是著名的“晒秋”文化起源地，也是一座距今近六百历史的徽州古村；篁岭属典型山居村落，民居围绕水口呈扇形梯状错落排布。&quot;));</span><br><span class="line">        ag.add(new WyViewSpot(&quot;彩虹桥&quot;,&quot;彩虹桥是婺源颇有特色的带顶的桥——廊桥，其不仅造型优美，而且它可在雨天里供行人歇脚，其名取自唐诗“两水夹明镜，双桥落彩虹”。&quot;)); </span><br><span class="line">        ag.add(new WyViewSpot(&quot;卧龙谷&quot;,&quot;卧龙谷是国家4A级旅游区，这里飞泉瀑流泄银吐玉、彩池幽潭碧绿清新、山峰岩石挺拔奇巧，活脱脱一幅天然泼墨山水画。&quot;));</span><br><span class="line">        it = ag.getIterator(); //获取婺源景点迭代器 </span><br><span class="line">        ob = it.first(); </span><br><span class="line">        this.showPicture(ob.getName(),ob.getIntroduce());</span><br><span class="line">    &#125;</span><br><span class="line">    //显示图片</span><br><span class="line">    void showPicture(String Name,String Introduce)</span><br><span class="line">    &#123;       </span><br><span class="line">        Container cp=this.getContentPane();       </span><br><span class="line">        JPanel picturePanel=new JPanel();</span><br><span class="line">        JPanel controlPanel=new JPanel();       </span><br><span class="line">        String FileName=&quot;src/iterator/Picture/&quot;+Name+&quot;.jpg&quot;;</span><br><span class="line">        JLabel lb=new JLabel(Name,new ImageIcon(FileName),JLabel.CENTER);   </span><br><span class="line">        JTextArea ta=new JTextArea(Introduce);       </span><br><span class="line">        lb.setHorizontalTextPosition(JLabel.CENTER);</span><br><span class="line">        lb.setVerticalTextPosition(JLabel.TOP);</span><br><span class="line">        lb.setFont(new Font(&quot;宋体&quot;,Font.BOLD,20));</span><br><span class="line">        ta.setLineWrap(true);       </span><br><span class="line">        ta.setEditable(false);</span><br><span class="line">        //ta.setBackground(Color.orange);</span><br><span class="line">        picturePanel.setLayout(new BorderLayout(5,5));</span><br><span class="line">        picturePanel.add(&quot;Center&quot;,lb);       </span><br><span class="line">        picturePanel.add(&quot;South&quot;,ta);       </span><br><span class="line">        JButton first, last, next, previous;</span><br><span class="line">        first=new JButton(&quot;第一张&quot;);</span><br><span class="line">        next=new JButton(&quot;下一张&quot;);</span><br><span class="line">        previous=new JButton(&quot;上一张&quot;);</span><br><span class="line">        last=new JButton(&quot;最末张&quot;);</span><br><span class="line">        first.addActionListener(this);</span><br><span class="line">        next.addActionListener(this);</span><br><span class="line">        previous.addActionListener(this);</span><br><span class="line">        last.addActionListener(this);        </span><br><span class="line">        controlPanel.add(first);</span><br><span class="line">        controlPanel.add(next);</span><br><span class="line">        controlPanel.add(previous);</span><br><span class="line">        controlPanel.add(last);       </span><br><span class="line">        cp.add(&quot;Center&quot;,picturePanel);</span><br><span class="line">        cp.add(&quot;South&quot;,controlPanel);</span><br><span class="line">        this.setSize(630, 550);</span><br><span class="line">        this.setVisible(true);</span><br><span class="line">        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public void actionPerformed(ActionEvent arg0)</span><br><span class="line">    &#123;</span><br><span class="line">        String command=arg0.getActionCommand();</span><br><span class="line">        if(command.equals(&quot;第一张&quot;))</span><br><span class="line">        &#123;</span><br><span class="line">            ob=it.first(); </span><br><span class="line">            this.showPicture(ob.getName(),ob.getIntroduce());</span><br><span class="line">        &#125;</span><br><span class="line">        else if(command.equals(&quot;下一张&quot;))</span><br><span class="line">        &#123;</span><br><span class="line">            ob=it.next(); </span><br><span class="line">            this.showPicture(ob.getName(),ob.getIntroduce());</span><br><span class="line">        &#125;</span><br><span class="line">        else if(command.equals(&quot;上一张&quot;))</span><br><span class="line">        &#123;</span><br><span class="line">            ob=it.previous(); </span><br><span class="line">            this.showPicture(ob.getName(),ob.getIntroduce());</span><br><span class="line">        &#125;</span><br><span class="line">        else if(command.equals(&quot;最末张&quot;))</span><br><span class="line">        &#123;</span><br><span class="line">            ob=it.last(); </span><br><span class="line">            this.showPicture(ob.getName(),ob.getIntroduce());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//婺源景点类</span><br><span class="line">class WyViewSpot</span><br><span class="line">&#123;</span><br><span class="line">    private String Name;</span><br><span class="line">    private String Introduce;</span><br><span class="line">    WyViewSpot(String Name,String Introduce)</span><br><span class="line">    &#123;</span><br><span class="line">        this.Name=Name;</span><br><span class="line">        this.Introduce=Introduce;</span><br><span class="line">    &#125;</span><br><span class="line">    public String getName()</span><br><span class="line">    &#123;</span><br><span class="line">        return Name;</span><br><span class="line">    &#125;</span><br><span class="line">    public String getIntroduce()</span><br><span class="line">    &#123;</span><br><span class="line">        return Introduce;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//抽象聚合：婺源景点集接口</span><br><span class="line">interface ViewSpotSet</span><br><span class="line">&#123; </span><br><span class="line">    void add(WyViewSpot obj); </span><br><span class="line">    void remove(WyViewSpot obj); </span><br><span class="line">    ViewSpotIterator getIterator(); </span><br><span class="line">&#125;</span><br><span class="line">//具体聚合：婺源景点集</span><br><span class="line">class WyViewSpotSet implements ViewSpotSet</span><br><span class="line">&#123; </span><br><span class="line">    private ArrayList&lt;WyViewSpot&gt; list=new ArrayList&lt;WyViewSpot&gt;(); </span><br><span class="line">    public void add(WyViewSpot obj)</span><br><span class="line">    &#123; </span><br><span class="line">        list.add(obj); </span><br><span class="line">    &#125;</span><br><span class="line">    public void remove(WyViewSpot obj)</span><br><span class="line">    &#123; </span><br><span class="line">        list.remove(obj); </span><br><span class="line">    &#125;</span><br><span class="line">    public ViewSpotIterator getIterator()</span><br><span class="line">    &#123; </span><br><span class="line">        return(new WyViewSpotIterator(list)); </span><br><span class="line">    &#125;     </span><br><span class="line">&#125;</span><br><span class="line">//抽象迭代器：婺源景点迭代器接口</span><br><span class="line">interface ViewSpotIterator</span><br><span class="line">&#123;</span><br><span class="line">    boolean hasNext();</span><br><span class="line">    WyViewSpot first();</span><br><span class="line">    WyViewSpot next();</span><br><span class="line">    WyViewSpot previous();</span><br><span class="line">    WyViewSpot last(); </span><br><span class="line">&#125;</span><br><span class="line">//具体迭代器：婺源景点迭代器</span><br><span class="line">class WyViewSpotIterator implements ViewSpotIterator</span><br><span class="line">&#123; </span><br><span class="line">    private ArrayList&lt;WyViewSpot&gt; list=null; </span><br><span class="line">    private int index=-1;</span><br><span class="line">    WyViewSpot obj=null;</span><br><span class="line">    public WyViewSpotIterator(ArrayList&lt;WyViewSpot&gt; list)</span><br><span class="line">    &#123;</span><br><span class="line">        this.list=list; </span><br><span class="line">    &#125; </span><br><span class="line">    public boolean hasNext()</span><br><span class="line">    &#123; </span><br><span class="line">        if(index&lt;list.size()-1)</span><br><span class="line">        &#123; </span><br><span class="line">            return true;</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">        &#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    public WyViewSpot first()</span><br><span class="line">    &#123;</span><br><span class="line">        index=0;</span><br><span class="line">        obj=list.get(index);</span><br><span class="line">        return obj;</span><br><span class="line">    &#125;</span><br><span class="line">    public WyViewSpot next()</span><br><span class="line">    &#123;         </span><br><span class="line">        if(this.hasNext())</span><br><span class="line">        &#123; </span><br><span class="line">            obj=list.get(++index);</span><br><span class="line">        &#125; </span><br><span class="line">        return obj; </span><br><span class="line">    &#125;</span><br><span class="line">    public WyViewSpot previous()</span><br><span class="line">    &#123; </span><br><span class="line">        if(index&gt;0)</span><br><span class="line">        &#123; </span><br><span class="line">            obj=list.get(--index); </span><br><span class="line">        &#125; </span><br><span class="line">        return obj; </span><br><span class="line">    &#125;</span><br><span class="line">    public WyViewSpot last()</span><br><span class="line">    &#123;</span><br><span class="line">        index=list.size()-1;</span><br><span class="line">        obj=list.get(index);</span><br><span class="line">        return obj;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/12/15/ppt1/" data-id="ckbelqj18000epwu3fj0t2zoa" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-distribution" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/12/07/distribution/" class="article-date">
-  <time datetime="2019-12-07T10:36:12.000Z" itemprop="datePublished">2019-12-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/07/distribution/">distribution</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="数据分布探索实战"><a href="#数据分布探索实战" class="headerlink" title="数据分布探索实战"></a>数据分布探索实战</h2><p>利用直方图探索数据分布的规律</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line">#导入数据</span><br><span class="line">import pandas as pda</span><br><span class="line">import os</span><br><span class="line">import numpy as npy</span><br><span class="line">import matplotlib.pylab as pyl</span><br><span class="line">data=pda.read_csv(&quot;C://Users//AbsolutelyYF//Desktop//商品数据清洗.csv&quot;)</span><br><span class="line">print(data.describe())</span><br><span class="line">#数据清洗</span><br><span class="line">#发现缺失值</span><br><span class="line">x=0</span><br><span class="line">data[&quot;price&quot;][(data[&quot;price&quot;]==0)]=None #将价格为0的数据统统变为空值</span><br><span class="line">for i in data.columns:</span><br><span class="line">    for j in range(len(data)):</span><br><span class="line">        if(data[i].isnull())[j]:</span><br><span class="line">            data[i][j]=&quot;36&quot;</span><br><span class="line">            x+=1</span><br><span class="line">print(x)</span><br><span class="line">#异常值处理</span><br><span class="line">#画散点图（横轴为价格，纵轴为评论数）</span><br><span class="line">#得到价格</span><br><span class="line">data2=data.T</span><br><span class="line">price=data2.values[1]</span><br><span class="line">#得到评论数据</span><br><span class="line">comment=data2.values[2]</span><br><span class="line">#通过散点图找异常点</span><br><span class="line">pyl.plot(price,comment,&apos;o&apos;)</span><br><span class="line">pyl.show()</span><br><span class="line">#评论数异常&gt;100000  价格异常&gt;2300</span><br><span class="line">line=len(data.values)     #几行</span><br><span class="line">column=len(data.values[0])#几列</span><br><span class="line">da=data.values</span><br><span class="line">for i in range(0,line):</span><br><span class="line">    for j in range(0,column):</span><br><span class="line">        if(da[i][1]&gt;2300):   #定位到价格 价格大于2300说明价格值异常</span><br><span class="line">            print(da[i][j])  #输出异常的商品</span><br><span class="line">            da[i][j]=36      #修正</span><br><span class="line">        if(da[i][2]&gt;100000):</span><br><span class="line">            print(da[i][j])  #输出异常的商品</span><br><span class="line">            da[i][j]=657     #修正</span><br><span class="line"></span><br><span class="line">#处理了异常之后再绘制一次图</span><br><span class="line">da2=da.T</span><br><span class="line">price=da2[1]</span><br><span class="line">comment=da2[2]</span><br><span class="line">pyl.plot(price,comment,&apos;o&apos;)</span><br><span class="line">pyl.show()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#分布分析</span><br><span class="line">pricemax=da2[1].max()</span><br><span class="line">pricemin=da2[1].min()</span><br><span class="line">commentmax=da2[2].max()</span><br><span class="line">commentmin=da2[2].min()</span><br><span class="line">#极差=最大值-最小值</span><br><span class="line">pricerg=pricemax-pricemin</span><br><span class="line">commentrg=commentmax-commentmin</span><br><span class="line">#组距=极差/组数</span><br><span class="line">pricedst=pricerg/12</span><br><span class="line">commentdst=commentrg/12</span><br><span class="line">#画价格的直方图</span><br><span class="line">pricesty=npy.arange(pricemin,pricemax,pricedst)</span><br><span class="line">pyl.hist(da2[1],pricesty)#价格直方图 显示价格区间的数目</span><br><span class="line">pyl.show()</span><br><span class="line">#画评论的直方图</span><br><span class="line">commentsty=npy.arange(commentmin,commentmax,commentdst)</span><br><span class="line">pyl.hist(da2[2],commentsty)</span><br><span class="line">pyl.show()</span><br></pre></td></tr></table></figure>
-<p>后面这一部分是本节要说明的内容</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://zzf-pyf.github.io/2019/12/07/distribution/" data-id="ckbelqj100009pwu3eyw5cddk" class="article-share-link">Share</a>
+      <a data-url="https://zzf-pyf.github.io/2020/05/27/spss3/" data-id="ckbhyp12c000u2wu38vgn5k60" class="article-share-link">Share</a>
       
       
     </footer>
@@ -672,7 +693,7 @@
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">下一页 &amp;raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">下一页 &amp;raquo;</a>
   </nav>
 
 </section>
@@ -704,23 +725,23 @@
       <ul>
         
           <li>
+            <a href="/2020/06/16/args0kwargs/">args0kwargs</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/16/args/">args</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/16/EPA2/">EPA2</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/15/EDA/">EDA</a>
+          </li>
+        
+          <li>
             <a href="/2020/06/14/BPsjwl/">BPsjwl</a>
-          </li>
-        
-          <li>
-            <a href="/2020/06/13/sensor/">sensor</a>
-          </li>
-        
-          <li>
-            <a href="/2020/06/11/regression1/">regression1</a>
-          </li>
-        
-          <li>
-            <a href="/2020/06/11/numpymat/">numpymat</a>
-          </li>
-        
-          <li>
-            <a href="/2020/06/04/spss4/">spss4</a>
           </li>
         
       </ul>
